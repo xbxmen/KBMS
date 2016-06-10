@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Session;
+
 define('BASE','/kbms/public/');
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,8 @@ Route::get('index.html  ', function () {
     return view('allHtml/index');
 });
 Route::get('my.html', function () {
-    return view('allHtml/my',['username' => session('username')]);
+    return Session::get('id');
+    return view('allHtml/my');
 });
 Route::get('photo.html', function () {
     return view('allHtml/photo');

@@ -26,8 +26,8 @@ class UsersController extends Controller
             $res = DB::select($sql, [$account,$password]);
             if($res){
                 session(['id' => ($res[0]->uid)]);
-                session()->put('username',$res[0]->username);
-                session()->put('icon',$res[0]->icon);
+                session(['username',$res[0]->username]);
+                session(['icon',$res[0]->icon]);
                 cookie('account',$res[0]->account,60);
                 cookie('password',$res[0]->password,60);
                 return 1;
