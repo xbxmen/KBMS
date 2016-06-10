@@ -47,6 +47,9 @@ Route::get('search.html', function () {
 Route::get('login.html', function () {
     return view('allHtml/login');
 });
+Route::get('note.html', function () {
+    return view('allHtml/note');
+});
 
 
 
