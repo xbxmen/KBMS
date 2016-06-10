@@ -318,3 +318,41 @@ body
 {
     overflow: auto;
 }
+.right_last
+{
+    width: 40%;
+    height: 40px;
+    position: fixed;
+    top: 621px;;
+    /*border-top: 1px dashed #6f6f6f;*/
+}
+
+.btn_last
+{
+    display:inline-block;
+    float:left;
+    height:41px;border-radius:4px;
+    background:#212121;border:none;cursor:pointer;
+    border-bottom:3px solid #6f6f6f;*border-bottom:none;
+    color:#fff;
+    font-size:16px;padding:0 10px;*width:140px;
+    text-align:center;
+    outline:none;
+    margin-left: 10px;
+}
+input.btn_last:hover
+{
+    background: #212121;
+    border-bottom:3px solid #212121;*border-bottom:none;
+    color:#fff;
+    text-decoration:none;
+}
+.edit_text
+{
+    width: 40%;
+    height:400px;;
+    overflow: auto;
+    position: absolute;
+    top: 215px;
+    display: none;
+}

@@ -82,32 +82,32 @@
         </div>
     </div>
     <div class="N_middle">
-        <ul>
-            <li id="N1">
+        <ul id="ul">
+            <li id="N1" class="List">
                 <div class="middle_header">
-                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记</span></div>
-                    <div class="N_two"><p>尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
+                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记1</span></div>
+                    <div class="N_two" id="N_two_text"><p>尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
                     <div class="N_three">2016/6/6 18:06</div>
                 </div>
             </li>
-            <li id="N2">
+            <li id="N2" class="List">
                 <div class="middle_header">
-                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记</span></div>
-                    <div class="N_two"><p>尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
+                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记2</span></div>
+                    <div class="N_two"><p>阿拉拉拉拉拉有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
                     <div class="N_three">2016/6/6 18:06</div>
                 </div>
             </li>
-            <li id="N3">
+            <li id="N3"  class="List">
                 <div class="middle_header">
-                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记</span></div>
-                    <!--<div class="N_two"><p>尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>-->
+                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记3</span></div>
+                    <div class="N_two"><p>普金大帝和奥巴马都没有习大大帅尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
                     <div class="N_three">2016/6/6 18:06</div>
                 </div>
             </li>
-            <li id="N4">
+            <li id="N4" class="List">
                 <div class="middle_header">
-                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记</span></div>
-                    <div class="N_two"><p>尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
+                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记4</span></div>
+                    <div class="N_two"><p>拉拉拉阿拉尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
                     <div class="N_three">2016/6/6 18:06</div>
                 </div>
             </li>
@@ -115,7 +115,18 @@
     </div>
     <div class="N_right">
         <div class="right_top"><p>标题：</p></div>
-        <div class="right_bottom"><p>父亲，携手无奈，凝重的；走向黄昏，一条蜿蜒的路；通向暮色，伸向远方，背影倔强；却驼不住坠落的夕阳</p></div>
+        <div class="right_bottom"><p></p></div>
+          <form method="post" action="#">
+                    <div class="edit_text">
+                        <textarea name="#" class="text_area" cols="85px" rows="400px"></textarea>
+                    </div>
+                </form>
+                 <div class="right_last">
+                            <input type="button" value="编辑" style="width: 80px;height: 40px" class="btn_last" id="edit">
+                            <input type="button" value="保存" style="width: 80px;height: 40px" class="btn_last" id="save">
+                            <input type="button" value="新建" style="width: 80px;height: 40px" class="btn_last" id="rebuild">
+                            <input type="button" value="删除" style="width: 80px;height: 40px" class="btn_last">
+                        </div>
     </div>
 </div>
 

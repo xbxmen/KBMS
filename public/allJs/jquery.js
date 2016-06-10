@@ -3,6 +3,10 @@
  */
 $(function(){
 
+    var ori_content = '';
+    var cur_id = null;
+    var num = 5;
+
     $('#switch_qlogin').click(function(){
         $('#switch_login').removeClass("switch_btn_focus").addClass('switch_btn');
         $('#switch_qlogin').removeClass("switch_btn").addClass('switch_btn_focus');
@@ -96,7 +100,7 @@ $(function(){
         }
     })
 
-   // var top=$(".more_N").position().top;
+    // var top=$(".more_N").position().top;
     $("#delete").click(function () {
         //var m =$(".more_N").style;
         //console.log(m);
@@ -114,72 +118,70 @@ $(function(){
         }
     })
 
+    function clickEvent(){
+            $(this).css("background-color","#c5e7ff");
+            $(this).nextAll().css("background-color","#ffffff");
+            $(this).prevAll().css("background-color","#ffffff");
 
-    //var button="<input type='text' width='50px' height='20px'  >";
-    //$("#again").click(function () {
-    //    $("#s1").append(button);
-    //    $("#s11").css("display","none");
-    //})
+            var this_id = $(this).attr("id");
+            cur_id = this_id;
+            var o =$("#"+this_id+" p")[0].innerHTML;
+            ori_content = o;
+            $(".right_bottom p")[0].innerHTML = o;
+            $(".text_area")[0].value = o;
 
-    //$(".N_middle li :eq(0)").click(function(){
-    //    $("#slidebar").animate({
-    //        top:"4px"
-    //    },300)
-    //})
-    //$("li :eq(1)").click(function(){
-    //    $("#slidebar").animate({
-    //        top:"160px"
-    //    },300)
-    //})
-    //$("li :eq(2)").click(function(){
-    //    $("#slidebar").animate({
-    //        top:"231px"
-    //    },300)
-    //})
-    //
-    //$("li :eq(3)").click(function(){
-    //    $("#slidebar").animate({
-    //        top:"478px"
-    //    },300)
-    //})
-    //
-    //$("li :eq(4)").click(function(){
-    //    $("#slidebar").animate({
-    //        top:"345px"
-    //    },300)
-    //})
-    //
-    //
-    //$("#N1").click(function(){
-    //    $("#slidebar").animate({
-    //        top:"4px"
-    //    },300)
-    //})
-    //$("#N2").click(function(){
-    //    $("#slidebar").animate({
-    //        top:"160px"
-    //    },300)
-    //})
+            if ($(".edit_text").is(":visible")){
+                $(".right_bottom").css("display","block");
+                //$(".right_bottom p").text();
+                $(".edit_text").css("display","none");
+                $("#"+cur_id+" .N_two p")[0].innerHTML = ori_content;
+            }
+    }
 
-    $("#N1").click(function(){
-        $(this).css("background-color","#c5e7ff");
-        $(this).nextAll().css("background-color","#ffffff");
-        $(this).prevAll().css("background-color","#ffffff");
-    })
-    $("#N2").click(function(){
-        $(this).css("background-color","#c5e7ff");
-        $(this).nextAll().css("background-color","#ffffff");
-        $(this).prevAll().css("background-color","#ffffff");
-    })
-    $("#N3").click(function(){
-        $(this).css("background-color","#c5e7ff");
-        $(this).nextAll().css("background-color","#ffffff");
-        $(this).prevAll().css("background-color","#ffffff");
-    })
-    $("#N4").click(function(){
-        $(this).css("background-color","#c5e7ff");
-        $(this).nextAll().css("background-color","#ffffff");
-        $(this).prevAll().css("background-color","#ffffff");
-    })
+    $(".List").click(clickEvent);
+
+    $("#edit").click(function(){
+        var  i =$(".right_bottom p")[0].innerHTML;
+        $(".edit_text").css("display","block");
+        console.log(i)
+        $(".text_area")[0].value = i;
+        $(".right_bottom").css("display","none");
+
+    });
+
+
+
+
+
+    $("#save").click(function () {
+                if ($(".edit_text").is(":visible")){
+                    var s =$(".text_area").val();
+                    $(".right_bottom").css("display","block");
+                    $(".right_bottom p")[0].innerHTML = s;
+                    $(".edit_text").css("display","none");
+                    $("#"+cur_id+" .N_two p")[0].innerHTML = s;
+                    ori_content = '';
+                }
+            });
+
+
+    $("#rebuild").click(function(){
+        $(".right_bottom").css("display","none");
+        $(".edit_text").css("display","block");
+        $(".text_area").val('');
+        $("#ul").html('<li id="N'+num+'" class="List">'+
+                        '<div class="middle_header">'+
+                            '<div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记1</span></div>'+
+                        '<div class="N_two" id="N_two_text"><p></p></div>'+
+                        '<div class="N_three">2016/6/6 18:06</div>'+
+                        '</div>'+
+                        '</li>'+$("#ul").html());
+
+        $(".List").click(clickEvent);
+        $('#N'+num).click();
+        $("#edit").click();
+        num++;
+    });
+
 });
 
