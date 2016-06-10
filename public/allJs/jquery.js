@@ -41,14 +41,14 @@ $(function(){
 
     $(".N_left_top").click(function () {
         if ($(".N_left_two").is(":visible")){
-            $(".top_right img").attr("src","../img/jj.png");
+            $(".top_right img").attr("src","./img/jj.png");
             $(".N_left").css("transition","width 0.7s");
             $(".N_left").css("width","50px");
 
             $(".N_right").css("width","60%");
             $(".N_left_two").css("display","none");
         }else{
-            $(".top_right img").attr("src","../img/kk.png");
+            $(".top_right img").attr("src","./img/kk.png");
             $(".N_left").css("width","250px");
             $(".N_right").css("width","45%");
             $(".N_left_two").css("display","block");

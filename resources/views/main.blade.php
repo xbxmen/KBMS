@@ -16,7 +16,7 @@
         <input type="text" name="account" id="username"><br>
         <input type="text" name="password" id="password">
     </form>
-    <input type="button" id="login" value="submit" onclick="register()">
+    <input type="button" id="login" value="submit" onclick="create()">
 </body>
 
 <script>
@@ -51,6 +51,26 @@
                 password : "123",
                 repass : "123",
                 username : "qweqwe"
+            },
+            success: function(data){//注册用户的信息返回到这里，data参数里
+                console.log(data);
+                if (data != 1) {
+                    alert(data);
+                } else {
+                    alert('登录成功!');
+                    window.location();
+                }
+            }
+        });
+    }
+
+    function create() {
+        $.ajax({
+            url: '{{url('upload/createfolder')}}',
+            type: 'post',
+            data: {
+                filename : "123",
+                filepreid : "-1",
             },
             success: function(data){//注册用户的信息返回到这里，data参数里
                 console.log(data);

@@ -16,7 +16,10 @@ define('BASE','/kbms/public/');
 Route::get('/', function () {
     return view('allHtml/index');
 });
-Route::get('index.html  ', function () {
+Route::get('test', function () {
+    return view('main');
+});
+Route::get('index.html', function () {
     return view('allHtml/index');
 });
 Route::get('my.html', function () {
@@ -50,15 +53,6 @@ Route::get('note.html', function () {
     return view('allHtml/note');
 });
 
-
-
-
-
-
-
-Route::get('test', function () {
-    return 0;
-});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -72,6 +66,8 @@ Route::get('test', function () {
 Route::post('account/login', 'Account\UsersController@login');
 Route::post('account/register', 'Account\UsersController@register');
 Route::post('upload/file', 'Upload\UploadController@upload');
+Route::post('upload/createfolder', 'Upload\UploadController@createfolder');
+
 
 Route::get('view/test',function (){
     return view("test");
