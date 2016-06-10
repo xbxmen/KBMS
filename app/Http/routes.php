@@ -20,7 +20,6 @@ Route::get('index.html  ', function () {
     return view('allHtml/index');
 });
 Route::get('my.html', function () {
-    return Session::get('id');
     return view('allHtml/my');
 });
 Route::get('photo.html', function () {
