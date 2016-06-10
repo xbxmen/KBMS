@@ -2,6 +2,7 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 /**
  * Created by PhpStorm.
@@ -24,7 +25,16 @@ class UsersController extends Controller
         }else{
             $sql = "SELECT * FROM users WHERE account=? and password=?";
             $res = DB::select($sql, [$account,$password]);
-            return $res ? 1 : -2;
+            if($res){
+                session(['id' => ($res[0]->uid)]);
+                session()->put('username',$res[0]->username);
+                session()->put('icon',$res[0]->icon);
+                cookie('account',$res[0]->account,60);
+                cookie('password',$res[0]->password,60);
+                return 1;
+            }else{
+                return -2;
+            }
         }
     }
 

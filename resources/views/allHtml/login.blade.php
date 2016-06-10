@@ -17,7 +17,7 @@
     <div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
     <div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
     <div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-    <div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
+    <div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;"/><span >UPLOAD</span><img src="./img/right.png"></div>
     <div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
     <div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 </div>
@@ -40,7 +40,7 @@
                         <div class="uinArea" id="uinArea">
                             <label class="input-tips" for="u">帐号：</label>
                             <div class="inputOuter" id="uArea">
-                                <input type="text" id="u" name="username" class="inputstyle"/>
+                                <input type="text" id="u" name="account" class="inputstyle"/>
                             </div>
                         </div>
                         <div class="pwdArea" id="pwdArea">
@@ -49,8 +49,8 @@
                                 <input type="password" id="p" name="password" class="inputstyle"/>
                             </div>
                         </div>
-                        <div style="padding-left:30px;margin-top:50px;"><input type="button" value="登 录" style="width:150px;" class="button_blue" onclick="login()"/></div>
                     </form>
+                    <div style="padding-left:30px;margin-top:50px;"><input type="button" value="登 录" style="width:150px;" class="button_blue" onclick="login()"/></div>
                 </div>
             </div>
         </div>
@@ -64,9 +64,9 @@
             <ul class="reg_form" id="reg-ul">
                 <div id="userCue" class="cue">快速注册请注意格式</div>
                 <li>
-                    <label for="username"  class="input-tips2">用户名：</label>
+                    <label for="account"  class="input-tips2">账号：</label>
                     <div class="inputOuter2">
-                        <input type="text" id="username" name="username" maxlength="16" class="inputstyle2"/>
+                        <input type="text" id="account" name="account" maxlength="16" class="inputstyle2"/>
                     </div>
                 </li>
                 <li>
@@ -76,9 +76,15 @@
                     </div>
                 </li>
                 <li>
-                    <label for="gender" class="input-tips2">性别：</label>
+                    <label for="repass" class="input-tips2">重复密码：</label>
                     <div class="inputOuter2">
-                        <input type="text" id="gender" name="gender" maxlength="10" class="inputstyle2"/>
+                        <input type="password" id="repass"  name="repass" maxlength="16" class="inputstyle2"/>
+                    </div>
+                </li>
+                <li>
+                    <label for="username" class="input-tips2">昵称：</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="username" name="username" maxlength="10" class="inputstyle2"/>
                     </div>
                 </li>
                 <li>
@@ -91,5 +97,65 @@
     </div>
     <!--注册end-->
 </div>
+    <script>
+        function login() {
+            var acc = $("#u").val();
+            var pass = $("#p").val();
+            if(acc != "" && pass != ""){
+                $.ajax({
+                    url: '{{url('account/login')}}',
+                    type: 'post',
+                    data: {
+                        "account" : acc,
+                        "password" : pass,
+                    },
+                    success: function(data){//注册用户的信息返回到这里，data参数里
+                        console.log(data);
+                        if (data == 1) {
+                            alert('登录成功!');
+                            window.location.href = "{{url('index.html')}}";
+                        } else {
+                            alert(data);
+                        }
+                    }
+                });
+            }else{
+                alert("账号密码不能为空！！");
+            }
+        }
+        
+        /*
+        * 注册
+        * */
+        function  sign_up() {
+            var account = $("#account").val();
+            var password = $("#password").val();
+            var repass  = $("#repass").val();
+            var username  = $("#username").val();
+            if(account != "" && password != "" && repass != ""){
+                $.ajax({
+                    url: '{{url('account/register')}}',
+                    type: 'post',
+                    data: {
+                        "account" : account,
+                        "password" : password,
+                        "repass" : repass,
+                        "username" : username
+                    },
+                    success: function(data){//注册用户的信息返回到这里，data参数里
+                        console.log(data);
+                        if (data == 1) {
+                            alert('注册成功!');
+                        } else {
+                            alert(data);
+                        }
+                    }
+                });
+            }else{
+                alert("账号或密码不能为空！！");
+            }
+        }
+    </script>
+
 </body>
 </html>
