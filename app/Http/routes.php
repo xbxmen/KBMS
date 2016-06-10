@@ -18,7 +18,7 @@ Route::get('index.html  ', function () {
     return view('allHtml/index');
 });
 Route::get('my.html', function () {
-    return view('allHtml/my');
+    return view('allHtml/my',['username' => session('username')]);
 });
 Route::get('photo.html', function () {
     return view('allHtml/photo');

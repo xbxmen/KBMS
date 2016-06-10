@@ -8,6 +8,7 @@
     <link href="./allCss/MyNote_css.css"  rel="stylesheet" type="text/css">
     <script language="JavaScript" type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
     <script src="./allJs/mutil.js" language="JavaScript" type="text/javascript"></script>
+    <script src="./allJs/base.js" language="JavaScript" type="text/javascript"></script>
     <script src="./allJs/myPage.js" language="JavaScript" type="text/javascript"></script>
 
     <title>MyNote</title>
@@ -15,13 +16,13 @@
 <body>
 <div class="top">
     <div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
-    <div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你，Dear</p> </div>
+    <div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你,{{$username}}</p> </div>
 </div>
 <div class="nav">
     <div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
     <div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
     <div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-    <div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
+    <div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;"><span >UPLOAD</span><img src="./img/right.png"></div>
     <div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
     <div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 </div>
@@ -123,11 +124,13 @@
         <div class="gon_middle2" ></div>
         <div class="gon_bottom2"></div>
     </div>
-    <div class="san">
-        <div class="gon_top3" ></div>
-        <div class="gon_middle3" ><i class="gon_icon icon-folder-open-alt"></i> </div>
-        <div class="gon_bottom3"></div>
-    </div>
+   <div class="san">
+           <a href="note.html">
+               <div class="gon_top3" ></div>
+               <div class="gon_middle3" ><i class="gon_icon icon-folder-open-alt"></i> </div>
+               <div class="gon_bottom3"></div>
+           </a>
+       </div>
     <div class="si">
     <div class="gon_top4" ></div>
     <div class="gon_middle4" ></div>

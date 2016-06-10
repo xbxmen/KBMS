@@ -156,7 +156,7 @@
     height: 56px;
     color: #f2f2f2;
     font-size: 40px;
-    line-height: 56px;
+    line-height: 40px;
     text-align: center;
     margin-left: 32px;
     margin-top: -15px;
@@ -168,7 +168,7 @@
     height: 56px;
     color: #f2f2f2;
     font-size: 40px;
-    line-height: 56px;
+    line-height: 100px;
     text-align: center;
     margin-left: 12px;
     margin-top: 22px;
@@ -210,6 +210,10 @@
     margin-left: 100px;
     margin-top: -47px;
     display: inline-block;
+}
+.san a
+{
+    text-decoration: none;
 }
 .si
 {
@@ -281,7 +285,7 @@
 .gon_top6
 {
     float: left;
-    border-right: 30px solid #dcdcdc;
+    border-right: 30px solid #ffffff;
     border-top: 52px solid transparent;
     border-bottom: 52px solid transparent;
 }
@@ -332,7 +336,7 @@
     float: left;
     width: 60px;
     height: 104px;
-    background-color: #dcdcdc;
+    background-color: #ffffff;
 }
 .gon_middle7
 {
@@ -379,7 +383,7 @@
 .gon_bottom6
 {
     float: left;
-    border-left: 30px solid #dcdcdc;
+    border-left: 30px solid #ffffff;
     border-top: 52px solid transparent;
     border-bottom: 52px solid transparent;
 }
