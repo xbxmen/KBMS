@@ -16,15 +16,7 @@
 <body>
 <div class="top">
     <div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
-<<<<<<< HEAD
-    <div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你</p> </div>
-=======
-<<<<<<< HEAD
-    <div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你,{{$username}}</p> </div>
-=======
     <div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你,{{Session::get('username')}}</p> </div>
->>>>>>> 741e774877ed0615e17dd080619f7d799a188b7b
->>>>>>> 0e3050408da351f8d0d2897edd4289ea64409dce
 </div>
 <div class="nav">
     <div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
