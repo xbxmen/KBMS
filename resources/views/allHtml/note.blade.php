@@ -44,7 +44,7 @@
 
                 <p>文件夹</p><span><i class="p_icon icon-tags"></i> </span>
                 <div class="note_nav">
-                    <ul>
+                    <ul id="my_ul">
                         <li id="p1">
                             <i class="pp_icon icon-file">&nbsp;</i> <span id="s11" style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden">我的笔记</span><span><i class="ppp_icon icon-tag" id="T1"></i> </span>
                         </li>
@@ -130,7 +130,22 @@
                  </div>
     </div>
 </div>
-
+<div id="layer">
+    <div class="demo">
+        <div class="ad_ag">
+        <p><i class="alt_ag">~重命名~</i></p>
+        <ul class="load_cont_ag">
+            <form action="#" >
+                <li class="l_tit_ag">新的名字<input type="text"  id='mname' class="load_input_ag"></li>
+                <li><div style="padding-left:5px;margin-top:5px;"><input type="button" value="submit" style="width:100px;" class="button_blue_ag" onclick="add_admin()"/></div></li>
+            </form>
+        </ul>
+    </div>
+    <div id="dell">
+        <img src="./img/close.png">
+    </div>
+    </div>
+</div>
 
 
 </body>
