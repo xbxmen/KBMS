@@ -30,32 +30,32 @@
         <div class="N_left_bottom">
             <div class="N_left_one">
                 <i class="left_icon icon-edit"></i>
-                <i class="left_icon icon-search"></i>
+                <i class="left_icon icon-search" id="se_ch"></i>
                 <i class="left_icon icon-file-alt"></i>
+                <form action="#"  method="post">
+                    <input type="text" class="N_search_text_more">
+                </form>
             </div>
             <div class="N_left_two">
                 <p >近期笔记</p>
                 <form action="#"  method="post">
                     <input type="text" class="N_search_text">
                 </form>
+
                 <p>文件夹</p><span><i class="p_icon icon-tags"></i> </span>
                 <div class="note_nav">
                     <ul>
                         <li id="p1">
-                            <i class="pp_icon icon-file">&nbsp;</i><div id="s1"> <span id="s11" style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden">我的笔记</span></div><span><i class="ppp_icon icon-tag"></i> </span>
+                            <i class="pp_icon icon-file">&nbsp;</i> <span id="s11" style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden">我的笔记</span><span><i class="ppp_icon icon-tag" id="T1"></i> </span>
                         </li>
-                        <li id="p2">
-                           <br> <i class="pp_icon icon-file">&nbsp;</i><span style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">我的笔记2</span><span><i class="ppp_icon icon-tag"></i> </span>
+                        <li id="p2" >
+                           <i class="pp_icon icon-file">&nbsp;</i><span style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">我的笔记2</span><span><i class="ppp_icon icon-tag" id="T2"></i> </span>
                         </li>
                         <li id="p3">
-                            <br> <i class="pp_icon icon-file">&nbsp;</i><span style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">我的笔记3</span><span><i class="ppp_icon icon-tag"></i> </span>
-                        </li>
-
-                        <li>
-                            <br> <i class="pp_icon icon-trash">&nbsp;</i><span style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">回收站</span><span> </span>
+                           <i class="pp_icon icon-file">&nbsp;</i><span style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">我的笔记3</span><span><i class="ppp_icon icon-tag" id="T3"></i> </span>
                         </li>
                         <li id="new">
-                            <br> <i class="pp_icon_more icon-plus-sign">&nbsp;</i><span  style="color: #3c84af;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">新建文件夹</span><span> </span>
+                            <i class="pp_icon_more icon-plus-sign">&nbsp;</i><span  style="color: #3c84af;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">新建文件夹</span><span> </span>
                         </li>
                     </ul>
                     <div class="build">
@@ -68,7 +68,7 @@
 
             </div>
         </div>
-        <div class="more">
+        <div class="more" id="more_over">
             <ul>
                 <li><p>刷新</p></li>
                 <li id="new2"><p>新建文件夹</p></li>
@@ -80,6 +80,7 @@
                 <li id="delete"><p>删除</p></li>
             </ul>
         </div>
+
     </div>
     <div class="N_middle">
         <ul id="ul">
@@ -125,10 +126,12 @@
                             <input type="button" value="编辑" style="width: 80px;height: 40px" class="btn_last" id="edit">
                             <input type="button" value="保存" style="width: 80px;height: 40px" class="btn_last" id="save">
                             <input type="button" value="新建" style="width: 80px;height: 40px" class="btn_last" id="rebuild">
-                            <input type="button" value="删除" style="width: 80px;height: 40px" class="btn_last">
-                        </div>
+                            <input type="button" value="删除" style="width: 80px;height: 40px" class="btn_last" id="moit">
+                 </div>
     </div>
 </div>
+
+
 
 </body>
 <script src="./allJs/jquery.js" language="JavaScript" type="text/javascript"></script>
