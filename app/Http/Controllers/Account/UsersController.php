@@ -26,11 +26,10 @@ class UsersController extends Controller
             $res = DB::select($sql, [$account,$password]);
             if($res){
                 session(['id' => ($res[0]->uid)]);
-                session(['username',$res[0]->username]);
-                session(['icon',$res[0]->icon]);
-                cookie('account',$res[0]->account,60);
-                cookie('password',$res[0]->password,60);
-                return 1;
+                session(['username'=>$res[0]->username]);
+                session(['icon'=>$res[0]->icon]);
+                return response("1")->withCookie(cookie('account',$res[0]->account,60))
+                                    ->withCookie(cookie('password',$res[0]->password,60));
             }else{
                 return -2;
             }
