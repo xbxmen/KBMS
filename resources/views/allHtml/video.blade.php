@@ -100,9 +100,9 @@
 										<div class="filename inline_block">
 											<a href="#"  class="file_name" >哈利波特全集</a>
 											<div class="operate inline_block ">
-												<a class="share" href="#"><img src="./img/share.png"></a>
+												<!--<a class="share" href="#"><img src="./img/share.png"></a>
 												<a class="download"  href="#"><img src="./img/download.png"></a>
-												<a class="menu"  href="#"><img src="./img/menu.png"></a>
+												<a class="menu"  href="#"><img src="./img/menu.png"></a>-->
 											</div>
 										</div>
 										
@@ -115,9 +115,9 @@
 										<div class="filename inline_block">
 											<a href="#" class="file_name">新建文件夹</a>
 											<div class="operate inline_block " style="visibility: hidden;">
-												<a class="share" href="#"><img src="./img/share.png"></a>
+												<!--<a class="share" href="#"><img src="./img/share.png"></a>
 												<a class="download" href="#"><img src="./img/download.png"></a>
-												<a class="menu" href="#"><img src="./img/menu.png"></a>
+												<a class="menu" href="#"><img src="./img/menu.png"></a>-->
 											</div>
 										</div>
 										<div class="filesize inline_block"> -</div>
