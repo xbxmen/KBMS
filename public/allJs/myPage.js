@@ -453,6 +453,7 @@ function keydownMsg(evt, filenamea, new_dir) {
                     alert('创建成功~~');
                 }else if(data == -3){
                     alert("文件名不可重复~");
+                    $(".list li").first().remove();
                 }
             }
         });

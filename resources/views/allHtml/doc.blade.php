@@ -240,6 +240,7 @@
                 $.ajax({
                     url: '{{url('show/doc')}}',
                     type: 'post',
+                    dataType: 'json',
                     data: {
                         "filegrade" : grade,
                         "filepreid" : preid
@@ -250,6 +251,7 @@
                         }else if(data == -2){
                             alert("参数有错误！");
                         }else{
+                            $(".list").empty();
                             console.log(data);
                         }
                     }
@@ -260,6 +262,7 @@
                 $.ajax({
                     url: '{{url('show/docfolder')}}',
                     type: 'post',
+                    dataType: 'json',
                     data: {
                         "filegrade" : grade,
                         "filepreid" : preid
