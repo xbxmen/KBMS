@@ -1,4 +1,4 @@
-<?php namespace  App\Http\Controllers\Upload;
+<?php namespace  App\Http\Controllers\File;
 
     use App\Http\Controllers\Controller;
     use Illuminate\Http\Request;
@@ -41,8 +41,8 @@
          *删除文件
          * */
         public function delete(Request $request){
-            if(Session::has('id')){
-                $uid = Session::get('id');
+            if(session('id')){
+                $uid = session('id');
                 $fileid= $request->input('fileid')? $request->input('fileid') : "";
                 if($uid && $fileid){
                     $sql01 = "SELECT * FROM files WHERE  fileid=? and uid=?";
@@ -75,8 +75,8 @@
          *
          * */
         public function rename(Request $request){
-            if(Session::has('id')) {
-                $uid = Session::get('id');
+            if(session('id')) {
+                $uid = session('id');
                 $fileid = $request->input('fileid') ? $request->input('fileid') : "";
                 $filename = $request->input('filename') ? $request->input('filename') : "";
                 $updatetime = date("Y-M-D H:i:sa");
@@ -92,19 +92,35 @@
             }
         }
 
+        /*
+        *
+        * 文件夹移动到
+        *
+        * */
+        public function Filemoveto(){
+
+        }
+
+        /*
+         * 文件夹复制到
+         * */
+        public function Filecopy(){
+
+        }
+
 
         /*
          * 创建文件夹
          * */
         public function createfolder(Request $request){
-            if(Session::has('id')){
-                $uid = Session::get('id');
+            if(session('id')){
+                $uid = session('id');
                 $foldername = $request->input('foldername')? $request->input('foldername') : "";
                 $folderpreid = $request->input('folderpreid')? $request->input('folderpreid') : "";
                 $foldergrade = $request->input('foldergrade')? $request->input('foldergrade') : "";
                 $foldertype = $request->input('foldertype')? $request->input('foldertype') : "";
-                $updatetime = date("Y-M-D H:i:sa");
-                if($uid && $foldername && $folderpreid && $foldergrade && $foldertype){
+                $updatetime = date("Y-m-d H:i:s");
+                if($uid && $foldername && $folderpreid != "" && $foldergrade && $foldertype){
                     $sql01 = "SELECT * from folders WHERE folname=? and uid=? and grade=?";
                     $res01 = DB::select($sql01,[$foldername,$uid,$foldergrade]);
                     if(!$res01){
@@ -138,6 +154,8 @@
             }else{
                 return response("-1");
             }
+
+
         }
 
         /*
@@ -148,7 +166,7 @@
          * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
          */
         public function deletefolder( Request $request){
-            $uid = Session::get('id');
+            $uid = session('id');
             $foldername = $request->input('foldername')? $request->input('foldername') : "";
             $foldergrade = $request->input('foldergrade')? $request->input('foldergrade') : "";
             $folderid = $request->input('folderid')? $request->input('folderid') : "";
@@ -191,8 +209,8 @@
          *重命名文件夹
          * */
         public function renameFolder(Request $request){
-            if(Session::has('id')){
-                $uid = Session::get('id');
+            if(session('id')){
+                $uid = session('id');
                 $foldername = $request->input('foldername')? $request->input('foldername') : "";
                 $folderid = $request->input('folderid')? $request->input('folderid') : "";
                 $updatetime = date("Y-m-d H:i:sa");
@@ -206,6 +224,21 @@
             }else{
                 return response("-1");
             }
+        }
+        /*
+         *
+         * 文件夹移动到
+         *
+         * */
+        public function Folmoveto(){
+
+        }
+
+        /*
+         * 文件夹复制到
+         * */
+        public function Folcopy(){
+
         }
 
 }

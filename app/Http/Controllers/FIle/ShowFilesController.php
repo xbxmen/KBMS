@@ -15,9 +15,9 @@ class ShowFilesController extends Controller
      *展示文档文件夹
      * */
     public function showdocFolder(Request $request){
-        if(Session::has('id')){
-            $uid = Session::get('id');
-            $filetype = DOC;
+        if(session('id')){
+            $uid = session('id');
+            $filetype = $this->DOC;
             $filegrade = $request->input('filegrade')? $request->input('filegrade'): "";
             $filepreid = $request->input('filepreid')? $request->input('filepreid'): "";
             if($uid && $filetype && $filegrade && $filepreid != ""){
@@ -42,14 +42,14 @@ class ShowFilesController extends Controller
     *展示文档文件
     * */
     public function showdoc( Request $request){
-        if(Session::has('id')){
-            $uid = Session::get('id');
-            $filetype = DOC;
+        if(session('id')){
+            $uid = session('id');
+            $filetype = $this->DOC;
             $filegrade = $request->input('filegrade')? $request->input('filegrade'): "";
             $filepreid = $request->input('filepreid')? $request->input('filepreid'): "";
             if($uid && $filetype && $filegrade && $filepreid != ""){
                 if($filepreid == -1){
-                    $sql = "SELECT * from files WHERE grade=? and filetype=? and uid=?";
+                    $sql = "SELECT * from files WHERE filegrade=? and filetype=? and uid=?";
                     $res = DB::select($sql,[$filegrade,$filetype,$uid]);
                     return json_encode($res);
                 }else{

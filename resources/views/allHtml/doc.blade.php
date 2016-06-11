@@ -220,7 +220,11 @@
 			        </div>       
 			    </div>
 			</div>
-		</div>	
+		</div>
+        <script>
+            var createfolder_url = "{{url('upload/createfolder')}}";
+            var foldertype =  2;
+        </script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>
 		<script type="text/javascript" src="./allJs/mutil.js"></script>
@@ -229,22 +233,49 @@
 		 	ZXXFILE = $.extend(ZXXFILE, textparams);
 			ZXXFILE.init();
 		</script>
-		<script>
-			$.ajax({
-				url: '{{url('show/doc')}}',
-				type: 'post',
-				processData:false,
-				contentType:false,
-				data: form,
-				success: function(data){//注册用户的信息返回到这里，data参数里
-					console.log(data);
-					if(data == 1){
-						alert('登录成功!');
-					}
-					else
-						alert(data);
-				}
-			});
+        <script>
+            var preid = -1;
+            var grade = 1;
+            function showDoc() {
+                $.ajax({
+                    url: '{{url('show/doc')}}',
+                    type: 'post',
+                    data: {
+                        "filegrade" : grade,
+                        "filepreid" : preid
+                    },
+                    success: function(data){//注册用户的信息返回到这里，data参数里
+                        if(data == -1){
+                            alert('登录超时!');
+                        }else if(data == -2){
+                            alert("参数有错误！");
+                        }else{
+                            console.log(data);
+                        }
+                    }
+                });
+            }
+            showDoc();
+            function showDocFolder() {
+                $.ajax({
+                    url: '{{url('show/docfolder')}}',
+                    type: 'post',
+                    data: {
+                        "filegrade" : grade,
+                        "filepreid" : preid
+                    },
+                    success: function(data){//注册用户的信息返回到这里，data参数里
+                        if(data == -1){
+                            alert('登录超时!');
+                        }else if(data == -2){
+                            alert("参数有错误！");
+                        }else{
+                            console.log(data);
+                        }
+                    }
+                });
+            }
+            showDocFolder();
 		</script>
 	</body>
 </html>
