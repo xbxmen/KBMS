@@ -187,9 +187,7 @@
 									</div>
 									<div class="filename inline_block">
 										<input type="text" id="new_dir_fname" value="新建文件夹"/>
-										
 									</div>
-									
 									<div class="filesize inline_block">-</div>
 									<div class="filedate inline_block">-</div>
 								</li>

@@ -173,12 +173,7 @@
 	height: 450px;
 	
 }
-/*#photo_control{
-	margin: auto;
-	max-width: 590px;
-	max-height: 390px;
-/*	vertical-align: middle;
-}*/
+
 .photo_contanier{
 	
 	width: 450px;
@@ -186,7 +181,7 @@
 	margin-left: 15%;
 	position:absolute;
 	z-index: 500;
-	background-image: url(../myphoto/张柏芝.jpg);
+	background-image: url(../myphoto/zhangbozhi.jpg);
 	background-position: 50%;
 	background-repeat: no-repeat;
 	/*-webkit-transform:rotate(9deg);*/
