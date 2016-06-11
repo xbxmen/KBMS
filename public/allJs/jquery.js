@@ -52,7 +52,6 @@ $(function(){
             $(".N_left").css("width","250px");
             $(".N_right").css("width","45%");
             $(".N_left_two").css("display","block");
-
         }
     })
 

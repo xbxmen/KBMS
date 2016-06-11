@@ -17,7 +17,7 @@
     <div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
     <div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
     <div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-    <div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
+    <div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;" /><span >UPLOAD</span><img src="./img/right.png"></div>
     <div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
     <div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 </div>
@@ -126,7 +126,7 @@
                             <input type="button" value="保存" style="width: 80px;height: 40px" class="btn_last" id="save">
                             <input type="button" value="新建" style="width: 80px;height: 40px" class="btn_last" id="rebuild">
                             <input type="button" value="删除" style="width: 80px;height: 40px" class="btn_last">
-                        </div>
+                 </div>
     </div>
 </div>
 
