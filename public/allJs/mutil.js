@@ -103,7 +103,6 @@ var ZXXFILE = {
 								self.onSuccess(file, xhr.responseText);
 								self.funDeleteFile(file);
 								if (!self.fileFilter.length) {
-									//鍏ㄩ儴瀹屾瘯
 									self.onComplete();	
 								}
 							} else {

@@ -353,3 +353,17 @@
 	left:25px; 
 	top:45px;
 }
+.foxfloder{
+	border: none;
+	position: relative;
+	left: -30%;
+	outline:#A1A1A1;
+	cursor: pointer;
+	}
+#new_dir_item{
+	list-style: none;
+	display: none;
+	position: absolute;
+	width: 100%;
+	background: #dcdcdc;
+}

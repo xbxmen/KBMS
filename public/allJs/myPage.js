@@ -43,14 +43,6 @@ function shareFile(){
 	}
 }
 
-//文件的相关信息
-//var file ={
-//	src:"等待后台给我文件",
-//	isshare:true,//是否已经被分享
-//	isfolder:false,//是否是文件夹
-//	ischeck:false,//是否被选中
-//	file_type:doc,
-//}
 //界面的大小
 $(document).ready(function(){
 			var screenH = window.screen.availHeight;
@@ -95,39 +87,7 @@ $(function(){
 			$('.list').append(addlist); 
 		});
 });
-//function addPhoto(){
-//	var ie=navigator.appName=="Microsoft Internet Explorer" ? true : false; 
-//	var path;
-//	var file = document.getElementById("file");
-//	if(ie){ 
-//		file.click(); 
-//		path=file.value;
-//		addphoto(path,"img");
-//	}else{
-//		var a=document.createEvent("MouseEvents");//FF的处理 
-//		a.initEvent("click", false, true);  
-//		file.dispatchEvent(a);
-//	} 
-//	on(file,"change",function(){
-//		path=file.value;
-//		console.log(path);
-//		addphoto(path,"img");
-//	});
-//		
-//	console.log(photos);
-//}
-//function UpLoad(){
-//	var upload = document.getElementById("upload");
-//	var main_show = document.getElementsByClassName("show_main")[0];
-//	var nav =document.getElementsByClassName("nav")[0];
-//	var load_main = document.getElementById("main");
-//	var 
-//	on(upload,"click",function(){
-//		main_show.style.display = "none";
-//		nav.style.display"none";
-//		load_main.style.display = "block";
-//	});
-//}
+
 
 $(function(){
 	//点击UPLOAD出现上传界面
@@ -163,7 +123,6 @@ $(function(){
 });
 
 //实现图片文件上传
-
 var imgparams = {
    
    filter: function(files) {
@@ -235,7 +194,7 @@ var imgparams = {
     }
 };
 //ZXXFILE = $.extend(ZXXFILE, params);
-
+//实现视频文件上传
 var videoparams ={
 	 filter: function(files) {
         var arrFiles = [];
@@ -302,6 +261,7 @@ var videoparams ={
         $("#uploadInf").append("<p>当前视频全部上传完毕，可继续添加上传。</p>");
     }
 };
+//实现音频文件上传
 var audioparams ={
 	 filter: function(files) {
         var arrFiles = [];
@@ -368,6 +328,7 @@ var audioparams ={
         $("#uploadInf").append("<p>当前音频全部上传完毕，可继续添加上传。</p>");
     }
 };
+//实现文档文件上传
 var textparams ={
 	 filter: function(files) {
         var arrFiles = [];
@@ -434,5 +395,50 @@ var textparams ={
     }
 };
 
-   
+//文件上传成功后文档视图页面增加一行//a的跳转还没有写
+function updateFile(fname,fsize,fdate,ftype,ffloder){
+	var flist ="<li class='fileshow_li'><input name='file' class='checkbox' type='checkbox'/>&nbsp;<div class='"+ftype+" dir_small inline_block'></div>"
+     +"<div class='filename inline_block'><a href='photo_show.html' class='file_name'> &nbsp;"+fname+"</a><div class='operate inline_block '>"
+	+"<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"
+	+"<a class='menu'  href='#'><img src='./img/menu.png'></a></div></div> &nbsp;<div class='filesize inline_block'>"
+	+fsize+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";
+//	var ful = document.getElementsByClassName("list")[0];
+//	ful.append(flist);
+	return flist;
+}
+function fokfloder(){
+	var fokbutton = $(".foxfloder");
+	var new_dir = $("#new_dir_item");
+	var list = $(".list");
+	fokbutton.on('click', function(e){
+		var fileli = $(updateFile("新建文件夹"," -",cTime(),"samll_folder",""));
+		console.log(list.first());
+		fileli.insertBefore($(".list li").first());
+		console.log(list.first());
+		new_dir.css({"display":"block","top":"41px"});
+		
+	});
+	
+	var fname = $("#new_dir_fname");
+	//按回车键命名成功
+	fname.keydown(function(e){
+		var filenamea = document.getElementsByClassName("file_name")[0];
+		console.log(filenamea);
+		keydownMsg(e,filenamea,new_dir);
+	});
+}
+function keydownMsg(evt,filenamea,new_dir) {
+      evt = (evt) ? evt : ((window.event) ? window.event : "")
+      keyCode = evt.keyCode ? evt.keyCode : (evt.which ? evt.which : evt.charCode);
+      if (keyCode == 13) {
+       var fname = document.getElementById("new_dir_fname").value;
+       console.log(fname);//回车键弹出文本框信息
+       filenamea.firstChild.nodeValue = fname;
+       console.log(filenamea.firstChild.nodeValue);
+       new_dir.css({"display":"none"});
+       document.getElementById("new_dir_fname").value = "新建文件夹";
+       
+      }
+    }
 addonload(shareFile());
+addonload(fokfloder());

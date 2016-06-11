@@ -34,7 +34,7 @@
 						<div class="list_cols">
 							<ul class="list_head">
 								<li class="col first-col">
-									<span class="black">&nbsp;</span>
+									<button class="foxfloder">新建文件夹</button>
 									<span class="text">文件名</span>
 								</li>
 								<li class="col" style="width: 16%;">
@@ -170,6 +170,20 @@
 										<div class="filedate inline_block">2016-05-26 13:22</div>
 									</li>
 								</ul>
+								<div id="new_dir_item">
+									<li class="fileshow_li">
+										<input name="file" class="checkbox"  type="checkbox"/>
+										<div class="samll_folder dir_small  inline_block">	
+										</div>
+										<div class="filename inline_block">
+											<input type="text" id="new_dir_fname" value="新建文件夹"/>
+											
+										</div>
+										
+										<div class="filesize inline_block">-</div>
+										<div class="filedate inline_block">-</div>
+									</li>
+								</div>
 							</div>
 					</div>
 				</from>
