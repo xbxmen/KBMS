@@ -67,6 +67,7 @@ body
     height: auto;
     float: left;
     line-height: 28px;
+    /*position: absolute;*/
 }
 .N_left_two
 {
@@ -78,7 +79,7 @@ body
 .left_icon
 {
     font-size: 30px;
-    color:#939292;
+    color: #2ac1cf;
     text-align: center;
     display: inline-block;
     margin-left: 10px;
@@ -127,10 +128,24 @@ body
     height: 30px;
     float: left;
     margin-top: 10px;
-    background-color: #e7e7e7;
-    border: 1px solid #e5ebf5;
+    background-color: #ffffff;
+    border: 1px solid #e7e7e7;
     outline: medium;
     margin-left: 40px;
+}
+.N_search_text_more
+{
+    width: 180px;
+    height: 28px;
+    background-color: #2ac1cf;
+    border: 2px solid black;
+    outline: medium;
+    position: relative;
+    top: -80px;
+    left: 40px;
+    z-index: 999;
+   display: none;
+    opacity: 0.9;
 }
 .N_text
 {
@@ -196,6 +211,8 @@ body
 {
     text-align: center;
     position: relative;
+    height: 25px;
+    /*background-color: #00AA88;*/
 }
 .note_nav ul li :hover
 {
@@ -215,6 +232,19 @@ body
     z-index: 999;
     display: none;
 }
+/*.input_more*/
+/*{*/
+    /*width: 180px;*/
+    /*height: 37px;*/
+    /*background-color: #ab0008;*/
+    /*border: 1px solid #e5ebf5;*/
+    /*outline: medium;*/
+    /*top:-275px;*/
+    /*left: 115px;*/
+    /*position: relative;*/
+    /*z-index: 999;*/
+    /*!*display: none;*!*/
+/*}*/
 .more ul li,.more_N ul li
 {
     text-align: center;
@@ -261,11 +291,11 @@ body
 .h_icon
 {
     font-size: 20px;
-    color:#939292 ;
+    color:#2ac1cf ;
 }
 .N_one span
 {
-    color: #6f6f6f;
+    color: #2ac1cf;
     font-size: 15px;
 }
 .N_two
@@ -323,7 +353,9 @@ body
     width: 40%;
     height: 40px;
     position: fixed;
-    top: 621px;;
+    /*top: 621px;;*/
+    bottom: 10px;
+    /*background-color: #00AA88;*/
     /*border-top: 1px dashed #6f6f6f;*/
 }
 
@@ -355,4 +387,111 @@ input.btn_last:hover
     position: absolute;
     top: 215px;
     display: none;
+}
+#layer
+{
+    /*background: #000000;*/
+    /*opacity: 0.75;*/
+    background-color: rgba(10, 10, 10, 0.75);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    display: none;
+    z-index: 1000;
+}
+.demo {
+    margin: 230px 400px;
+    width:500px;
+    height: 150px;
+    background-color: rgb(231, 231, 231);
+    position: fixed;
+}
+
+.demo p
+{
+    font-size: 20px;
+    font-family: 微软雅黑;
+    color: #212121;
+}
+
+#dell
+{
+    position: absolute;
+    top:0;
+    margin-left: 450px;
+    width: 30px;
+    /*background-color: #00CC00;*/
+    height: 30px;
+    cursor: pointer;
+
+}
+
+.ad_ag
+{
+    width: 500px;
+    height: 100px;
+    /*background-color: #00AA88;*/
+
+}
+.alt_ag
+{
+    margin-left: 20px;
+
+}
+
+.ad_ag li
+{
+    list-style-type: none;
+    margin-left:30px;
+    float: left;
+}
+.load_cont_ag
+{
+    height: 120px;
+    width: 500px;
+    /*background-color: red;*/
+}
+
+.l_tit_ag
+{
+    color: #1a1921;
+    font-family: 微软雅黑;
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom:10px;
+    margin-top: 35px;
+
+}
+.load_input_ag {
+    border: #1a1921 solid 2px;
+    height: 32px;
+    line-height: 32px \9;
+    tab-index: 5px;
+    width: 110px;
+
+}
+
+input.button_blue_ag:hover
+{
+    background: #1a1921;
+    border-bottom:3px solid #1a1921;*border-bottom:none;
+    color: #a7b0b1;
+    text-decoration:none;
+}
+
+.button_blue_ag
+{
+    display:inline-block;
+    float:left;
+    height:41px;border-radius:4px;
+    background: #1a1921;border:none;cursor:pointer;
+    border-bottom:3px solid #a7b0b1;*border-bottom:none;
+    color: #a7b0b1;
+    font-size:16px;padding:0 10px;*width:140px;
+    text-align:center;outline:none;font-family: "Microsoft Yahei",Arial, Helvetica, sans-serif;
+    margin-top: 28px;
+    margin-left: 60px;
 }

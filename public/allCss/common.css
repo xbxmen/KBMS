@@ -111,6 +111,8 @@ body
     height: 60px;
     margin-left: 10%;
     overflow: hidden;
+    max-height: 1024px;
+    min-width: 1000px;
 }
 .nav a
 {
