@@ -90,11 +90,11 @@
 									</div>
 									<div class="filename inline_block">
 										<a href="photo_show.html" class="file_name">哈利波特全集</a>
-										<div class="operate inline_block ">
+										<!--<div class="operate inline_block ">
 											<a class="share" href="#"><img src="./img/share.png"></a>
 											<a class="download"  href="#"><img src="./img/download.png"></a>
 											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>
+									</div>-->
 									</div>
 									
 									<div class="filesize inline_block">-</div>
@@ -105,12 +105,12 @@
 									<div class="samll_folder dir_small inline_block">	
 									</div>
 									<div class="filename inline_block">
-										<a href="#"  class="file_name" >哈利波特全集</a>
-										<div class="operate inline_block ">
+										<a href="photo_show.html"  class="file_name" >哈利波特全集</a>
+										<!--<div class="operate inline_block ">
 											<a class="share" href="#"><img src="./img/share.png"></a>
 											<a class="download"  href="#"><img src="./img/download.png"></a>
 											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>
+									</div>-->
 									</div>
 									
 									<div class="filesize inline_block">-</div>
@@ -118,10 +118,10 @@
 								</li>
 								<li class="fileshow_li">
 									<input name="file" class="checkbox" type="checkbox"/>
-									<div class="image_file dir_small inline_block">	
+									<div class="image dir_small inline_block">	
 									</div>
 									<div class="filename inline_block">
-										<a href="#"  class="file_name" >哈利波特全集</a>
+										<a href="photo_show.html"  class="file_name" >哈利波特全集</a>
 										<div class="operate inline_block ">
 											<a class="share" href="#"><img src="./img/share.png"></a>
 											<a class="download"  href="#"><img src="./img/download.png"></a>
@@ -134,10 +134,10 @@
 								</li>
 								<li class="fileshow_li">
 									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image_file dir_small inline_block">	
+									<div class="image dir_small inline_block">	
 									</div>
 									<div class="filename inline_block">
-										<a href="#" class="file_name" >哈利波特全集</a>
+										<a href="photo_show.html" class="file_name" >哈利波特全集</a>
 										<div class="operate inline_block ">
 											<a class="share" href="#"><img src="./img/share.png"></a>
 											<a class="download"  href="#"><img src="./img/download.png"></a>
@@ -150,10 +150,10 @@
 								</li>
 								<li class="fileshow_li">
 									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image_file dir_small inline_block">	
+									<div class="image dir_small inline_block">	
 									</div>
 									<div class="filename inline_block">
-										<a href="#" class="file_name">哈利波特全集</a>
+										<a href="photo_show.html" class="file_name">哈利波特全集</a>
 										<div class="operate inline_block ">
 											<a class="share" href="#"><img src="./img/share.png"></a>
 											<a class="download"  href="#"><img src="./img/download.png"></a>
@@ -166,10 +166,9 @@
 								</li>
 								<li class="fileshow_li">
 									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image_file dir_small inline_block">	
-									</div>
+									<div class="image dir_small inline_block"></div>
 									<div class="filename inline_block">
-										<a href="#" class="file_name">哈利波特全集</a>
+										<a href="photo_show.html" class="file_name">哈利波特全集</a>
 										<div class="operate inline_block ">
 											<a class="share" href="#"><img src="./img/share.png"></a>
 											<a class="download"  href="#"><img src="./img/download.png"></a>
@@ -188,9 +187,7 @@
 									</div>
 									<div class="filename inline_block">
 										<input type="text" id="new_dir_fname" value="新建文件夹"/>
-										
 									</div>
-									
 									<div class="filesize inline_block">-</div>
 									<div class="filedate inline_block">-</div>
 								</li>

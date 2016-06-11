@@ -55,14 +55,16 @@ function boxSelect(){
 }
 function li_share(){
 	var fileshow_li = document.getElementsByClassName("fileshow_li");
-	var operate = document.getElementsByClassName("operate");
+//	var operate = document.getElementsByClassName("operate");
 	for(var i = 0;i<fileshow_li.length;i++){
 		fileshow_li[i].index = i;
 		on(fileshow_li[i],"mouseover",function(){
-			operate[(this.index)].style.visibility ="visible"
+			if(this.getElementsByClassName("operate")[0])
+				this.getElementsByClassName("operate")[0].style.visibility ="visible";
 		});
 		on(fileshow_li[i],"mouseout",function(){
-			operate[(this.index)].style.visibility ="hidden"
+			if(this.getElementsByClassName("operate")[0])
+				this.getElementsByClassName("operate")[0].style.visibility ="hidden";
 		});
 	}
 }

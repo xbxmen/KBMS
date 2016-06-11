@@ -144,7 +144,7 @@ var imgparams = {
         var html = '', i = 0;
         $("#preview").html('<div class="upload_loading"></div>');
         var funAppendImage = function () {
-            file = files[i];
+            var file = files[i];
             if (file) {
                 var reader = new FileReader()
                 reader.onload = function (e) {
@@ -177,9 +177,9 @@ var imgparams = {
         };
         funAppendImage();
     },
-
-    onSuccess: function (file, response) {
-        $("#uploadInf").append("<p>上传成功，图片地址是：" + response + "</p>");
+    onSuccess: function(file, response) {
+    		$(".list").append(updateFile(file.name,file.size,currentTime(),"image","我也不知道文件夹是啥",response));
+               $("#uploadInf").append("<p>上传成功，图片地址是：" + response + "</p>");
     },
     onFailure: function (file) {
         $("#uploadInf").append("<p>图片" + file.name + "上传失败！</p>");
@@ -245,8 +245,8 @@ var videoparams = {
         };
         funAppendImage();
     },
-
-    onSuccess: function (file, response) {
+    onSuccess: function(file, response) {
+    	$(".list").append(updateFile(file.name,file.size,currentTime(),"video","我也不知道文件夹是啥",response));
         $("#uploadInf").append("<p>上传成功，视频地址是：" + response + "</p>");
     },
     onFailure: function (file) {
@@ -312,8 +312,8 @@ var audioparams = {
         };
         funAppendImage();
     },
-
-    onSuccess: function (file, response) {
+    onSuccess: function(file, response) {
+    		$(".list").append(updateFile(file.name,file.size,currentTime(),"audio","我也不知道文件夹是啥",response));
         $("#uploadInf").append("<p>上传成功，音频地址是：" + response + "</p>");
     },
     onFailure: function (file) {
@@ -378,15 +378,16 @@ var textparams = {
         };
         funAppendImage();
     },
-
-    onSuccess: function (file, response) {
-        $("#uploadInf").append("<p>上传成功，文档地址是：" + response + "</p>");
+    onSuccess: function(file, response) {//单个文件上传成功
+       
+      	$(".list").append(updateFile(file.name,file.size,currentTime(),"doc","我也不知道文件夹是啥",response));
+      	$("#uploadInf").append("<p>上传成功，文档地址是：" + response + "</p>");
     },
     onFailure: function (file) {
         $("#uploadInf").append("<p>文档" + file.name + "上传失败！</p>");
 //      $("#uploadImage_" + file.index).css("opacity", 0.2);
     },
-    onComplete: function () {
+    onComplete: function() {//图片文件上传全部成功
         //提交按钮隐藏
         $("#fileSubmit").hide();
         //file控件value置空
@@ -396,12 +397,12 @@ var textparams = {
 };
 
 //文件上传成功后文档视图页面增加一行//a的跳转还没有写
-function updateFile(fname, fsize, fdate, ftype, ffloder) {
-    var flist = "<li class='fileshow_li'><input name='file' class='checkbox' type='checkbox'/>&nbsp;<div class='" + ftype + " dir_small inline_block'></div>"
-        + "<div class='filename inline_block'><a href='photo_show.html' class='file_name'> &nbsp;" + fname + "</a><div class='operate inline_block '>"
-        + "<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"
-        + "<a class='menu'  href='#'><img src='./img/menu.png'></a></div></div> &nbsp;<div class='filesize inline_block'>"
-        + fsize + "</div><div class='filedate inline_block'><span class='text'>" + fdate + "</span></div></li>";
+function updateFile(fname,fsize,fdate,ftype,ffloder,filesrc){
+	var flist ="<li class='fileshow_li'><input name='file' class='checkbox' type='checkbox'/><div class='"+ftype+" dir_small inline_block'></div>"
+     +"<div class='filename inline_block'><a href='"+filesrc+"' class='file_name'>"+fname+"</a><div class='operate inline_block '>"
+	+"<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"
+	+"<a class='menu'  href='#'><img src='./img/menu.png'></a></div></div><div class='filesize inline_block'>"
+	+fsize+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";
 //	var ful = document.getElementsByClassName("list")[0];
 //	ful.append(flist);
     return flist;
@@ -411,10 +412,8 @@ function fokfloder() {
     var new_dir = $("#new_dir_item");
     var list = $(".list");
     fokbutton.on('click', function (e) {
-        var fileli = $(updateFile("新建文件夹", " -", cTime(), "samll_folder", ""));
-        console.log(list.first());
+        var fileli = $(updateFile("新建文件夹", " -", currentTime(), "samll_folder", ""));
         fileli.insertBefore($(".list li").first());
-        console.log(list.first());
         new_dir.css({"display": "block", "top": "41px"});
 
     });
@@ -423,7 +422,6 @@ function fokfloder() {
     //按回车键命名成功
     fname.keydown(function (e) {
         var filenamea = document.getElementsByClassName("file_name")[0];
-        console.log(filenamea);
         keydownMsg(e, filenamea, new_dir);
     });
 }
@@ -441,21 +439,23 @@ function keydownMsg(evt, filenamea, new_dir) {
             url: createfolder_url,
             type: 'post',
             data: {
-                "foldername" :  fname,
-                "foldergrade" : grade,
-                "folderpreid" : preid,
-                "foldertype" : foldertype
+                "foldername": fname,
+                "foldergrade": grade,
+                "folderpreid": preid,
+                "foldertype": foldertype
             },
-        success: function(data){//注册用户的信息返回到这里，data参数里
-            if(data == -1){
-                alert('登录超时!');
-            }else if(data == -2){
-                alert("参数有错误！");
-            }else{
-                console.log(data);
+            success: function (data) {//注册用户的信息返回到这里，data参数里
+                if (data == -1) {
+                    alert('登录超时!');
+                } else if (data == -2) {
+                    alert("参数有错误！");
+                } else if(data == 1){
+                    alert('创建成功~~');
+                }else if(data == -3){
+                    alert("文件名不可重复~");
+                }
             }
-        }
-    });
+        });
     }
 }
 addonload(shareFile());

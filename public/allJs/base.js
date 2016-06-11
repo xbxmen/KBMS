@@ -91,7 +91,7 @@ function RemovetipDelay(pNode){
 function RemoveList(pnode,cnode){
 	pnode.removeChild(cnode);
 }
-function cTime()
+function currentTime()
 {
 	var today=new Date();
 	var year = today.getFullYear();
