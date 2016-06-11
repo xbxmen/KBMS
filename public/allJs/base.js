@@ -91,3 +91,25 @@ function RemovetipDelay(pNode){
 function RemoveList(pnode,cnode){
 	pnode.removeChild(cnode);
 }
+function cTime()
+{
+	var today=new Date();
+	var year = today.getFullYear();
+	var month = today.getMonth()+1;
+	var day = today.getDate();
+	var h=today.getHours();
+	var m=today.getMinutes();
+//	d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+	// add a zero in front of numbers<10
+	m=checkTime(m);
+//	s=checkTime(s);
+	ctime=year +"-"+month+"-"+day+" "+h+":"+m;
+	return ctime;
+}
+
+function checkTime(i)
+{
+if (i<10) 
+  {i="0" + i}
+  return i
+}
