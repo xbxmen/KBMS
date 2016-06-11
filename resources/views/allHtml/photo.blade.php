@@ -118,7 +118,7 @@
 								</li>
 								<li class="fileshow_li">
 									<input name="file" class="checkbox" type="checkbox"/>
-									<div class="image_file dir_small inline_block">	
+									<div class="image dir_small inline_block">	
 									</div>
 									<div class="filename inline_block">
 										<a href="#"  class="file_name" >哈利波特全集</a>
@@ -134,7 +134,7 @@
 								</li>
 								<li class="fileshow_li">
 									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image_file dir_small inline_block">	
+									<div class="image dir_small inline_block">	
 									</div>
 									<div class="filename inline_block">
 										<a href="#" class="file_name" >哈利波特全集</a>
@@ -150,7 +150,7 @@
 								</li>
 								<li class="fileshow_li">
 									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image_file dir_small inline_block">	
+									<div class="image dir_small inline_block">	
 									</div>
 									<div class="filename inline_block">
 										<a href="#" class="file_name">哈利波特全集</a>
@@ -166,8 +166,7 @@
 								</li>
 								<li class="fileshow_li">
 									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image_file dir_small inline_block">	
-									</div>
+									<div class="image dir_small inline_block"></div>
 									<div class="filename inline_block">
 										<a href="#" class="file_name">哈利波特全集</a>
 										<div class="operate inline_block ">

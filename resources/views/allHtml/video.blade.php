@@ -23,7 +23,7 @@
 				<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
 				<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
 				<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-				<div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
+				<div class="nav_R" id="upload"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
 				<div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
 				<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 			</div>
@@ -46,129 +46,155 @@
 							</ul>
 						</div>
 						<div class="grid-cols">
-									<ul class="list_head" >
-										<li class="col">
-											<span class="black">&nbsp;</span>										<li class="col" style="width: 20%;">
-											<span class="text">已选中1个文件/文件夹</span>
-										</li>
-										<li class="col" style="width: 76%;">
-											<button class="share">
-												分享
-												<img src="./img/share.png">
-											</button>
-											<button class="download">
-												下载
-												<img src="./img/download.png">
-											</button>
-											<button class="delete">
-												删除
-												<img src="./img/delete.png">
-											</button>
-											<button class="delete">
-												重命名
-											</button>
-											<button class="delete">
-												复制到
-											</button>
-											<button class="delete">
-												移动到
-											</button>
-										</li>
-									</ul>
+							<ul class="list_head" >
+								<li class="col">
+									<span class="black">&nbsp;</span>										<li class="col" style="width: 20%;">
+									<span class="text">已选中1个文件/文件夹</span>
+								</li>
+								<li class="col" style="width: 76%;">
+									<button class="share">
+										分享
+										<img src="./img/share.png">
+									</button>
+									<button class="download">
+										下载
+										<img src="./img/download.png">
+									</button>
+									<button class="delete">
+										删除
+										<img src="./img/delete.png">
+									</button>
+									<button class="delete">
+										重命名
+									</button>
+									<button class="delete">
+										复制到
+									</button>
+									<button class="delete">
+										移动到
+									</button>
+								</li>
+							</ul>
 						</div>
 						
 						<div>
 								<ul class="list">
 									<li class="fileshow_li">
 										<input name="file" class="checkbox" type="checkbox"/>
-										<div class="samll_folder dir_small inline_block">	
-										</div>
+										<div class="samll_folder dir_small inline_block"></div>
 										<div class="filename inline_block">
 											<a href="#" class="file_name">哈利波特全集</a>
+											<div class="operate inline_block ">
+												<a class="share" href="#"><img src="./img/share.png"></a>
+												<a class="download"  href="#"><img src="./img/download.png"></a>
+												<a class="menu"  href="#"><img src="./img/menu.png"></a>
+											</div>
 										</div>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
+										
 										<div class="filesize inline_block">16KB</div>
 										<div class="filedate inline_block">2016-05-26 13:22</div>
 									</li>
 									<li class="fileshow_li">
 										<input name="file" class="checkbox" type="checkbox"/>
-										<div class="samll_folder dir_small inline_block">	
-										</div>
+										<div class="samll_folder dir_small inline_block"></div>
 										<div class="filename inline_block">
 											<a href="#"  class="file_name" >哈利波特全集</a>
+											<div class="operate inline_block ">
+												<a class="share" href="#"><img src="./img/share.png"></a>
+												<a class="download"  href="#"><img src="./img/download.png"></a>
+												<a class="menu"  href="#"><img src="./img/menu.png"></a>
+											</div>
 										</div>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
+										
 										<div class="filesize inline_block">16KB</div>
 										<div class="filedate inline_block">2016-05-26 13:22</div>
 									</li>
 									<li class="fileshow_li">
+										<input name="file" class="checkbox" type="checkbox">
+										<div class="samll_folder dir_small inline_block"></div>
+										<div class="filename inline_block">
+											<a href="#" class="file_name">新建文件夹</a>
+											<div class="operate inline_block " style="visibility: hidden;">
+												<a class="share" href="#"><img src="./img/share.png"></a>
+												<a class="download" href="#"><img src="./img/download.png"></a>
+												<a class="menu" href="#"><img src="./img/menu.png"></a>
+											</div>
+										</div>
+										<div class="filesize inline_block"> -</div>
+										<div class="filedate inline_block">
+											<span class="text">2016-6-11 20:07</span>
+										</div>
+									</li>
+									
+									
+									<li class="fileshow_li">
 										<input name="file" class="checkbox" type="checkbox"/>
-										<div class="video_file dir_small inline_block">	
+										<div class="video dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
 											<a href="video_show.html"  class="file_name" >哈利波特全集</a>
+											<div class="operate inline_block ">
+												<a class="share" href="#"><img src="./img/share.png"></a>
+												<a class="download"  href="#"><img src="./img/download.png"></a>
+												<a class="menu"  href="#"><img src="./img/menu.png"></a>
+											</div>
 										</div>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
+										
 										<div class="filesize inline_block">16KB</div>
 										<div class="filedate inline_block">2016-05-26 13:22</div>
 									</li>
 									<li class="fileshow_li">
 										<input name="file" class="checkbox"  type="checkbox"/>
-										<div class="video_file dir_small inline_block">	
+										<div class="video dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
 											<a href="video_show.html" class="file_name" >哈利波特全集</a>
+											<div class="operate inline_block ">
+												<a class="share" href="#"><img src="./img/share.png"></a>
+												<a class="download"  href="#"><img src="./img/download.png"></a>
+												<a class="menu"  href="#"><img src="./img/menu.png"></a>
+											</div>
 										</div>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
+										
 										<div class="filesize inline_block">16KB</div>
 										<div class="filedate inline_block">2016-05-26 13:22</div>
 									</li>
 									<li class="fileshow_li">
 										<input name="file" class="checkbox"  type="checkbox"/>
-										<div class="video_file dir_small inline_block">	
+										<div class="video dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
 											<a href="video_show.html" class="file_name">哈利波特全集</a>
+											<div class="operate inline_block ">
+												<a class="share" href="#"><img src="./img/share.png"></a>
+												<a class="download"  href="#"><img src="./img/download.png"></a>
+												<a class="menu"  href="#"><img src="./img/menu.png"></a>
+											</div>
 										</div>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
+										
 										<div class="filesize inline_block">16KB</div>
 										<div class="filedate inline_block">2016-05-26 13:22</div>
 									</li>
 									<li class="fileshow_li">
 										<input name="file" class="checkbox"  type="checkbox"/>
-										<div class="video_file dir_small inline_block">	
+										<div class="video dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
 											<a href="video_show.html" class="file_name">哈利波特全集</a>
-										</div>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
+											<div class="operate inline_block ">
+												<a class="share" href="#"><img src="./img/share.png"></a>
+												<a class="download"  href="#"><img src="./img/download.png"></a>
+												<a class="menu"  href="#"><img src="./img/menu.png"></a>
+											</div>
 										</div>
 										<div class="filesize inline_block">16KB</div>
 										<div class="filedate inline_block">2016-05-26 13:22</div>
 									</li>
+									
+
+									
+									
+									
 								</ul>
 								<div id="new_dir_item">
 									<li class="fileshow_li">
