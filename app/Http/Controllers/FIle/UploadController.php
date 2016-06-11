@@ -4,6 +4,7 @@
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Facades\Session;
+    use PhpParser\Node\Scalar\MagicConst\File;
 
     /**
      * Created by PhpStorm.
@@ -11,6 +12,7 @@
      * Date: 2016/6/5 0005
      * Time: 15:39
      */
+    date_default_timezone_set("Asia/Shanghai");
     class UploadController extends Controller
     {
         /*
@@ -46,7 +48,7 @@
                     $sql01 = "SELECT * FROM files WHERE  fileid=? and uid=?";
                     $res01 =  DB::select($sql01,[$fileid,$uid]);
                     if($res01){
-                        $result  = @unlink($res01[0]->filepath);
+                        $result  = @unlink('./upload/'.$res01[0]->filehead);
                         if(!$result){
                             $sql02 = "DELETE FROM files WHERE fileid=? and uid=?";
                             $res02 = DB::delete($sql02,[$fileid,$uid]);
@@ -68,6 +70,28 @@
                 return response("-1");
             }
         }
+        /*
+         * 给文件 重命名
+         *
+         * */
+        public function rename(Request $request){
+            if(Session::has('id')) {
+                $uid = Session::get('id');
+                $fileid = $request->input('fileid') ? $request->input('fileid') : "";
+                $filename = $request->input('filename') ? $request->input('filename') : "";
+                $updatetime = date("Y-M-D H:i:sa");
+                if($uid && $fileid && $filename){
+                    $sql = "UPDATE files SET filehead=?,updatetime=? WHERE fid=? ";
+                    $res = DB::update($sql,[$filename,$updatetime,$fileid]);
+                    return $res? 1 : -3;
+                }else{
+                    return response("-2");
+                }
+            }else{
+                return response("-1");
+            }
+        }
+
 
         /*
          * 创建文件夹
@@ -78,10 +102,12 @@
                 $foldername = $request->input('foldername')? $request->input('foldername') : "";
                 $folderpreid = $request->input('folderpreid')? $request->input('folderpreid') : "";
                 $foldergrade = $request->input('foldergrade')? $request->input('foldergrade') : "";
-                if($uid && $foldername && $folderpreid && $foldergrade){
+                $foldertype = $request->input('foldertype')? $request->input('foldertype') : "";
+                $updatetime = date("Y-M-D H:i:sa");
+                if($uid && $foldername && $folderpreid && $foldergrade && $foldertype){
                     $sql01 = "SELECT * from folders WHERE folname=? and uid=? and grade=?";
                     $res01 = DB::select($sql01,[$foldername,$uid,$foldergrade]);
-                    if($res01){
+                    if(!$res01){
                         /*
                          * 查看最大的索引
                          * */
@@ -90,17 +116,17 @@
                         $folid = $res02[0]->max+1;
                         if($folderpreid == -1){
                             /** @var TYPE_NAME $sql */
-                            $sql = "INSERT INTO folders(folid,folname,folpreid,grade,uid) VALUES (?,?,?,?,?)";
+                            $sql = "INSERT INTO folders(folid,folname,folpreid,grade,type,updatetime,uid) VALUES (?,?,?,?,?,?,?)";
                             /** @var TYPE_NAME $res */
-                            $res = DB::insert($sql,[$folid,$foldername,$folid,$foldergrade,$uid]);
+                            $res = DB::insert($sql,[$folid,$foldername,$folid,$foldergrade,$foldertype,$updatetime,$uid]);
                             return $res ? 1 : -4;
                         }else{
                             /**
                              * 插入到 folders 表格中
                              */
-                            $sql = "INSERT INTO folders(folid,folname,folpreid,grade,uid) VALUES (?,?,?,?,?)";
+                            $sql = "INSERT INTO folders(folid,folname,folpreid,grade,type,updatetime,uid) VALUES (?,?,?,?,?,?,?)";
                             /** @var TYPE_NAME $res */
-                            $res = DB::insert($sql,[$folid,$foldername,$folderpreid,$foldergrade,$uid]);
+                            $res = DB::insert($sql,[$folid,$foldername,$folderpreid,$foldergrade,$foldertype,$updatetime,$uid]);
                             return $res ? 1 : -4;
                         }
                     }else{
@@ -162,9 +188,24 @@
             }
         }
         /*
-         * 保存到数据库里面
+         *重命名文件夹
          * */
-        public function saveToDB(){
-
+        public function renameFolder(Request $request){
+            if(Session::has('id')){
+                $uid = Session::get('id');
+                $foldername = $request->input('foldername')? $request->input('foldername') : "";
+                $folderid = $request->input('folderid')? $request->input('folderid') : "";
+                $updatetime = date("Y-m-d H:i:sa");
+                if($uid && $foldername && $folderid){
+                    $sql = "UPDATE folders SET folname=?,updatetime=? WHERE $folderid=?";
+                    $res = DB::update($sql,[$foldername,$updatetime,$folderid]);
+                    return $res? 1 : -3;
+                }else{
+                    return response("-2");
+                }
+            }else{
+                return response("-1");
+            }
         }
+
 }

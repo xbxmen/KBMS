@@ -215,5 +215,24 @@
 		 	ZXXFILE = $.extend(ZXXFILE, textparams);
 			ZXXFILE.init();
 		</script>
+		<script>
+            function showfolder() {
+                $.ajax({
+                    url: '{{url('show/doc')}}',
+                    type: 'post',
+                    processData:false,
+                    contentType:false,
+                    data: form,
+                    success: function(data){//注册用户的信息返回到这里，data参数里
+                        console.log(data);
+                        if(data == 1){
+                            alert('登录成功!');
+                        }
+                        else
+                            alert(data);
+                    }
+                });
+            }
+		</script>
 	</body>
 </html>
