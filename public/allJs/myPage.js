@@ -413,9 +413,13 @@ function fokfloder() {
     var list = $(".list");
     fokbutton.on('click', function (e) {
         var fileli = $(updateFile("新建文件夹", " -", currentTime(), "samll_folder", ""));
-        fileli.insertBefore($(".list li").first());
+        if($(".list li").first().length!=0){
+        	fileli.insertBefore($(".list li").first());
+        }else{
+        	$(".list").append(fileli);
+        }
         new_dir.css({"display": "block", "top": "41px"});
-
+		
     });
 
     var fname = $("#new_dir_fname");

@@ -81,17 +81,12 @@
 						
 						<div>
 								<ul class="list">
-									<li class="fileshow_li">
+									<!--<li class="fileshow_li">
 										<input name="file" class="checkbox" type="checkbox"/>
 										<div class="samll_folder dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
 											<a href="#" class="file_name">哈利波特全集</a>
-											<!--<div class="operate inline_block ">
-												<a class="share" href="#"><img src="./img/share.png"></a>
-												<a class="download"  href="#"><img src="./img/download.png"></a>
-												<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>-->
 										</div>
 										
 										<div class="filesize inline_block">16KB</div>
@@ -103,11 +98,7 @@
 										</div>
 										<div class="filename inline_block">
 											<a href="#"  class="file_name" >哈利波特全集</a>
-											<!--<div class="operate inline_block ">
-												<a class="share" href="#"><img src="./img/share.png"></a>
-												<a class="download"  href="#"><img src="./img/download.png"></a>
-												<a class="menu"  href="#"><img src="./img/menu.png"></a>
-											</div>-->
+											
 										</div>
 										
 										<div class="filesize inline_block">16KB</div>
@@ -176,7 +167,7 @@
 										
 										<div class="filesize inline_block">16KB</div>
 										<div class="filedate inline_block">2016-05-26 13:22</div>
-									</li>
+									</li>-->
 								</ul>
 								<div id="new_dir_item">
 									<li class="fileshow_li">

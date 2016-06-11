@@ -27,10 +27,12 @@
 	position: relative;
 }
 .show_content{
-	height:100%;
+	height:62%;
 	width: 100%;
 	display: block;
 	position: relative;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 .show_photo{
 	height: 96%;
@@ -78,10 +80,10 @@
 	
 	
 }
-.list{
+/*.list{
 	overflow-y: scroll;
 	overflow-x: hidden;
-}
+}*/
 .allcheckbox{
 	width: 16px;
 	position: absolute;

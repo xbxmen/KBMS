@@ -36,6 +36,7 @@ function boxSelect(){
 	var checkbox = document.getElementsByClassName("checkbox");//选一个的框
 	var grid_list = document.getElementsByClassName("grid-cols")[0];//当有被选中时出现的效果
 	var allcheck;//用于判断是否全选
+	var hasfloder 
 	for(var i = 0; i<checkbox.length;i++){
 		on(checkbox[i],"click",function(){//单选的事件
 			allcheck = hasCheck(checkbox,grid_list);
