@@ -60,14 +60,23 @@ function li_share(){
 	for(var i = 0;i<fileshow_li.length;i++){
 		fileshow_li[i].index = i;
 		on(fileshow_li[i],"mouseover",function(){
-			if(this.getElementsByClassName("operate")[0])
+			if(this.getElementsByClassName("operate")[0]){
 				this.getElementsByClassName("operate")[0].style.visibility ="visible";
+				console.log(this.getElementsByClassName("operate")[0]);
+			}	
 		});
 		on(fileshow_li[i],"mouseout",function(){
 			if(this.getElementsByClassName("operate")[0])
 				this.getElementsByClassName("operate")[0].style.visibility ="hidden";
 		});
 	}
+}
+function visible(parent){
+	parent.getElementsByClassName("operate")[0].style.visibility ="visible";
+}
+function myhidden(parent){
+	parent.getElementsByClassName("operate")[0].style.visibility ="hidden";
+	console.log(parent);
 }
 addonload(li_share());
 addonload(boxSelect());

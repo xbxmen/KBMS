@@ -121,7 +121,7 @@
 .file_name{
 	color: #727272;
 	text-decoration: none;
-	/*overflow: hidden;*/
+	display: inline-block;
 }
 .file_name:hover{
 	text-decoration: underline;
@@ -407,8 +407,8 @@
 }
 .timeline-show{
 	width: 100%;
-	height: 100%;
-	overflow: scroll;
+	height: 80%;
+	overflow-y: scroll;
 }
 .main_timeline{
 	width: 74%;
