@@ -71,8 +71,8 @@ Route::post('account/register', 'Account\UsersController@register');
 
 /*文档
  * */
-Route::post('show/doc', 'File\ShowFilesController@showdoc');
-Route::post('show/docfolder', 'File\ShowFilesController@showdocFolder');
+Route::post('show/files', 'File\ShowFilesController@showFiles');
+Route::post('show/folders', 'File\ShowFilesController@showFolders');
 Route::post('upload/createfolder', 'File\UploadController@createfolder');
 
 Route::post('upload/file', 'Upload\UploadController@upload');
