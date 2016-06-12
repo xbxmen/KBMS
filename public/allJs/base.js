@@ -113,3 +113,12 @@ if (i<10)
   {i="0" + i}
   return i
 }
+//界面的大小
+$(document).ready(function () {
+    var screenH = window.screen.availHeight;
+    var screenW = window.screen.availWidth;
+    $(".contanier").width(screenW);
+    $(".contanier").height(screenH);
+    $(".img_bg").width(screenW);
+    $(".img_bg").height(screenH);
+});

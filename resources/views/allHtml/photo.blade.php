@@ -10,18 +10,22 @@
 		<style>
 			.show_main{
 				width: 100%;
-				height: 90%;
-				overflow: scroll;
+				height: 70%;
+				/*overflow: scroll;*/
 			}
-			.show_content{
+			/*.show_content{
 				width: 74%;
 				margin: 0 auto;
 				overflow: ;
-			}
+			}*/
 			.grid-cols{
+				width: 74%;
+				margin: 0 auto;
 				position: relative;
 				left: 0;
 				top: 0;
+				display: block;
+				
 				
 			}
 			.list_head{
@@ -57,12 +61,10 @@
 			<div class="show_main">
 				<from class="filefrom">
 					<div class="show_content">
-						<input name="filegroup" class="allcheckbox" type="checkbox"/>
 						<div class="grid-cols">
 							<ul class="list_head" >
 								<li class="col">
-									<span class="black">&nbsp;</span>
-									<!--<input name="filegroup" class="allcheckbox" type="checkbox"/></li>-->
+									<input name="filegroup" id="check-all" type="checkbox"/>
 								<li class="col" style="width: 20%;">
 									<span class="text">已选中1个图片</span>
 								</li>
@@ -91,7 +93,8 @@
 								</li>
 							</ul>
 						</div>
-						<div class="main_timeline">
+						<div class="timeline-show">
+							<div class="main_timeline">
 							<div class="timeline-item">
 								<div class="timeline-item-title">
 									<span class="timeline-day">2014-6-12</span>
@@ -103,25 +106,62 @@
 									</div>
 								</div>
 								<div class="timeline-content">
-									<a class="timeline-content-item">
+									<a class="timeline-content-item" href="photo_show.html">
 										<img src="./myphoto/zhangbozhi.jpg" />
 										<div class="timeline-checkbox">
 											<input type="checkbox" class="checkbox"/>
 										</div>
 									</a>
-									<a class="timeline-content-item">
+									<a class="timeline-content-item" href="photo_show.html">
 										<img src="./myphoto/zhangbozhi.jpg" />
 										<div class="timeline-checkbox">
 											<input type="checkbox" class="checkbox"/>
 										</div>
 									</a>
-									<a class="timeline-content-item">
+									<a class="timeline-content-item" href="photo_show.html">
 										<img src="./myphoto/zhangbozhi.jpg" />
 										<div class="timeline-checkbox">
 											<input type="checkbox" class="checkbox"/>
 										</div>
 									</a>
-									<a class="timeline-content-item">
+									<a class="timeline-content-item" href="photo_show.html">
+										<img src="./myphoto/zhangbozhi.jpg" />
+										<div class="timeline-checkbox">
+											<input type="checkbox" class="checkbox"/>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="timeline-item">
+								<div class="timeline-item-title">
+									<span class="timeline-day">2014-6-12</span>
+									<span class="timeline-icon"></span>
+									<span class="timeline-sum">4张</span>
+									<div class="timeline-checkall">
+										<input name="filegroup" class="allcheckbox" type="checkbox"/>
+										<label>全选</label>
+									</div>
+								</div>
+								<div class="timeline-content">
+									<a class="timeline-content-item" href="photo_show.html">
+										<img src="./myphoto/zhangbozhi.jpg" />
+										<div class="timeline-checkbox">
+											<input type="checkbox" class="checkbox"/>
+										</div>
+									</a>
+									<a class="timeline-content-item" href="photo_show.html">
+										<img src="./myphoto/zhangbozhi.jpg" />
+										<div class="timeline-checkbox">
+											<input type="checkbox" class="checkbox"/>
+										</div>
+									</a>
+									<a class="timeline-content-item" href="photo_show.html">
+										<img src="./myphoto/zhangbozhi.jpg" />
+										<div class="timeline-checkbox">
+											<input type="checkbox" class="checkbox"/>
+										</div>
+									</a>
+									<a class="timeline-content-item" href="photo_show.html">
 										<img src="./myphoto/zhangbozhi.jpg" />
 										<div class="timeline-checkbox">
 											<input type="checkbox" class="checkbox"/>
@@ -131,14 +171,17 @@
 							</div>
 						</div>
 						
+						</div>
+						
+						
 					</div>
 				</from>
 			</div>
 		
 		</div>	
 		<script src="./allJs/base.js"></script>
-		<script src="./allJs/main.js"></script>
-		<script src="./allJs/mutil.js"></script>
-		<script src="./allJs/myPage.js"></script>
+		<script>
+			
+		</script>
 	</body>
 </html>

@@ -43,15 +43,7 @@ function shareFile() {
     }
 }
 
-//界面的大小
-$(document).ready(function () {
-    var screenH = window.screen.availHeight;
-    var screenW = window.screen.availWidth;
-    $(".contanier").width(screenW);
-    $(".contanier").height(screenH);
-    $(".img_bg").width(screenW);
-    $(".img_bg").height(screenH);
-});
+
 var photos = [];
 
 function addphoto(src, cfolder) {
@@ -395,9 +387,16 @@ var textparams = {
 };
 
 //文件上传成功后文档视图页面增加一行//a的跳转还没有写
-function updateFile(fname,fsize,fdate,ftype,ffloder,filesrc){
+function updatefloder(fname,fdate,fid,fgrade){
+	var flist ="<li class='fileshow_li'><input name='file' class='checkbox' type='checkbox'/><div class='samll_folder dir_small inline_block'></div>"
+     +"<div class='filename inline_block'><p id='"+fid+"' class='file_name data-grade='"+fgrade+"'>"+fname+"</p></div><div class='filesize inline_block'>-"
+	+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";
+
+    return flist;
+}
+function updateFile(fname,fsize,fdate,ftype,filesrc,fid,fgrade){
 	var flist ="<li class='fileshow_li'><input name='file' class='checkbox' type='checkbox'/><div class='"+ftype+" dir_small inline_block'></div>"
-     +"<div class='filename inline_block'><a href='"+filesrc+"' class='file_name'>"+fname+"</a><div class='operate inline_block '>"
+     +"<div class='filename inline_block'><p id='"+fid+"' class='file_name' data-grade='"+fgrade+"'>"+fname+"</p><div class='operate inline_block '>"
 	+"<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"
 	+"<a class='menu'  href='#'><img src='./img/menu.png'></a></div></div><div class='filesize inline_block'>"
 	+fsize+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";
@@ -405,12 +404,14 @@ function updateFile(fname,fsize,fdate,ftype,ffloder,filesrc){
 //	ful.append(flist);
     return flist;
 }
+
 function fokfloder() {
     var fokbutton = $(".foxfloder");
     var new_dir = $("#new_dir_item");
     var list = $(".list");
     fokbutton.on('click', function (e) {
-        var fileli = $(updateFile("新建文件夹", " -", currentTime(), "samll_folder", ""));
+        var fileli = $(updatefloder("新建文件夹", currentTime(), "给我一个id","1"));
+//        var fileli = $(updateFile("新建文件夹","12" ,currentTime(),"audio","","给我一个id"));
         if($(".list li").first().length!=0){
         	fileli.insertBefore($(".list li").first());
         }else{
