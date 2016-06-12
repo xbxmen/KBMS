@@ -89,4 +89,26 @@ class ShowFilesController extends Controller
         }
     }
 
+    /*
+     * 显示word内容
+     * */
+    public function MyDoc(Request $request){
+
+    }
+    /*
+     * 显示ppt
+     * */
+    public function MyPpt(){
+
+    }
+    /*
+     * 显示 txt
+     * */
+    public function MyTxt(){
+
+    }
+
+
+
+
 }
