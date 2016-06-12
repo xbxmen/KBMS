@@ -93,7 +93,7 @@ class ShowFilesController extends Controller
      * 显示word内容
      * */
     public function MyDoc(Request $request){
-
+        
     }
     /*
      * 显示ppt

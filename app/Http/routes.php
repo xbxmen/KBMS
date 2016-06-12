@@ -73,7 +73,7 @@ Route::post('account/register', 'Account\UsersController@register');
  * */
 Route::post('show/files', 'File\ShowFilesController@showFiles');
 Route::post('show/folders', 'File\ShowFilesController@showFolders');
-Route::post('upload/createfolder', 'File\UploadController@createfolder');
+Route::post('upload/createfolder', 'File\OtherFilesController@createfolder');
 
 Route::post('upload/file', 'Upload\UploadController@upload');
 
