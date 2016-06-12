@@ -56,7 +56,9 @@
 	border-right: 1px solid #e5e5e5;
 }
 .timeline-day{
-	line-height: 35px;
+	line-height: 41px;
+	font-size: 20px;
+	color: #195F91;
 }
 .col{
 	cursor: pointer;
@@ -69,7 +71,7 @@
 	width: 100%;
 	line-height: 41px;
 	top: 0px;
-	/*display: none;*/
+	display: none;
 }
 .grid-cols button{
 	margin-left: 2%;
