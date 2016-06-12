@@ -77,6 +77,7 @@ Route::post('upload/createfolder', 'File\OtherFilesController@createfolder');
 
 Route::post('upload/file', 'Upload\UploadController@upload');
 
+Route::get('note', 'Note\NotesController@test');
 
 
 Route::get('view/test',function (){
