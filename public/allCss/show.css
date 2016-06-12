@@ -121,7 +121,7 @@
 .file_name{
 	color: #727272;
 	text-decoration: none;
-	/*overflow: hidden;*/
+	display: inline-block;
 }
 .file_name:hover{
 	text-decoration: underline;
