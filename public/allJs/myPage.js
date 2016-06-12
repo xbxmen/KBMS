@@ -398,7 +398,7 @@ function updatefloder(fname,fdate,fid,fgrade){
     return flist;
 }
 function updateFile(fname,fsize,fdate,ftype,filesrc,fid,fgrade){
-	var flist ="<li class='fileshow_li'><input name='file' class='checkbox' type='checkbox'/><div class='"+ftype+" dir_small inline_block'></div>"
+	var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox'/><div class='"+ftype+" dir_small inline_block'></div>"
      +"<div class='filename inline_block'><p id='"+fid+"' class='file_name' data-grade='"+fgrade+"'>"+fname+"</p><div class='operate inline_block '>"
 	+"<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"
 	+"<a class='menu'  href='#'><img src='./img/menu.png'></a></div></div><div class='filesize inline_block'>"
