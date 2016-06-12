@@ -13,20 +13,16 @@
 				height: 70%;
 				/*overflow: scroll;*/
 			}
-			/*.show_content{
-				width: 74%;
-				margin: 0 auto;
-				overflow: ;
-			}*/
+			.show_content{
+				height:100%;
+			}
 			.grid-cols{
 				width: 74%;
 				margin: 0 auto;
 				position: relative;
 				left: 0;
 				top: 0;
-				display: block;
-				
-				
+				display: none;
 			}
 			.list_head{
 				background-color: #dcdcdc;
@@ -95,81 +91,118 @@
 						</div>
 						<div class="timeline-show">
 							<div class="main_timeline">
-							<div class="timeline-item">
-								<div class="timeline-item-title">
-									<span class="timeline-day">2014-6-12</span>
-									<span class="timeline-icon"></span>
-									<span class="timeline-sum">4张</span>
-									<div class="timeline-checkall">
-										<input name="filegroup" class="allcheckbox" type="checkbox"/>
-										<label>全选</label>
+								<div class="timeline-item">
+									<div class="timeline-item-title">
+										<span class="timeline-day">2014-6-12</span>
+										<span class="timeline-icon"></span>
+										<span class="timeline-sum">4张</span>
+										<div class="timeline-checkall">
+											<input name="filegroup" class="allcheckbox" type="checkbox"/>
+											<label>全选</label>
+										</div>
+									</div>
+									<div class="timeline-content">
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
 									</div>
 								</div>
-								<div class="timeline-content">
-									<a class="timeline-content-item" href="photo_show.html">
-										<img src="./myphoto/zhangbozhi.jpg" />
-										<div class="timeline-checkbox">
-											<input type="checkbox" class="checkbox"/>
+								<div class="timeline-item">
+									<div class="timeline-item-title">
+										<span class="timeline-day">2014-6-12</span>
+										<span class="timeline-icon"></span>
+										<span class="timeline-sum">4张</span>
+										<div class="timeline-checkall">
+											<input name="filegroup" class="allcheckbox" type="checkbox"/>
+											<label>全选</label>
 										</div>
-									</a>
-									<a class="timeline-content-item" href="photo_show.html">
-										<img src="./myphoto/zhangbozhi.jpg" />
-										<div class="timeline-checkbox">
-											<input type="checkbox" class="checkbox"/>
-										</div>
-									</a>
-									<a class="timeline-content-item" href="photo_show.html">
-										<img src="./myphoto/zhangbozhi.jpg" />
-										<div class="timeline-checkbox">
-											<input type="checkbox" class="checkbox"/>
-										</div>
-									</a>
-									<a class="timeline-content-item" href="photo_show.html">
-										<img src="./myphoto/zhangbozhi.jpg" />
-										<div class="timeline-checkbox">
-											<input type="checkbox" class="checkbox"/>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="timeline-item">
-								<div class="timeline-item-title">
-									<span class="timeline-day">2014-6-12</span>
-									<span class="timeline-icon"></span>
-									<span class="timeline-sum">4张</span>
-									<div class="timeline-checkall">
-										<input name="filegroup" class="allcheckbox" type="checkbox"/>
-										<label>全选</label>
+									</div>
+									<div class="timeline-content">
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
 									</div>
 								</div>
-								<div class="timeline-content">
-									<a class="timeline-content-item" href="photo_show.html">
-										<img src="./myphoto/zhangbozhi.jpg" />
-										<div class="timeline-checkbox">
-											<input type="checkbox" class="checkbox"/>
+								<div class="timeline-item">
+									<div class="timeline-item-title">
+										<span class="timeline-day">2014-6-12</span>
+										<span class="timeline-icon"></span>
+										<span class="timeline-sum">4张</span>
+										<div class="timeline-checkall">
+											<input name="filegroup" class="allcheckbox" type="checkbox"/>
+											<label>全选</label>
 										</div>
-									</a>
-									<a class="timeline-content-item" href="photo_show.html">
-										<img src="./myphoto/zhangbozhi.jpg" />
-										<div class="timeline-checkbox">
-											<input type="checkbox" class="checkbox"/>
-										</div>
-									</a>
-									<a class="timeline-content-item" href="photo_show.html">
-										<img src="./myphoto/zhangbozhi.jpg" />
-										<div class="timeline-checkbox">
-											<input type="checkbox" class="checkbox"/>
-										</div>
-									</a>
-									<a class="timeline-content-item" href="photo_show.html">
-										<img src="./myphoto/zhangbozhi.jpg" />
-										<div class="timeline-checkbox">
-											<input type="checkbox" class="checkbox"/>
-										</div>
-									</a>
+									</div>
+									<div class="timeline-content">
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
+										<a class="timeline-content-item" href="photo_show.html">
+											<img src="./myphoto/zhangbozhi.jpg" />
+											<div class="timeline-checkbox">
+												<input type="checkbox" class="checkbox"/>
+											</div>
+										</a>
+									</div>
 								</div>
 							</div>
-						</div>
 						
 						</div>
 						
