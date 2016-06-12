@@ -395,7 +395,7 @@ var textparams = {
 };
 
 //文件上传成功后文档视图页面增加一行//a的跳转还没有写
-function updateFile(fname,fsize,fdate,ftype,ffloder,filesrc){
+function updateFile(fname,fsize,fdate,ftype,filesrc){
 	var flist ="<li class='fileshow_li'><input name='file' class='checkbox' type='checkbox'/><div class='"+ftype+" dir_small inline_block'></div>"
      +"<div class='filename inline_block'><a href='"+filesrc+"' class='file_name'>"+fname+"</a><div class='operate inline_block '>"
 	+"<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"

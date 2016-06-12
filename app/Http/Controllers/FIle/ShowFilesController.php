@@ -14,7 +14,7 @@ class ShowFilesController extends Controller
     /*
      *展示文档文件夹
      * */
-    public function showFolder(Request $request){
+    public function showFolders(Request $request){
         if(session('id')){
             $uid = session('id');
             $filegrade = $request->input('filegrade')? $request->input('filegrade'): "";
@@ -36,19 +36,44 @@ class ShowFilesController extends Controller
             return response("-1");
         }
     }
-
     /*
-    *展示文档文件
+    *展示文件
     * */
-    public function showfies( Request $request){
+    public function showFiles( Request $request){
         if(session('id')){
             $uid = session('id');
-            $filetype = $this->DOC;
             $filegrade = $request->input('filegrade')? $request->input('filegrade'): "";
             $filepreid = $request->input('filepreid')? $request->input('filepreid'): "";
+            if($uid && $filegrade && $filepreid != ""){
+                if($filepreid == -1){
+                    $sql = "SELECT * from files WHERE filegrade=? and uid=?";
+                    $res = DB::select($sql,[$filegrade,$uid]);
+                    return json_encode($res);
+                }else{
+                    $sql = "SELECT * from files WHERE grade=? and filefolder=? and uid=?";
+                    $res = DB::select($sql,[$filegrade,$filepreid,$uid]);
+                    return json_encode($res);
+                }
+            }else{
+                return response("-2");
+            }
+        }else{
+            return response("-1");
+        }
+    }
+    /*
+     *分页获取全部 文件
+     * */
+    public function showMyFiles(Request $request){
+        if(session('id')){
+            $uid = session('id');
+            $filetype = $request->input('filetype')? $request->input('filetype'): "";
+            $filegrade = $request->input('filegrade')? $request->input('filegrade'): "";
+            $filepreid = $request->input('filepreid')? $request->input('filepreid'): "";
+            $page = $request->input('page')? $request->input('page')-1: "";
             if($uid && $filetype && $filegrade && $filepreid != ""){
                 if($filepreid == -1){
-                    $sql = "SELECT * from files WHERE filegrade=? and filetype=? and uid=?";
+                    $sql = "SELECT * from files WHERE filegrade=? and filetype=? and uid=? limit $page,10";
                     $res = DB::select($sql,[$filegrade,$filetype,$uid]);
                     return json_encode($res);
                 }else{
@@ -63,4 +88,5 @@ class ShowFilesController extends Controller
             return response("-1");
         }
     }
+
 }

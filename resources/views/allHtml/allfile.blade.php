@@ -148,37 +148,6 @@
 									<div class="filesize inline_block">16KB</div>
 									<div class="filedate inline_block">2016-05-26 13:22</div>
 								</li>
-								<li class="fileshow_li">
-									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html" class="file_name">哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>
-									</div>
-									
-									<div class="filesize inline_block">16KB</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image dir_small inline_block"></div>
-									<div class="filename inline_block">
-										<a href="photo_show.html" class="file_name">哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>
-									</div>
-									
-									<div class="filesize inline_block">16KB</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
 							</ul>
 							<div id="new_dir_item">
 								<li class="fileshow_li">
@@ -221,7 +190,11 @@
 			        </div>       
 			    </div>
 			</div>
-		</div>	
+		</div>
+		<script>
+			var createfolder_url = "{{url('upload/createfolder')}}";
+			var foldertype =  2;
+		</script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>
 		<script src="./allJs/mutil.js"></script>
@@ -230,5 +203,53 @@
 		 	ZXXFILE = $.extend(ZXXFILE, imgparams);
 			ZXXFILE.init();
 		</script>
+		<script>
+			var preid = -1;
+			var grade = 1;
+			function showFiles() {
+				$.ajax({
+					url: '{{url('show/files')}}',
+					type: 'post',
+					dataType: 'json',
+					data: {
+						"filegrade" : grade,
+						"filepreid" : preid
+					},
+					success: function(data){//注册用户的信息返回到这里，data参数里
+						if(data == -1){
+							alert('登录超时!');
+						}else if(data == -2){
+							alert("参数有错误！");
+						}else{
+							$(".list").empty();
+							console.log(data);
+						}
+					}
+				});
+			}
+			showFiles();
+			function showFolder() {
+				$.ajax({
+					url: '{{url('show/folders')}}',
+					type: 'post',
+					dataType: 'json',
+					data: {
+						"filegrade" : grade,
+						"filepreid" : preid
+					},
+					success: function(data){//注册用户的信息返回到这里，data参数里
+						if(data == -1){
+							alert('登录超时!');
+						}else if(data == -2){
+							alert("参数有错误！");
+						}else{
+							console.log(data);
+						}
+					}
+				});
+			}
+			showFolder();
+		</script>
+
 	</body>
 </html>
