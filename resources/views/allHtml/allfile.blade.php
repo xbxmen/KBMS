@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		<div class="bg">
-			<img class="img_bg" src="../../../public/img/show.png"/>
+			<img class="img_bg" src="./img/show.png"/>
 		</div>
 		<div class="contanier"> 
 			<div class="top">
