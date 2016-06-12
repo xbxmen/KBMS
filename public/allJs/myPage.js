@@ -218,6 +218,8 @@ var videoparams = {
                     console.log(file);
                     funAppendImage();
                 }
+                reader.readAsDataURL(file);
+            } else {
                 $("#preview").html(html);
                 if (html) {
                     //删除方法
