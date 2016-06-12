@@ -49,12 +49,9 @@ var ZXXFILE = {
 	},
 	//获取选择或拖拽文件�
 	funGetFiles: function(e) {
-		// 鍙栨秷榧犳爣缁忚繃鏍峰紡
 		this.funDragHover(e);
-				
-		// 鑾峰彇鏂囦欢鍒楄〃瀵硅薄
 		var files = e.target.files || e.dataTransfer.files;
-		//缁х画娣诲姞鏂囦欢
+		console.log(files);
 		this.fileFilter = this.fileFilter.concat(this.filter(files));
 		this.funDealFiles();
 		return this;
@@ -63,10 +60,8 @@ var ZXXFILE = {
 	//对选择文件进行处理
 	funDealFiles: function() {
 		for (var i = 0, file; file = this.fileFilter[i]; i++) {
-			//澧炲姞鍞竴绱㈠紩鍊�
 			file.index = i;
 		}
-		//鎵ц閫夋嫨鍥炶皟
 		this.onSelect(this.fileFilter);
 		return this;
 	},

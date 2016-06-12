@@ -65,9 +65,11 @@
         <div class="hax_bottom_M"></div>
     </div>
     <div class="four">
-        <div class="hax_top"></div>
-        <div class="hax_middle"><p style="color: #f2f2f2;font-size: 40px;text-align: center;line-height: 55px;">ING</p></div>
-        <div class="hax_bottom"></div>
+    	 <a href="allfile.html">
+	        <div class="hax_top"></div>
+	        <div class="hax_middle"><p style="color: #f2f2f2;font-size: 40px;text-align: center;line-height: 55px;">ING</p></div>
+	        <div class="hax_bottom"></div>
+       </a>
     </div>
     <div class="five">
         <a href="audio.html">

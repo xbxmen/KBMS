@@ -23,7 +23,7 @@
 				<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
 				<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
 				<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-				<div class="nav_R" id="upload"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
+				<div class="nav_R"><p>UPLOAD</p><img src="./img/right.png"></div>
 				<div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
 				<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 			</div>
@@ -34,7 +34,6 @@
 						<div class="list_cols">
 							<ul class="list_head">
 								<li class="col first-col">
-									<button class="foxfloder">新建文件夹</button>
 									<span class="text">文件名</span>
 								</li>
 								<li class="col" style="width: 16%;">
@@ -190,11 +189,6 @@
 										<div class="filesize inline_block">16KB</div>
 										<div class="filedate inline_block">2016-05-26 13:22</div>
 									</li>
-									
-
-									
-									
-									
 								</ul>
 								<div id="new_dir_item">
 									<li class="fileshow_li">
@@ -214,38 +208,10 @@
 					</div>
 				</from>
 			</div>
-			<div id="uploadmain">
-			    <div id="body" class="light">
-			        <div id="content" class="show">
-			            <div class="return_pre"><a href="#show_main">回到VIDEO</a></div>
-			            <div class="demo">
-			                <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
-			                    <div class="upload_box">
-			                        <div class="upload_main">
-			                            <div class="upload_choose">
-			                                <input id="fileImage" type="file" size="30" name="fileselect[]" multiple />
-			                                <span id="fileDragArea" class="upload_drag_area">或者将视频拖到此处</span>
-			                            </div>
-			                            <div id="preview" class="upload_preview"></div>
-			                        </div>
-			                        <div class="upload_submit">
-			                            <button type="button" id="fileSubmit" class="upload_submit_btn">确认上传视频</button>
-			                        </div>
-			                        <div id="uploadInf" class="upload_inf"></div>
-			                    </div>
-			                </form>
-			            </div>
-			        </div>       
-			    </div>
-			</div>
 		</div>	
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>
 		<script type="text/javascript" src="./allJs/mutil.js"></script>
 		<script src="./allJs/myPage.js"></script>
-		<script type="text/javascript">
-		 	ZXXFILE = $.extend(ZXXFILE, videoparams);
-			ZXXFILE.init();
-		</script>
 	</body>
 </html>

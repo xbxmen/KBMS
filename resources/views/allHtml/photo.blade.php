@@ -7,13 +7,39 @@
 		<link rel="stylesheet" type="text/css" href="./allCss/myPage.css" />
 		<link rel="stylesheet" type="text/css" href="./allCss/show.css" />
 		<link href="./allCss/common.css" rel="stylesheet" type="text/css">
+		<style>
+			.show_main{
+				width: 100%;
+				height: 90%;
+				overflow: scroll;
+			}
+			.show_content{
+				width: 74%;
+				margin: 0 auto;
+				overflow: ;
+			}
+			.grid-cols{
+				position: relative;
+				left: 0;
+				top: 0;
+				
+			}
+			.list_head{
+				background-color: #dcdcdc;
+			}
+			.allcheckbox{
+				position: relative;
+				left: 0;
+				top: 0;
+			}
+		</style>
 		<script type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="./allJs/plupload.full.min.js"></script>
 		<script type="text/javascript" src="./allJs/moxie.js"></script>
 	</head>
 	<body>
 		<div class="bg">
-			<img class="img_bg" src="./img/audio_bg.png"/>
+			<img class="img_bg" src="./img/show.png"/>
 		</div>
 		<div class="contanier"> 
 			<div class="top">
@@ -24,7 +50,7 @@
 					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
 					<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
 					<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-					<div class="nav_R" id="upload"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
+					<div class="nav_R"><p>UPLOAD</p><img src="./img/right.png"></div>
 					<div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
 					<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 				</div>
@@ -32,203 +58,87 @@
 				<from class="filefrom">
 					<div class="show_content">
 						<input name="filegroup" class="allcheckbox" type="checkbox"/>
-						<div class="list_cols">
-							<ul class="list_head">
-								<li class="col first-col">
-									<!--<input name="filegroup" class="allcheckbox" type="checkbox"/>-->
-									<!--<span class="black">&nbsp;</span>-->
-									<button class="foxfloder">新建文件夹</button>
-									<span class="text">文件名</span>
-								</li>
-								<li class="col" style="width: 12%;">
-									<span class="size">大小</span>
-								</li>
-								<li class="col last-col" style="width: 25%;">
-									<span class="text">修改日期</span>
-								</li>
-							</ul>
-						</div>
 						<div class="grid-cols">
-									<ul class="list_head" >
-										<li class="col">
-											<span class="black">&nbsp;</span>
-											<!--<input name="filegroup" class="allcheckbox" type="checkbox"/></li>-->
-										<li class="col" style="width: 20%;">
-											<span class="text">已选中1个文件/文件夹</span>
-										</li>
-										<li class="col" style="width: 76%;">
-											<button class="share">
-												分享
-												<img src="./img/share.png">
-											</button>
-											<button class="download">
-												下载
-												<img src="./img/download.png">
-											</button>
-											<button class="delete">
-												删除
-												<img src="./img/delete.png">
-											</button>
-											<button class="delete">
-												重命名
-											</button>
-											<button class="delete">
-												复制到
-											</button>
-											<button class="delete">
-												移动到
-											</button>
-										</li>
-									</ul>
-						</div>
-						
-						<div>
-							<ul class="list">
-								<li class="fileshow_li">
-									<input name="file" class="checkbox" type="checkbox"/>
-									<div class="samll_folder dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html" class="file_name">哈利波特全集</a>
-										<!--<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>-->
-									</div>
-									
-									<div class="filesize inline_block">-</div>
-									<div class="filedate inline_block"><span class="text">2016-05-26 13:22</span></div>
+							<ul class="list_head" >
+								<li class="col">
+									<span class="black">&nbsp;</span>
+									<!--<input name="filegroup" class="allcheckbox" type="checkbox"/></li>-->
+								<li class="col" style="width: 20%;">
+									<span class="text">已选中1个图片</span>
 								</li>
-								<li class="fileshow_li">
-									<input name="file" class="checkbox" type="checkbox"/>
-									<div class="samll_folder dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html"  class="file_name" >哈利波特全集</a>
-										<!--<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>-->
-									</div>
-									
-									<div class="filesize inline_block">-</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" class="checkbox" type="checkbox"/>
-									<div class="image dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html"  class="file_name" >哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>
-									</div>
-									
-									<div class="filesize inline_block">16KB</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html" class="file_name" >哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
-									</div>
-									
-									<div class="filesize inline_block">16KB</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html" class="file_name">哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>
-									</div>
-									
-									<div class="filesize inline_block">16KB</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="image dir_small inline_block"></div>
-									<div class="filename inline_block">
-										<a href="photo_show.html" class="file_name">哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>
-									</div>
-									
-									<div class="filesize inline_block">16KB</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
+								<li class="col" style="width: 76%;">
+									<button class="share">
+										分享
+										<img src="./img/share.png">
+									</button>
+									<button class="download">
+										下载
+										<img src="./img/download.png">
+									</button>
+									<button class="delete">
+										删除
+										<img src="./img/delete.png">
+									</button>
+									<button class="delete">
+										重命名
+									</button>
+									<button class="delete">
+										复制到
+									</button>
+									<button class="delete">
+										移动到
+									</button>
 								</li>
 							</ul>
-							<div id="new_dir_item">
-								<li class="fileshow_li">
-									<input name="file" class="checkbox"  type="checkbox"/>
-									<div class="samll_folder dir_small  inline_block">	
+						</div>
+						<div class="main_timeline">
+							<div class="timeline-item">
+								<div class="timeline-item-title">
+									<span class="timeline-day">2014-6-12</span>
+									<span class="timeline-icon"></span>
+									<span class="timeline-sum">4张</span>
+									<div class="timeline-checkall">
+										<input name="filegroup" class="allcheckbox" type="checkbox"/>
+										<label>全选</label>
 									</div>
-									<div class="filename inline_block">
-										<input type="text" id="new_dir_fname" value="新建文件夹"/>
-									</div>
-									<div class="filesize inline_block">-</div>
-									<div class="filedate inline_block">-</div>
-								</li>
+								</div>
+								<div class="timeline-content">
+									<a class="timeline-content-item">
+										<img src="./myphoto/zhangbozhi.jpg" />
+										<div class="timeline-checkbox">
+											<input type="checkbox" class="checkbox"/>
+										</div>
+									</a>
+									<a class="timeline-content-item">
+										<img src="./myphoto/zhangbozhi.jpg" />
+										<div class="timeline-checkbox">
+											<input type="checkbox" class="checkbox"/>
+										</div>
+									</a>
+									<a class="timeline-content-item">
+										<img src="./myphoto/zhangbozhi.jpg" />
+										<div class="timeline-checkbox">
+											<input type="checkbox" class="checkbox"/>
+										</div>
+									</a>
+									<a class="timeline-content-item">
+										<img src="./myphoto/zhangbozhi.jpg" />
+										<div class="timeline-checkbox">
+											<input type="checkbox" class="checkbox"/>
+										</div>
+									</a>
+								</div>
 							</div>
 						</div>
+						
 					</div>
 				</from>
 			</div>
-			
-		    <div id="uploadmain">
-			    <div id="body" class="light">
-			        <div id="content" class="show">
-			            <div class="return_pre"><a href="#show_main">回到图片</a></div>
-			            <div class="demo">
-			                <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
-			                    <div class="upload_box">
-			                        <div class="upload_main">
-			                            <div class="upload_choose">
-			                                <input id="fileImage" type="file" size="30" name="fileselect[]" multiple />
-			                                <span id="fileDragArea" class="upload_drag_area">或者将图片拖到此处</span>
-			                            </div>
-			                            <div id="preview" class="upload_preview"></div>
-			                        </div>
-			                        <div class="upload_submit">
-			                            <button type="button" id="fileSubmit" class="upload_submit_btn">确认上传图片</button>
-			                        </div>
-			                        <div id="uploadInf" class="upload_inf"></div>
-			                    </div>
-			                </form>
-			            </div>
-			        </div>       
-			    </div>
-			</div>
+		
 		</div>	
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>
 		<script src="./allJs/mutil.js"></script>
 		<script src="./allJs/myPage.js"></script>
-		<script type="text/javascript">
-		 	ZXXFILE = $.extend(ZXXFILE, imgparams);
-			ZXXFILE.init();
-		</script>
 	</body>
 </html>
