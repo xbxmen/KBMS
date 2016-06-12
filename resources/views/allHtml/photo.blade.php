@@ -203,10 +203,7 @@
 									</div>
 								</div>
 							</div>
-						
 						</div>
-						
-						
 					</div>
 				</from>
 			</div>
@@ -214,6 +211,12 @@
 		</div>	
 		<script src="./allJs/base.js"></script>
 		<script>
+			$(".timeline-content-item").on("mouseover",function(){
+				$(this).children(".timeline-checkbox").show();
+			});
+			$(".timeline-content-item").on("mouseout",function(){
+				$(this).children(".timeline-checkbox").hide();
+			});
 			
 		</script>
 	</body>
