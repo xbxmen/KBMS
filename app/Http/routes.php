@@ -52,6 +52,9 @@ Route::get('login.html', function () {
 Route::get('note.html', function () {
     return view('allHtml/note');
 });
+Route::get('allfile.html', function () {
+    return view('allHtml/allfile');
+});
 
 /*
 |--------------------------------------------------------------------------
