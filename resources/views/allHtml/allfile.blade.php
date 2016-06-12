@@ -8,7 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="./allCss/show.css" />
 		<link href="./allCss/common.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
-		<script type="text/javascript" src="./allJs/plupload.full.min.js"></script>
 		<script type="text/javascript" src="./allJs/moxie.js"></script>
 	</head>
 	<body>
@@ -90,11 +89,11 @@
 									</div>
 									<div class="filename inline_block">
 										<a href="photo_show.html" class="file_name">哈利波特全集</a>
-										<!--<div class="operate inline_block ">
+										<div class="operate inline_block ">
 											<a class="share" href="#"><img src="./img/share.png"></a>
 											<a class="download"  href="#"><img src="./img/download.png"></a>
 											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>-->
+										</div>
 									</div>
 									
 									<div class="filesize inline_block">-</div>
@@ -106,11 +105,11 @@
 									</div>
 									<div class="filename inline_block">
 										<a href="photo_show.html"  class="file_name" >哈利波特全集</a>
-										<!--<div class="operate inline_block ">
+										<div class="operate inline_block ">
 											<a class="share" href="#"><img src="./img/share.png"></a>
 											<a class="download"  href="#"><img src="./img/download.png"></a>
 											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>-->
+										</div>
 									</div>
 									
 									<div class="filesize inline_block">-</div>
@@ -250,11 +249,7 @@
 			}
 			showFolder();
 		</script>
-		<script>
-			function myFolder() {
-				
-			}
-		</script>
-
+		
+		
 	</body>
 </html>
