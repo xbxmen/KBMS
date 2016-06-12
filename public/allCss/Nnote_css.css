@@ -388,6 +388,10 @@ input.btn_last:hover
     top: 215px;
     display: none;
 }
+.text_area
+{
+    width:527px;
+}
 #layer
 {
     /*background: #000000;*/

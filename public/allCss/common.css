@@ -141,3 +141,9 @@ body
     width: 120px;
     height: 10px;
 }
+
+.filename a
+{
+    text-decoration: none;
+    color: #1a1921;
+}

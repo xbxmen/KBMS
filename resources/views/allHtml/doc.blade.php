@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="./allCss/show.css" />
 		<link href="./allCss/common.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
+
 	</head>
 	<body>
 		<div class="bg">
@@ -85,7 +86,7 @@
 										<div class="doc dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
-											<a href="#"  class="file_name" >哈利波特全集</a>
+										<a class="media" class="file_name" href="guice.pdf" target="black">哈利波特全集</a>
 											<div class="operate inline_block ">
 												<a class="share" href="#"><img src="./img/share.png"></a>
 												<a class="download"  href="#"><img src="./img/download.png"></a>
@@ -165,6 +166,9 @@
 			</div>
 			
 		</div>
+
+
+
         <script>
             var createfolder_url = "{{url('upload/createfolder')}}";
             var foldertype =  2;
@@ -219,6 +223,13 @@
                 });
             }
             showDocFolder();
+
+
+
+
 		</script>
 	</body>
+
+	<script type="text/javascript" src="./allJs/media.js"></script>
+	<script src="./allJs/jquery.js" language="JavaScript" type="text/javascript"></script>
 </html>

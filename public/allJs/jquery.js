@@ -49,11 +49,14 @@ $(function(){
 
             $(".N_right").css("width","60%");
             $(".N_left_two").css("display","none");
+            $(".edit_text").css("width","54%");
+            $(".text_area").css("width","715px");
         }else{
             $(".top_right img").attr("src","./img/kk.png");
             $(".N_left").css("width","250px");
             $(".N_right").css("width","45%");
             $(".N_left_two").css("display","block");
+
         }
     })
 
@@ -191,7 +194,8 @@ $ (document).ready (function ()
 
 
     var index;
-    $(".ppp_icon").click(function(event){
+    $(".ppp_icon").click(ppp_click);
+    function ppp_click(event){
 
         var u_id = null;
         l_id = $(this).attr("id");
@@ -203,18 +207,8 @@ $ (document).ready (function ()
         console.log(-y+120+" "+y);
         $(".more_N").css("top",(y-600)+"px");
         $(".more_N").show();
-        //$("ul > li").click(function ()
-        //{
-        //    index = $(this).prevAll().length;
-        //    $("#"+u_id).click(function ()
-        //    {
-        //        var des = index * 30 - 245;
-        //        $(".more_N").css("top",des+"px");
-        //
-        //    });
-        //
-        //});
-    });
+
+    };
 
 
 
@@ -226,6 +220,8 @@ $ (document).ready (function ()
             '<input type="text" class="N_text">'+
             '</form></span><i class="ppp_icon_p icon-tag"></i> </span>'+
             '</li>'+$("#my_ul").html());
+            $(".ppp_icon").click(ppp_click);
+
     })
 
     $("#new2").click(function(){
@@ -236,13 +232,15 @@ $ (document).ready (function ()
             '<input type="text" class="N_text">'+
             '</form></span><i class="ppp_icon_p icon-tag"></i> </span>'+
             '</li>'+$("#my_ul").html());
+            $(".ppp_icon").click(ppp_click);
+
     })
 
     $("#delete").click(function () {
         //var m =$(".more_N").style;
         //console.log(m);
         var top=$(".more_N").css('top');
-        console.log(top);
+
         if (top=="-245px"){
             $("#p1").remove();
             $(".more_N").css("display","none");
@@ -281,4 +279,11 @@ function openNewG(){
 var oBTN=document.getElementById("again");//获取元素结点
 oBTN.onclick=function(){
     openNewG();
+
+
+//打开pdf
+    $(function() {
+        $('a.media').media({width:800, height:600});
+    });
+
 }
