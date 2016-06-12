@@ -167,40 +167,24 @@
          */
         public function deletefolder( Request $request){
             $uid = session('id');
-            $foldername = $request->input('foldername')? $request->input('foldername') : "";
-            $foldergrade = $request->input('foldergrade')? $request->input('foldergrade') : "";
             $folderid = $request->input('folderid')? $request->input('folderid') : "";
-            if($uid && $foldername && $foldergrade && $folderid ){
-                /*递归查找
-                  * */
-              /*  $arr = array();
-                function digui($id, $arr,$index,$jijie){
-                    $sql =  "select folid from folders where folpreid='$id'";
-                    $res = DB::select($sql);
-                    if($res) {
-                        for($i = 0;$i < count($res);$i++){
-                            $arr[$index]['id'] = $res[$i]->folid;
-                            $arr[$index]['jijie'] = $jijie;
-                            $index++;
-                            digui($res[$i]->folid,$arr,$index,$jijie+1);
-                        }
-                    }else{
-                        return $arr;
-                    }
-                }*/
-                $sql01 = "select folid from folders where folpreid = ? and uid=? ";
-                $res01 = DB::select($sql01,[$folderid.$uid]);
-                if(count($res01) >= 2){
-                    return response("-2");
-                }else{
-                    $sql = "DELETE FROM folders where folid=? and grade=? and uid=?";
-                    $res = DB::delete($sql,[$folderid,$foldergrade,$uid]);
-                    if($res){
-                        return response("1");
-                    }else{
-                        return response("-3");
+            if($uid && $folderid ){
+                $arr = "(";
+                for($i =1;$i <= count($folderid);$i++){
+                    $arr .= $folderid[i];
+                    if($i != count($folderid)){
+                        $arr .= ",";
                     }
                 }
+                $arr .= ")";
+                $sql = "DELETE FROM folders where folid in ".$arr." and uid=?";
+                return $sql;
+              /*  $res = DB::delete($sql,[$folderid,$uid]);
+                if($res){
+                    return response("1");
+                }else{
+                    return response("-3");
+                }*/
             }else{
                 return response("-1");
             }
