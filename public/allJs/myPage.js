@@ -221,6 +221,8 @@ function keydownMsg(evt, filenamea, new_dir) {
         filenamea.firstChild.nodeValue = fname;
         new_dir.css({"display": "none"});
         document.getElementById("new_dir_fname").value = "新建文件夹";
+        con
+
         $.ajax({
             url: createfolder_url,
             type: 'post',

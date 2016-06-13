@@ -98,10 +98,10 @@ class ShowFilesController extends Controller
         if(session('id')) {
             $uid = session('id');
             $myid = $request->input('myid');
-            $sql = "SELECT folpreid FROM files WHERE fid=? and uid=?";
-            $res = DB::select($sql);
+            $sql = "SELECT folpreid FROM folders WHERE folid=? and uid=?";
+            $res = DB::select($sql,[$myid,$uid]);
             if ($res){
-                return $res[0];
+                return json_encode($res[0]);
             }else{
                 return response("-1");
             }

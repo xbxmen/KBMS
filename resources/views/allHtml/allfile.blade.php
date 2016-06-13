@@ -321,14 +321,15 @@
 						"myid" : preid
 					},
 					success: function(data) {//注册用户的信息返回到这里，data参数里
-						if(data == "-1"){
-							
-						}else if(data == "-2"){
-
+						if(data == -1){
+							alert('登录超时!');
+						}else if(data == -2){
+							alert("参数有错误！");
+						}else{
+							console.log(data['folpreid']);
 						}
 					}
 				});
-
 				grade--;
 			}
 
