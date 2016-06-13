@@ -4,8 +4,10 @@ function selectAll(beCheckobj){
 	allcheckBoxs=document.getElementsByName("file"); 
 	var check_all=document.getElementsByName("filegroup"); 
 	var currentfid,current_type;
+	console.log(allcheckBoxs);
 	if(beCheckobj.checked){ 
-		for(i=0;i<allcheckBoxs.length;i++){ 
+		for(i=0;i<allcheckBoxs.length-1;i++){
+			
 			allcheckBoxs[i].checked = true;
 			currentfid = allcheckBoxs[i].parentNode.getElementsByClassName("file_name")[0].id;
 			current_type = allcheckBoxs[i].getAttribute("data-type");
