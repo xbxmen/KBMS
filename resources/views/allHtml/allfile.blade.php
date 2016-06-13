@@ -36,7 +36,7 @@
 								<li class="col first-col">
 									<!--<input name="filegroup" class="allcheckbox" type="checkbox"/>-->
 									<!--<span class="black">&nbsp;</span>-->
-									<button class="return"><img src="./img/return.png"/></button>
+									<button class="return" onclick="BackPre()" id="back"><img src="./img/return.png"/></button>
 									<button class="foxfloder">新建文件夹</button>
 									<span class="text">文件名</span>
 								</li>
@@ -295,6 +295,9 @@
 			showFiles();
 		</script>
 		<script>
+			/*
+			* 获取单个文件夹里面的东西
+			* */
 			function myFolder(ele) {
 				$(".list").empty();
 				preid = ele.getAttribute("id");
@@ -305,6 +308,29 @@
 				showFolder();
 				showFiles();
 			}
+			/*
+			*返回上一级
+			* */
+			function BackPre() {
+				$.ajax({
+					url: '{{url('show/BackPre')}}',
+					type: 'post',
+					dataType: 'json',
+					data: {
+						"myid" : preid
+					},
+					success: function(data) {//注册用户的信息返回到这里，data参数里
+						if(data == "-1"){
+							
+						}else if(data == "-2"){
+
+						}
+					}
+				});
+
+				grade--;
+			}
+
 		</script>
 	</body>
 </html>

@@ -412,6 +412,7 @@
 	left: -158px;
     top: 3px;
     background: transparent;
+	cursor: pointer;
 }
 #load0{  
     width: 350px;  

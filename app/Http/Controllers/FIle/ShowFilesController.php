@@ -94,6 +94,22 @@ class ShowFilesController extends Controller
         }
     }
 
+    public function BackPre(Request $request){
+        if(session('id')) {
+            $uid = session('id');
+            $myid = $request->input('myid');
+            $sql = "SELECT folpreid FROM files WHERE fid=? and uid=?";
+            $res = DB::select($sql);
+            if ($res){
+                return $res[0];
+            }else{
+                return response("-1");
+            }
+        }else{
+            return response("-1");
+        }
+    }
+
     /*
      * 显示word内容
      * */
