@@ -44,17 +44,18 @@ class NotesController extends Controller
 
     public function newNoteBook(Request $request)
     {
+        $userId = $this->getId($request);
         if($re = $this->checkForm($request, ['folname']))
         {
             $re = implode(',', $re);
             return '参数不完整: 缺少'.$re;
         }
-        return $request->all();
         $book = new NoteBook($request->all());
         $book->folpreid = -1;
         $book->grade = 1;
         $book->type = 1;
         $book->updatetime = date("Y-m-d H:i:s");
+        $book->uid = $userId;
         $book->save();
         return 0;
         // $arr = [];

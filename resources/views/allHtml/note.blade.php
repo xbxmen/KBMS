@@ -50,6 +50,7 @@
                         <li id="p@{{$index + 1}}" ng-repeat="book in noteBooks">
                             <i class="pp_icon icon-file">&nbsp;</i> <span id="s11" style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden">@{{book.folname}}</span><span><i ng-init="initNoteBookMenuClick()" ng-click="changeNoteBookId(book.folid)" class="ppp_icon icon-tag" id="T@{{$index + 1}}"></i> </span>
                         </li>
+                        
                         <!--li id="p2" >
                            <i class="pp_icon icon-file">&nbsp;</i><span style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">我的笔记2</span><span><i class="ppp_icon icon-tag" id="T2"></i> </span>
                         </li>
@@ -73,7 +74,7 @@
         <div class="more" id="more_over">
             <ul ng-controller="noteBookController">
                 <li><p>刷新</p></li>
-                <li id="new2" ng-click="showNewBook()"><p>新建文件夹</p></li>
+                <li id="new2" ><p>新建文件夹</p></li>
             </ul>
         </div>
         <div class="more_N">
