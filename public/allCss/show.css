@@ -46,16 +46,12 @@
 	overflow: hidden;
 	color: #ffffff;
 }
-.head_one
-{
-	line-height: 33px;
-}
 .first-col {
 	width: 28%;
 }
 .text{
 	overflow: hidden;
-	/*display: inline-block;*/
+	margin-left: -40px;
 }
 .list_cols.col{
 	border-left: 1px solid #fff;
@@ -86,8 +82,8 @@
 }
 .black,.checkbox{
 	width: 16px;
-	
-	
+
+
 }
 /*.list{
 	overflow-y: scroll;
@@ -122,7 +118,7 @@
 .filename{
 	width: 50%;
 	position: relative;
-	
+
 }
 .file_name{
 	color: #727272;
@@ -196,11 +192,11 @@
 	background-repeat: no-repeat;*/
 	width:100%;
 	height: 450px;
-	
+
 }
 
 .photo_contanier{
-	
+
 	width: 450px;
 	height: 450px;
 	margin-left: 15%;
@@ -210,7 +206,7 @@
 	background-position: 50%;
 	background-repeat: no-repeat;
 	/*-webkit-transform:rotate(9deg);*/
-	
+
 }
 .img_nav_left,.img_nav_right{
 	position: relative;
@@ -242,7 +238,7 @@
 	background-image:url(../img/pre.png) ;
 	background-position: 50%;
 	left: 30px;
-	
+
 }
 .last_img{
 	background-image: url(../img/last.png);
@@ -304,7 +300,7 @@
  }
 .upload_main{
 	border-width:1px 1px 2px;
-	 border-style:solid; 
+	 border-style:solid;
 	 border-color:#ccc #ccc #ddd;
 	  background-color:#fbfbfb;
 	border-radius: 20px;
@@ -327,42 +323,42 @@
 	/*padding:1em;*/
 /*}*/
 .upload_drag_area{
-	display:inline-block; 
+	display:inline-block;
 	width:60%; padding:4em 0;
 	margin-left: 50px;
 	border:1px dashed #ddd;
-	/*background:#fff url(http://rescdn.qqmail.com/zh_CN/htmledition/images/func/dragfile07bf38.gif) no-repeat 20px center;*/ 
-	color:#999; 
-	text-align:center; 
+	/*background:#fff url(http://rescdn.qqmail.com/zh_CN/htmledition/images/func/dragfile07bf38.gif) no-repeat 20px center;*/
+	color:#999;
+	text-align:center;
 	vertical-align:middle;
 }
 .upload_drag_hover{
 	border-color:#069;
-	 box-shadow:inset 2px 2px 4px rgba(0, 0, 0, .5); 
+	 box-shadow:inset 2px 2px 4px rgba(0, 0, 0, .5);
 	 color:#333;
 }
 .upload_preview{
-	border-top:1px solid #bbb; 
-	border-bottom:1px solid #bbb; 
-	background-color:#fff; 
+	border-top:1px solid #bbb;
+	border-bottom:1px solid #bbb;
+	background-color:#fff;
 	overflow:scroll;
 	height: 320px;
 	_zoom:1;
 }
 .upload_append_list{
-	height:30px; 
-	padding:0 1em; 
+	height:30px;
+	padding:0 1em;
 	position:relative;
 }
 .upload_delete{
 	margin-left:2em;
 }
 .upload_image{
-	max-height:250px; 
+	max-height:250px;
 	padding:5px;
 }
 .upload_submit{
-	padding-top:1em; 
+	padding-top:1em;
 	padding-left:1em;
 }
 
@@ -387,7 +383,7 @@ input.upload_submit_btn:hover
 	text-decoration:none;
 }
 .upload_loading{
-	height:250px; 
+	height:250px;
 	/*background:url(http://www.zhangxinxu.com/study/image/loading.gif) no-repeat center;*/
 }
 
@@ -404,7 +400,7 @@ input.upload_submit_btn:hover
 	float:left;
 	height:41px;border-radius:4px;
 	background-color: #1a1921;
-	opacity: 0.7;
+	/*opacity: 0.7;*/
 	border:none;
 	cursor:pointer;
 	border-bottom:3px solid #ffffff;*border-bottom:none;
@@ -478,7 +474,6 @@ input.foxfloder:hover
 }
 
 
-<<<<<<< HEAD
 .return{
 	outline: none;
 	border: none;
@@ -487,25 +482,6 @@ input.foxfloder:hover
     top: 3px;
     background: transparent;
 	cursor: pointer;
-=======
-.re_icon{
-	/*outline: none;*/
-	/*border: none;*/
-	/*position: relative;*/
-	margin-left: -113px;
-    /*background: transparent;*/
-	width: 30px;
-	height: 40px;
-	/*background-color: #1e347b;*/
-	display: inline-block;
-}
-.return
-{
-	color: #ffffff;
-	font-size: 30px;
-margin-left: -20px;
-	text-align: center;
->>>>>>> 8a370dae360eeb0ced38f1979124578d4cdd63cb
 }
 #load0{  
     width: 350px;  

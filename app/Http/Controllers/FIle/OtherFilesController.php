@@ -104,23 +104,29 @@
                 $uid = session('id');
                 $fileid= $request->input('fileid')? $request->input('fileid') : "";
                 if($uid && $fileid){
-                    $arr = "(";
+                    $arr = "";
+                    if(count($fileid) >= 2){
+                        $arr = "in (";
+                    }else{
+                        $arr = "=";
+                    }
                     for($i =0;$i < count($fileid);$i++){
                         $arr .= $fileid[$i];
                         if($i != count($fileid)-1){
                             $arr .= ",";
                         }
                     }
-                    $arr .= ")";
-                    $sql01 = "SELECT * FROM files WHERE fid in ".$arr." and uid=?";
-                    return $sql01;
-                    $res01 =  DB::select($sql01,$uid);
+                    if(count($fileid) >= 2){
+                        $arr .= ")";
+                    }
+                    $sql01 = "SELECT * FROM files WHERE fid ".$arr." and uid=$uid";
+                    $res01 =  DB::select($sql01);
                     if($res01){
                         for( $k=0;$k<count($res01);$k++){
                             $result  = @unlink($res01[$k]->filepath);
                         }
                         if(!$result){
-                            $sql02 = "DELETE FROM files WHERE fid in ".$arr." and uid=?";
+                            $sql02 = "DELETE FROM files WHERE fid ".$arr." and uid=?";
                             return $sql02;
                             /*$res02 = DB::delete($sql02,$uid);
                             if ($res02){
@@ -238,14 +244,21 @@
                 $folderid = $request->input('folderid')? $request->input('folderid') : "";
                 if($uid && $folderid ){
                         var_dump($folderid);
-                        $arr = "(";
+                        $arr = "";
+                        if(count($folderid) >= 2){
+                            $arr = "in (";
+                        }else{
+                            $arr = "=";
+                        }
                         for($i =0;$i < count($folderid);$i++){
                             $arr .= $folderid[$i];
                             if($i != count($folderid)-1){
                                 $arr .= ",";
                             }
                         }
-                        $arr .= ")";
+                        if(count($folderid) >= 2){
+                            $arr .= ")";
+                        }
                         $sql = "DELETE FROM folders where folid in ".$arr." and uid=?";
                         return $sql;
                         /*  $res = DB::delete($sql,[$folderid,$uid]);
