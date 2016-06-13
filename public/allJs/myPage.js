@@ -214,9 +214,7 @@ function keydownMsg(evt, filenamea, new_dir) {
     var keyCode = evt.keyCode ? evt.keyCode : (evt.which ? evt.which : evt.charCode);
     if (keyCode == 13) {
         var fname = document.getElementById("new_dir_fname").value;
-        console.log(fname);//回车键弹出文本框信息
         filenamea.firstChild.nodeValue = fname;
-        console.log(filenamea.firstChild.nodeValue);
         new_dir.css({"display": "none"});
         document.getElementById("new_dir_fname").value = "新建文件夹";
         $.ajax({
