@@ -39,17 +39,19 @@
 }
 .list_head{
 	width: 100%;
-	background-color: #E5E5E5;
+	background-color: #1a1921;
+	opacity: 0.7;
 	list-style: none;
 	line-height: 41px;
 	overflow: hidden;
+	color: #ffffff;
 }
-.first-col{
-	width: 60%;
+.first-col {
+	width: 28%;
 }
 .text{
 	overflow: hidden;
-	
+	margin-left: -40px;
 }
 .list_cols.col{
 	border-left: 1px solid #fff;
@@ -142,13 +144,26 @@
 	background-repeat: no-repeat;
 }
 
-.doc{
-	background: url(../img/show_doc.png);
+/*.doc{*/
+	/*background: url(../img/show_doc.png);*/
+/*}*/
+.filename img
+{
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	display: inline-block;
+	margin-top: 2px;
 }
 .filesize{
-	width: 12%;
+	width: 21%;
 	text-align: center;
 	/*overflow: hidden;*/
+
+}
+.chen
+{
+	margin-left: 273px;
 }
 .filedate{
 	width:22%;
@@ -372,13 +387,38 @@ input.upload_submit_btn:hover
 	/*background:url(http://www.zhangxinxu.com/study/image/loading.gif) no-repeat center;*/
 }
 
-.foxfloder{
-	border: none;
-	position: relative;
-	left: -30%;
-	outline:#A1A1A1;
-	cursor: pointer;
-	}
+/*.foxfloder{*/
+	/*border: none;*/
+	/*position: relative;*/
+	/*left: -30%;*/
+	/*outline:#A1A1A1;*/
+	/*cursor: pointer;*/
+	/*}*/
+
+.foxfloder
+{
+	float:left;
+	height:41px;border-radius:4px;
+	background-color: #1a1921;
+	/*opacity: 0.7;*/
+	border:none;
+	cursor:pointer;
+	border-bottom:3px solid #ffffff;*border-bottom:none;
+	color:#fff;
+	font-size:10px;padding:0 5px;*width:40px;
+	text-align:center;
+	outline:none;
+	margin-left: -72px;
+	/*position: relative;*/
+	/*left: -30%;*/
+}
+input.foxfloder:hover
+{
+	background: #1a1921;
+	border-bottom:3px solid #1a1921;*border-bottom:none;
+	color:#fff;
+	text-decoration:none;
+}
 #new_dir_item{
 	list-style: none;
 	display: none;
@@ -532,4 +572,10 @@ input.upload_submit_btn:hover
 	border-color: #78C3F3;
 	color: #004974;
 	text-decoration: none;
+}
+.juan
+{
+	border: 1px solid #6eadaf;
+	width: 100px;
+	height: 30px;
 }

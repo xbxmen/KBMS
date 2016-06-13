@@ -33,15 +33,15 @@
 					<div class="show_content">
 						<input name="filegroup" class="allcheckbox" type="checkbox" onclick="boxSelect(this);"/>
 						<div class="list_cols">
+						<input class="foxfloder" type="button" value="新建文件夹">
 							<ul class="list_head">
 								<li class="col first-col">
 									<!--<input name="filegroup" class="allcheckbox" type="checkbox"/>-->
 									<!--<span class="black">&nbsp;</span>-->
 									<button class="return"><img src="./img/return.png"/></button>
-									<button class="foxfloder">新建文件夹</button>
 									<span class="text">文件名</span>
 								</li>
-								<li class="col" style="width: 12%;">
+								<li class="col chen" style="width: 12%;">
 									<span class="size">大小</span>
 								</li>
 								<li class="col last-col" style="width: 25%;">
@@ -156,7 +156,7 @@
 									<div class="samll_folder dir_small  inline_block">	
 									</div>
 									<div class="filename inline_block">
-										<input type="text" id="new_dir_fname" value="新建文件夹"/>
+										<input type="text" id="new_dir_fname" class="juan"  value="新建文件夹"/>
 									</div>
 									<div class="filesize inline_block">-</div>
 									<div class="filedate inline_block">-</div>
