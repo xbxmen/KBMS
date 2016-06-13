@@ -86,7 +86,7 @@
 										<div class="doc dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
-										<a class="media" class="file_name" href="guice.pdf" target="black">哈利波特全集</a>
+										<a class="media" class="file_name" href="guice.pdf" target="black">哈利波特全集.pdf</a>
 											<div class="operate inline_block ">
 												<a class="share" href="#"><img src="./img/share.png"></a>
 												<a class="download"  href="#"><img src="./img/download.png"></a>

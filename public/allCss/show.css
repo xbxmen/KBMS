@@ -418,3 +418,9 @@
 	width: 74%;
 	margin: 0 auto;
 }
+.show_icon
+{
+	background-color: #1e347b;
+	width: 100px;
+	height: 100px;
+}

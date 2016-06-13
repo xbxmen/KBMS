@@ -49,14 +49,33 @@ $(function(){
 
             $(".N_right").css("width","60%");
             $(".N_left_two").css("display","none");
-            $(".edit_text").css("width","54%");
-            $(".text_area").css("width","715px");
+            //$(".edit_text").css("width","54%");
+            //$(".text_area").css("width","715px");
+
+            $(".edit_text1").animate({
+                width:'54%',
+                //height : "400px"
+            },"slow");
+            $(".text_area").animate({
+                width:'715px',
+                //height : "400px"
+            },"slow");
         }else{
             $(".top_right img").attr("src","./img/kk.png");
             $(".N_left").css("width","250px");
             $(".N_right").css("width","45%");
-            $(".N_left_two").css("display","block");
 
+            $(".N_left_two").css("display","block");
+            //$(".edit_text").css("width","40%");
+            //$(".text_area").css("width","527px");
+            $(".edit_text1").animate({
+                width:'40%',
+                //height : "400px"
+            },"slow");
+            $(".text_area").animate({
+                width:'527px',
+                //height : "400px"
+            },"slow");
         }
     })
 

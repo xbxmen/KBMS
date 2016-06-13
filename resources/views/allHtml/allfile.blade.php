@@ -2,11 +2,12 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>ingServer我的</title>
+		<title>Upload_File</title>
 		<link rel="stylesheet" type="text/css" href="./allCss/base.css">
 		<link rel="stylesheet" type="text/css" href="./allCss/myPage.css" />
 		<link rel="stylesheet" type="text/css" href="./allCss/show.css" />
 		<link href="./allCss/common.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="./css/font-awesome.css">
 		<script type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="./allJs/moxie.js"></script>
 	</head>
@@ -168,19 +169,19 @@
 		    <div id="uploadmain">
 			    <div id="body" class="light">
 			        <div id="content" class="show">
-			            <div class="return_pre"><a href="#show_main">回到全部文件</a></div>
+			            <div class="return_pre"><a href="#show_main"><i class="show_icon icon-double-angle-left></i></a></div>
 			            <div class="demo">
 			                <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
 			                    <div class="upload_box">
 			                        <div class="upload_main">
 			                            <div class="upload_choose">
 			                                <input id="fileImage" type="file" size="30" name="fileselect[]" multiple />
-			                                <span id="fileDragArea" class="upload_drag_area">或者将图片拖到此处</span>
+			                                <span id="fileDragArea" class="upload_drag_area">或者将文件拖到此处</span>
 			                            </div>
 			                            <div id="preview" class="upload_preview"></div>
 			                        </div>
 			                        <div class="upload_submit">
-			                            <button type="button" id="fileSubmit" class="upload_submit_btn">确认上传图片</button>
+			                            <button type="button" id="fileSubmit" class="upload_submit_btn">确认上传</button>
 			                        </div>
 			                        <div id="uploadInf" class="upload_inf"></div>
 			                    </div>

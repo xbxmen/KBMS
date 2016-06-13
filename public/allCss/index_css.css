@@ -8,6 +8,60 @@
     overflow: hidden;
     margin-top: 10px;
 }
+.result
+{
+    width: 89%;
+    height: 250px;
+    margin-left: 5%;
+    border: 1px solid #4a4a4a;
+    overflow: auto;
+    margin-top: 10px;
+    display: none;
+}
+.S_two
+{
+    width: 100%;
+    height:auto;
+    margin-top: 0;
+    text-align: center;
+}
+
+#tbStu
+{
+    width: 100%;
+    height:auto;
+    /*border: 1px solid #b6b6ca;*/
+    margin-top: 5px;
+}
+#tbStu tr
+{
+    width: 98%;
+    height: auto;
+}
+#tbStu th
+{
+    border-width:0 1px 1px 0;
+    padding:10px 40px;
+    font-size: 20px;
+    color: #2ac1cf;
+}
+#tbStu td
+{
+    border-width:0 1px 1px 0;
+    padding:5px 0;
+
+    color:#46a546 ;
+}
+#tbStu table
+{
+    border-width:1px 0 0 1px;
+
+}
+
+#tbStu .trOdd
+{
+    background-color: #ffffff;
+}
 .bottom
 {
     width: 560px;
