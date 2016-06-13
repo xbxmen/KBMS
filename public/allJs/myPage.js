@@ -1,4 +1,5 @@
 var files = [];
+var createfolder_url = "{{url('upload/createfolder')}}";
 function addfile(src, isshare, isfolder, ischeck, file_type) {
     var file = {
         src: src,
