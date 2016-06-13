@@ -67,7 +67,7 @@
 												下载
 												<img src="./img/download.png">
 											</button>
-											<button class="delete">
+											<button class="delete" id="delete" onclick="deleteFF()">
 												删除
 												<img src="./img/delete.png">
 											</button>
@@ -136,7 +136,10 @@
 			</div>
 		</div>
 		<script>
-			var createfolder_url = "{{url('upload/createfolder')}}";
+			var createfolder_url = "{{url('file/createfolder')}}";
+			var deletefolder_url = "{{url('file/deletefolder')}}";
+			var deletefile_url = "{{url('file/deletefile')}}";
+
 			var preid = "{{session('preid')}}";
 			var grade = "{{session('grade')}}";
 			var foldertype = 2;

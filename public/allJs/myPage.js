@@ -100,9 +100,6 @@ $(function () {
 
 });
 
-
-
-
 var file_type;
 //根据选择的不同的文件类型来到不同的页面
 $(function () {
@@ -249,6 +246,49 @@ function keydownMsg(evt, filenamea, new_dir) {
 }
 addonload(shareFile());
 addonload(fokfloder());
+/*
+* 进行删除操作
+* */
+function deleteFF() {
+    if(folderarr.length > 0){
+        console.log(folderarr);
+        $.ajax({
+            url: deletefolder_url,
+            type: 'post',
+            data: {
+                "folderid": folderarr,
+            },
+            success: function (data) {//注册用户的信息返回到这里，data参数里
+                if (data == -1) {
+                    alert('登录超时!');
+                } else if (data == -2) {
+                    alert("参数有错误！");
+                } else {
+                    console.log(data);
+                }
+            }
+        });
+    }
+    if(filearr.length > 0){
+        console.log(filearr);
+        $.ajax({
+            url: deletefile_url,
+            type: 'post',
+            data: {
+                "fileid": filearr,
+            },
+            success: function (data) {//注册用户的信息返回到这里，data参数里
+                if (data == -1) {
+                    alert('登录超时!');
+                } else if (data == -2) {
+                    alert("参数有错误！");
+                } else {
+                    console.log(data);
+                }
+            }
+        });
+    }
+}
 
 $(function () {
     $("#btn_se").click(function () {
