@@ -34,12 +34,13 @@
 						<input name="filegroup" class="allcheckbox" type="checkbox" onclick="boxSelect(this);"/>
 						<div class="list_cols">
 						<input class="foxfloder" type="button" value="新建文件夹">
-							<ul class="list_head">
+							<ul class="list_head head_one">
 								<li class="col first-col">
 									<!--<input name="filegroup" class="allcheckbox" type="checkbox"/>-->
 									<!--<span class="black">&nbsp;</span>-->
-									<button class="return"><img src="./img/return.png"/></button>
-									<span class="text">文件名</span>
+
+									<div class="re_icon"><i class="return icon-double-angle-left"></i></div>
+									<span class="text" >文件名</span>
 								</li>
 								<li class="col chen" style="width: 12%;">
 									<span class="size">大小</span>

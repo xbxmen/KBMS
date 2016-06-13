@@ -46,12 +46,16 @@
 	overflow: hidden;
 	color: #ffffff;
 }
+.head_one
+{
+	line-height: 33px;
+}
 .first-col {
 	width: 28%;
 }
 .text{
 	overflow: hidden;
-	margin-left: -40px;
+	/*display: inline-block;*/
 }
 .list_cols.col{
 	border-left: 1px solid #fff;
@@ -400,7 +404,7 @@ input.upload_submit_btn:hover
 	float:left;
 	height:41px;border-radius:4px;
 	background-color: #1a1921;
-	/*opacity: 0.7;*/
+	opacity: 0.7;
 	border:none;
 	cursor:pointer;
 	border-bottom:3px solid #ffffff;*border-bottom:none;
@@ -474,13 +478,23 @@ input.foxfloder:hover
 }
 
 
-.return{
-	outline: none;
-	border: none;
-	position: relative;
-	left: -158px;
-    top: 3px;
-    background: transparent;
+.re_icon{
+	/*outline: none;*/
+	/*border: none;*/
+	/*position: relative;*/
+	margin-left: -113px;
+    /*background: transparent;*/
+	width: 30px;
+	height: 40px;
+	/*background-color: #1e347b;*/
+	display: inline-block;
+}
+.return
+{
+	color: #ffffff;
+	font-size: 30px;
+margin-left: -20px;
+	text-align: center;
 }
 #load0{  
     width: 350px;  
