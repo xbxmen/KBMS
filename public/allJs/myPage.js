@@ -247,6 +247,9 @@ function keydownMsg(evt, filenamea, new_dir) {
                     alert("参数有错误！");
                 } else if(data == 1){
                     alert('创建成功~~');
+                    $(".list").empty();
+                    showFolder();
+                    showFiles();
                 }else if(data == -3){
                     alert("文件名不可重复~");
                     $(".list li").first().remove();
@@ -276,6 +279,8 @@ function deleteFF() {
                     alert("参数有错误！");
                 } else {
                     alert("文件夹删除成功~~");
+                    $(".allcheckbox").prop("checked",false);
+                    $(".grid-cols").hide();
                     $(".list").empty();
                     showFolder();
                     showFiles();
@@ -298,6 +303,8 @@ function deleteFF() {
                     alert("参数有错误！");
                 } else if(data == 1) {
                     alert("文件删除成功~~");
+                    $(".allcheckbox").prop("checked",false);
+                    $(".grid-cols").hide();
                     $(".list").empty();
                     showFolder();
                     showFiles();

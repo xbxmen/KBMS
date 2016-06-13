@@ -262,7 +262,8 @@
 						type: 'post',
 						dataType: 'json',
 						data: {
-							"myid" : preid
+							"myid" : preid,
+							"mygrade" : grade
 						},
 						success: function(data) {//注册用户的信息返回到这里，data参数里
 							if(data == -1){
@@ -275,7 +276,6 @@
 								}else{
 									preid = data['folpreid'];
 								}
-								console.log(grade);
 								$(".list").empty();
 								showFolder();
 								showFiles();
