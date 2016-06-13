@@ -132,11 +132,22 @@ var ZXXFILE = {
 								alert('文件发送失败，请重新发送');
 								des.style.width='0%';
 							}else if(this.responseText == 'ok'){
+								xhr.open('POST', 'upload/file', true);
+								fd.append('filename', file.name);
+								fd.append('myname', time);
+								fd.append('succeed',"1");
+								fd.append('filesize',file.size);
+								fd.append('filefolder',preid);
+								fd.append('filegrade',grade);
+								console.log(grade+"当前的级别：");
+								xhr.send(fd);
+							}else if(this.responseText == 'succeed'){
 								alert('上传成功~~~');
+								location.reload();
 							} else {
 								start = end;
 								end=start + LENGTH;
-								//setTimeout(smallUp(), 1000);
+								setTimeout(smallUp(), 1000);
 							}
 						}
 					}
@@ -159,12 +170,7 @@ var ZXXFILE = {
 				fd.append('succeed',"-2");
 				xhr.send(fd);
 			}else{
-				xhr.open('POST', 'upload/file', true);
-				fd.append('mof', null);
-				fd.append('test', null);
-				fd.append('myname', null);
-				fd.append('succeed',"1");
-				xhr.send(fd);
+				return;
 			}
 		}
 
@@ -212,8 +218,9 @@ var ZXXFILE = {
 				fd.append('succeed',"1");
 				fd.append('filesize',file.size);
 				fd.append('filefolder',preid);
+				fd.append('filegrade',grade);
+				console.log(grade+"当前的级别：");
 				xhr.send(fd);
-				time = (new Date()).valueOf();
 			}
 
 
