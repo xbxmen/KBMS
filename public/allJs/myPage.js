@@ -135,6 +135,7 @@ var imgparams = {
                 console.log(file);
                 funAppendImage();
             } else {
+            	 $("#preview").html(html);
                 if (html) {
                     //删除方法
                     $(".upload_delete").click(function () {
@@ -143,10 +144,9 @@ var imgparams = {
                     });
                     //提交按钮显示
                     $("#fileSubmit").show();
-                    $("#load0").show();
+                   
                 } else {
                     //提交按钮隐藏
-                    $("#fileSubmit").hide();
                      $("#load0").hide();
                 }
             }
@@ -242,5 +242,13 @@ function keydownMsg(evt, filenamea, new_dir) {
         });
     }
 }
+function updatePro(percent){
+	var p = (percent/100)*$("#load0").width();
+	console.log(p);
+ 	$("#load-bar-inner").width(p);
+ 	
+    $('#counter').html(percent+'%');  
+}
+updatePro(10);
 addonload(shareFile());
 addonload(fokfloder());

@@ -104,6 +104,7 @@ var ZXXFILE = {
 		if (location.host.indexOf("sitepointstatic") >= 0) {
 			return;	
 		}
+		
 		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
 			if(this.fileFilter.length >= 2 ){
 				if(myfile.size >= 10*1024*1024){
@@ -115,6 +116,7 @@ var ZXXFILE = {
 				return;
 			}
 		}
+
 		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
 			console.log(myfile);
 			des=document.getElementById('load0');
@@ -128,6 +130,7 @@ var ZXXFILE = {
 				time = (new Date()).valueOf();
 				BigUp();
 			}
+
 		}
 
 		function smallUp() {
@@ -292,7 +295,11 @@ var ZXXFILE = {
 		}
 		
 		if (this.upButton) {
-			this.upButton.addEventListener("click", function(e) { self.funUploadFile(e); }, false);	
+			this.upButton.addEventListener("click", function(e) { 
+				$("#load0").show();
+				$("#fileSubmit").hide();
+				self.funUploadFile(e);
+			}, false);
 		} 
 	}
 };
