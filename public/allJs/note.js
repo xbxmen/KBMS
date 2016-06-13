@@ -1,6 +1,7 @@
 var baseUrl = 'http://localhost/KBMS/public/note/i/'
 
-angular.module('noteApp', []).controller('noteBookController', ['$scope', '$http', '$rootScope', function noteBookController($scope, $http, $rootScope){
+var app = angular.module('noteApp', []);
+app.controller('noteBookController', ['$scope', '$http', '$rootScope', function noteBookController($scope, $http, $rootScope){
     $rootScope.curNoteBookId = 1;
     
     $scope.getNoteBook = function(){
@@ -52,6 +53,7 @@ angular.module('noteApp', []).controller('noteBookController', ['$scope', '$http
     angular.element(".ppp_icon").click(ppp_click);
     }
 
+
     $scope.showNewBook = function(){
         angular.element('#new2').unbind('click');
         angular.element("#new2").click(function(){
@@ -78,7 +80,11 @@ angular.module('noteApp', []).controller('noteBookController', ['$scope', '$http
         });
     }
 
-    // $scope.init
+    $scope.getNote = function(folid){
+        $http.get(baseUrl+'folder/'+folid+'/note').then(function(response){
+            $rootScope.notes = response.data;
+        })
+    }
 
     $scope.init = function(){
         $scope.getNoteBook();
@@ -86,4 +92,10 @@ angular.module('noteApp', []).controller('noteBookController', ['$scope', '$http
     }
 
     $scope.init();
+}]);
+
+app.controller('noteController', ['$scope', '$http', '$rootScope', function noteController($scope, $http, $rootScope){
+    $scope.data = 'nihao';
+
+
 }]);
