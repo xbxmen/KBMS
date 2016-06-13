@@ -150,7 +150,7 @@
 							</ul>
 							<div id="new_dir_item">
 								<li class="fileshow_li">
-									<input class="checkbox" id="4" data-type="1" type="checkbox" onclick="boxSelect(this)"/>
+									<input  type="checkbox"/>
 									<div class="samll_folder dir_small  inline_block">	
 									</div>
 									<div class="filename inline_block">

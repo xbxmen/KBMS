@@ -74,7 +74,6 @@ function boxSelect(obj){
 			allcheckbox.checked = false;
 		}else{
 			allcheckbox.checked = true; 
-			
 		}
 	}
 	if(obj.getAttribute("class")=="allcheckbox"){
