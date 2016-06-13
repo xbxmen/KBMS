@@ -169,17 +169,17 @@ var imgparams = {
     }
 };
 //文件上传成功后文档视图页面增加一行//a的跳转还没有写
-function updatefloder(fname,fdate,fid,fgrade,ftype){//ftype是指是文件还是文件夹
-	var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox' data-type='"+ftype+"' onclick='boxSelect(this)'/><div class='samll_folder dir_small inline_block'></div>"
+function updatefloder(fname,fdate,fid,fgrade){//ftype是指是文件还是文件夹
+	var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox' data-type='1' onclick='boxSelect(this)'/><div class='samll_folder dir_small inline_block'></div>"
      +"<div class='filename inline_block'><p id='"+fid+"' class='file_name' onclick='myFolder(this)'  data-grade='"+fgrade+"'>"+fname+"</p><div class='operate inline_block '>"
 	+"<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"
 	+"<a class='menu'  href='#'><img src='./img/menu.png'></a></div></div><div class='filesize inline_block'>-"
 	+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";
     return flist;
 }
-function updateFile(fname,fsize,fdate,filetype,filesrc,fid,fgrade,ftype){//ftype是指是文件还是文件夹
-	var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox' data-type='"+ftype+"' onclick='boxSelect(this)'/><div class='"+ftype+" dir_small inline_block'></div>"
-     +"<div class='filename inline_block'><p id='"+fid+"' class='file_name' data-grade='"+fgrade+"'>"+fname+"</p><div class='operate inline_block '>"
+function updateFile(fname,fsize,fdate,filetype,filesrc,fid,fgrade){//ftype是指是文件还是文件夹
+	var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox' data-type='2' onclick='boxSelect(this)'/><div class='"+filetype+" dir_small inline_block'></div>"
+     +"<div class='filename inline_block'><p id='"+fid+"' class='file_name' data-src='"+filesrc+"' data-type='"+filetype+"' data-grade='"+fgrade+"'>"+fname+"</p><div class='operate inline_block '>"
 	+"<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"
 	+"<a class='menu'  href='#'><img src='./img/menu.png'></a></div></div><div class='filesize inline_block'>"
 	+fsize+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";

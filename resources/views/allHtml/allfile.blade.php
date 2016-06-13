@@ -222,17 +222,35 @@
 						}else{
 							console.log(data);
 							for(var i = 0;i<data.length;i++){
-								var fileli = $(updateFile("新建文件夹","12" ,currentTime(),"audio","","给我一个id"));
+								var fileli = $(updateFile(data[i]['filehead'],data[i]['filesize'] ,data[i]['updatetime'],mytype(data[i]['filetype']),data[i]['filepath'],data[i]['fid'],data[i]['filegrade']));
 								if($(".list li").first().length!=0){
 									fileli.insertBefore($(".list li").first());
 								}else{
 									$(".list").append(fileli);
 								}
 							}
+
 						}
 					}
 				});
 			}
+			/*
+			*判断类别的方法
+			* */
+			function mytype(type) {
+				if(type == 2){
+					return "doc";
+				}else if(type == 3){
+					return "image";
+				}else if(type == 4){
+					return "audio";
+				}else if(type == 5){
+					return "video";
+				}else if(type == 6){
+					return "bt";
+				}
+			}
+
 			function showFolder() {
 				$.ajax({
 					url: '{{url('show/folders')}}',
