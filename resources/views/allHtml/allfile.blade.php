@@ -23,7 +23,7 @@
 					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
 					<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
 					<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-					<div class="nav_R" id="upload"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
+					<div class="nav_R" id="upload"><input type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
 					<div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
 					<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 				</div>
@@ -84,7 +84,7 @@
 						<div>
 							<ul class="list">
 								<li class="fileshow_li">
-									<input name="file" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
+									<input name="file" id="1" data-type="0" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
 									<div class="samll_folder dir_small inline_block">
 									</div>
 									<div class="filename inline_block">
@@ -100,7 +100,7 @@
 									<div class="filedate inline_block"><span class="text">2016-05-26 13:22</span></div>
 								</li>
 								<li class="fileshow_li">
-									<input name="file" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
+									<input name="file" id="2" data-type="0" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
 									<div class="samll_folder dir_small inline_block">	
 									</div>
 									<div class="filename inline_block">
@@ -116,7 +116,7 @@
 									<div class="filedate inline_block">2016-05-26 13:22</div>
 								</li>
 								<li class="fileshow_li">
-									<input name="file" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
+									<input name="file" id="3" data-type="1" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
 									<div class="image dir_small inline_block">	
 									</div>
 									<div class="filename inline_block">
@@ -132,7 +132,7 @@
 									<div class="filedate inline_block">2016-05-26 13:22</div>
 								</li>
 								<li class="fileshow_li">
-									<input name="file" class="checkbox"  type="checkbox" onclick="boxSelect(this)"/>
+									<input name="file" id="3" data-type="1" class="checkbox"  type="checkbox" onclick="boxSelect(this)"/>
 									<div class="image dir_small inline_block">	
 									</div>
 									<div class="filename inline_block">
@@ -150,7 +150,7 @@
 							</ul>
 							<div id="new_dir_item">
 								<li class="fileshow_li">
-									<input name="file" class="checkbox"  type="checkbox" onclick="boxSelect(this)"/>
+									<input class="checkbox" id="4" data-type="1" type="checkbox" onclick="boxSelect(this)"/>
 									<div class="samll_folder dir_small  inline_block">	
 									</div>
 									<div class="filename inline_block">

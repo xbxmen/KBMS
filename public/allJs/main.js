@@ -4,10 +4,8 @@ function selectAll(beCheckobj){
 	allcheckBoxs=document.getElementsByName("file"); 
 	var check_all=document.getElementsByName("filegroup"); 
 	var currentfid,current_type;
-	console.log(allcheckBoxs);
 	if(beCheckobj.checked){ 
-		for(i=0;i<allcheckBoxs.length-1;i++){
-			
+		for(i=0;i<allcheckBoxs.length;i++){
 			allcheckBoxs[i].checked = true;
 			currentfid = allcheckBoxs[i].parentNode.getElementsByClassName("file_name")[0].id;
 			current_type = allcheckBoxs[i].getAttribute("data-type");
@@ -43,21 +41,20 @@ function hasCheck(checkbox,grid_list){
 }
 
 function push_current_file(current_type,currentfid){
-	if(current_type=="folder"){
+	if(current_type=="1"){
 		folderarr.push(currentfid);
-	}else{
+	}else if(current_type=="2"){
 			filearr.push(currentfid);
 	}
 }
 function remove_current_file(current_type,currentfid){
-	if(current_type=="folder"){
+	if(current_type=="1"){
 			folderarr.remove(currentfid);
-	}else{
+	}else if(current_type=="2"){
 			filearr.remove(currentfid);
 	}
 }
 function boxSelect(obj){
-	console.log(obj);
 	var allcheckbox = document.getElementsByClassName("allcheckbox")[0];//全选框
 	var checkbox = document.getElementsByClassName("checkbox");//选一个的框
 	var grid_list = document.getElementsByClassName("grid-cols")[0];//当有被选中时出现的效果
@@ -84,8 +81,6 @@ function boxSelect(obj){
 		selectAll(obj);
 		allcheck = hasCheck(checkbox,grid_list);
 	}
-	console.log(folderarr);
-	console.log(filearr);
 }
 Array.prototype.indexOf = function(val) {
 	for (var i = 0; i < this.length; i++) {
