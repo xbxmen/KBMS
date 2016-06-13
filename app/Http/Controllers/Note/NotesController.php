@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Note;
 use App\User;
 use App\Note;
 use App\NoteBook;
+use App\Folder;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class NotesController extends Controller
 
     private function getId($request)
     {
-        return $request->session()->has('id') ? $request->session('id') : 1;
+        return $request->session()->has('id') ? $request->session()->get('id') : 1;
     }
 
     private function checkForm($request, $rule)
@@ -43,15 +44,42 @@ class NotesController extends Controller
 
     public function newNoteBook(Request $request)
     {
-        if($re = $this->checkForm($request, ['foldername', 'folderpreid', 'foldergrade', 'foldertype']))
+        if($re = $this->checkForm($request, ['folname']))
         {
             $re = implode(',', $re);
             return '参数不完整: 缺少'.$re;
         }
-        // $noteBook = new NoteBook($request->all());
-        $f = new \App\Http\Controllers\FIle\OtherFilesController;
-        return $f->createfolder($request);
+        return $request->all();
+        $book = new NoteBook($request->all());
+        $book->folpreid = -1;
+        $book->grade = 1;
+        $book->type = 1;
+        $book->updatetime = date("Y-m-d H:i:s");
+        $book->save();
+        return 0;
+        // $arr = [];
+        // $arr['foldername'] = $request->input('foldername');
+        // $arr['folderpreid'] = -1;
+        // $arr['foldergrade'] = 1;
+        // $arr['foldertype'] = 1;
+        // $request->replace($arr);
+        // $f = new \App\Http\Controllers\FIle\OtherFilesController;
+        // return $f->createfolder($request);
         
+    }
+
+    public function optNoteBook(Request $request, $folderId)
+    {
+        if($request->input('opt') == 'del')
+        {
+            Folder::where('folid', $folderId)->delete();
+            return 0;
+        }
+        if($request->input('opt') == 'mdf')
+        {
+            Folder::where('folid', $folderId)->update($request->except('opt'));
+            return 0;
+        }
     }
 
     public function newNote(Request $request, $folderId)

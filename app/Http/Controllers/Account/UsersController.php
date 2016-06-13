@@ -28,6 +28,8 @@ class UsersController extends Controller
                 session(['id' => ($res[0]->uid)]);
                 session(['username'=>$res[0]->username]);
                 session(['icon'=>$res[0]->icon]);
+                session(['preid'=>'-1']);
+                session(['grade'=>'1']);
                 return response("1")->withCookie(cookie('account',$res[0]->account,60))
                                     ->withCookie(cookie('password',$res[0]->password,60));
             }else{

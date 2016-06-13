@@ -1,5 +1,4 @@
 var files = [];
-var createfolder_url = "{{url('upload/createfolder')}}";
 function addfile(src, isshare, isfolder, ischeck, file_type) {
     var file = {
         src: src,
@@ -246,14 +245,6 @@ function keydownMsg(evt, filenamea, new_dir) {
         });
     }
 }
-function updatePro(percent){
-	var p = (percent/100)*$("#load0").width();
-	console.log(p);
- 	$("#load-bar-inner").width(p);
- 	
-    $('#counter').html(percent+'%');  
-}
-updatePro(10);
 addonload(shareFile());
 addonload(fokfloder());
 
