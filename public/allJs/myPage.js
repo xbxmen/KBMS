@@ -16,7 +16,6 @@ addfile("等待后台给我文件3", false, false, false, "image");
 addfile("等待后台给我文件4", false, false, false, "image");
 addfile("等待后台给我文件5", false, false, false, "image");
 addfile("等待后台给我文件5", false, false, false, "image");
-console.log(files);
 function shareFile() {
 //	var file_list =document.getElementsByClassName("fileshow_li");
     var tip_parent = document.getElementsByClassName("show_main")[0];
@@ -24,9 +23,8 @@ function shareFile() {
     for (var i = 0; i < share.length; i++) {
         share[i].index = i;
 //		var share = file_list[i].getElementsByClassName("share")[0];
-        console.log(share);
+//      console.log(share);
         on(share[i], "click", function (e) {
-            console.log(this.index);
             if (files[this.index].isshare) {
                 files[this.index].isshare = false;
                 Addtip(tip_parent, "取消分享");
@@ -171,22 +169,20 @@ var imgparams = {
     }
 };
 //文件上传成功后文档视图页面增加一行//a的跳转还没有写
-function updatefloder(fname,fdate,fid,fgrade){
-	var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox'/><div class='samll_folder dir_small inline_block'></div>"
+function updatefloder(fname,fdate,fid,fgrade,ftype){//ftype是指是文件还是文件夹
+	var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox' data-type='"+ftype+"' onclick='boxSelect(this)'/><div class='samll_folder dir_small inline_block'></div>"
      +"<div class='filename inline_block'><p id='"+fid+"' class='file_name' onclick='myFolder(this)'  data-grade='"+fgrade+"'>"+fname+"</p><div class='operate inline_block '>"
 	+"<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"
 	+"<a class='menu'  href='#'><img src='./img/menu.png'></a></div></div><div class='filesize inline_block'>-"
 	+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";
     return flist;
 }
-function updateFile(fname,fsize,fdate,ftype,filesrc,fid,fgrade){
-	var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox'/><div class='"+ftype+" dir_small inline_block'></div>"
+function updateFile(fname,fsize,fdate,filetype,filesrc,fid,fgrade,ftype){//ftype是指是文件还是文件夹
+	var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox' data-type='"+ftype+"' onclick='boxSelect(this)'/><div class='"+ftype+" dir_small inline_block'></div>"
      +"<div class='filename inline_block'><p id='"+fid+"' class='file_name' data-grade='"+fgrade+"'>"+fname+"</p><div class='operate inline_block '>"
 	+"<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"
 	+"<a class='menu'  href='#'><img src='./img/menu.png'></a></div></div><div class='filesize inline_block'>"
 	+fsize+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";
-//	var ful = document.getElementsByClassName("list")[0];
-//	ful.append(flist);
     return flist;
 }
 
