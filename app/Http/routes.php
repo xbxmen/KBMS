@@ -73,13 +73,16 @@ Route::post('account/register', 'Account\UsersController@register');
  * */
 Route::post('show/files', 'File\ShowFilesController@showFiles');
 Route::post('show/folders', 'File\ShowFilesController@showFolders');
-Route::post('upload/createfolder', 'File\OtherFilesController@createfolder');
-
-Route::post('upload/file', 'File\OtherFilesController@upload');
+Route::post('show/BackPre', 'File\ShowFilesController@BackPre');
+Route::post('file/createfolder', 'File\OtherFilesController@createfolder');
+Route::post('file/deletefolder', 'File\OtherFilesController@deletefolder');
+Route::post('file/deletefile', 'File\OtherFilesController@delete');
+Route::post('file/upload', 'File\OtherFilesController@upload');
 
 Route::group(['namespace' => 'Note', 'prefix' => 'note', 'middleware' => 'login'], function(){
     Route::get('i/folder', 'NotesController@getAllNoteBooks');
     Route::post('i/folder', 'NotesController@newNoteBook');
+    Route::post('i/folder/{folderId}', 'NotesController@optNoteBook');
     Route::post('i/folder/{folderId}/note', 'NotesController@newNote');
     Route::get('i/folder/{folderId}/note', 'NotesController@getAllNotes');
     Route::post('i/folder/{folderId}/note/{noteId}', 'NotesController@optNote');

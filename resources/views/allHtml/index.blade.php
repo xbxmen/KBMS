@@ -47,6 +47,20 @@
         </ul>
     </div>
 </div>
+
+<div class="result">
+    <div class="S_two">
+        <table class="S_ta" id="tbStu">
+            <tr><th>文件</th><th>文件名</th><th>文件大小</th><th>创建时间</th></tr>
+            <tr><td><img src="./img/folder.png"></td><td>xxxx</td><td>130KB</td><td>2016/4/1</td></tr>
+            <tr><td><img src="./img/file_vi.png"></td><td>xxxx</td><td>130KB</td><td>2016/4/1</td></tr>
+            <tr><td><img src="./img/folder.png"></td><td>xxxx</td><td>130KB</td><td>2016/4/1</td></tr>
+            <tr><td><img src="./img/folder.png"></td><td>xxxx</td><td>130KB</td><td>2016/4/1</td></tr>
+            <tr><td><img src="./img/folder.png"></td><td>xxxx</td><td>130KB</td><td>2016/4/1</td></tr>
+            <tr><td><img src="./img/folder.png"></td><td>xxxx</td><td>130KB</td><td>2016/4/1</td></tr>
+        </table>
+    </div>
+</div>
 <div class="bottom">
     <div class="bottom_left">
         <i id="btn_sea" class="bottom_left_icon icon-search"></i>
@@ -56,29 +70,7 @@
     </div>
     <div class="bottom_right" id="btn_se"><p >Search</p></div>
 </div>
-<div id="uploadmain">
-    <div id="body" class="light">
-        <div id="content" class="show">
-            <div class="return_pre"><a href="#show_main">回到图片</a></div>
-            <div class="demo">
-                <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
-                    <div class="upload_box">
-                        <div class="upload_main">
-                            <div class="upload_choose">
-                                <input id="fileImage" type="file" size="30" name="fileselect[]" multiple />
-                                <span id="fileDragArea" class="upload_drag_area">或者将图片拖到此处</span>
-                            </div>
-                            <div id="preview" class="upload_preview"></div>
-                        </div>
-                        <div class="upload_submit">
-                            <button type="button" id="fileSubmit" class="upload_submit_btn">确认上传图片</button>
-                        </div>
-                        <div id="uploadInf" class="upload_inf"></div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 </body>
 </html>

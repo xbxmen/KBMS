@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="noteApp">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/font-awesome.css">
     <link href="./allCss/common.css" rel="stylesheet" type="text/css">
     <link href="./allCss/Nnote_css.css" rel="stylesheet" type="text/css">
     <script language="JavaScript" type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
+    <script language="JavaScript" src="js/angular.min.js"></script>
+    <script language="JavaScript" src="allJs/note.js"></script>
     <title>my_note</title>
 </head>
 <body>
@@ -41,14 +43,15 @@
                 <form action="#"  method="post">
                     <input type="text" class="N_search_text">
                 </form>
-
                 <p>文件夹</p><span><i class="p_icon icon-tags"></i> </span>
-                <div class="note_nav">
-                    <ul id="my_ul">
-                        <li id="p1">
-                            <i class="pp_icon icon-file">&nbsp;</i> <span id="s11" style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden">我的笔记</span><span><i class="ppp_icon icon-tag" id="T1"></i> </span>
+                <div class="note_nav" ng-controller="noteBookController">
+                    <ul id="my_ul" >
+                    @{{curNoteBookId}}
+                        <li id="p@{{$index + 1}}" ng-repeat="book in noteBooks">
+                            <i class="pp_icon icon-file">&nbsp;</i> <span id="s11" ng-click="getNote(book.folid)" style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden">@{{book.folname}}</span><span><i ng-init="initNoteBookMenuClick()" ng-click="changeNoteBookId(book.folid)" class="ppp_icon icon-tag" id="T@{{$index + 1}}"></i> </span>
                         </li>
-                        <li id="p2" >
+                        
+                        <!--li id="p2" >
                            <i class="pp_icon icon-file">&nbsp;</i><span style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">我的笔记2</span><span><i class="ppp_icon icon-tag" id="T2"></i> </span>
                         </li>
                         <li id="p3">
@@ -56,42 +59,42 @@
                         </li>
                         <li id="new">
                             <i class="pp_icon_more icon-plus-sign">&nbsp;</i><span  style="color: #3c84af;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">新建文件夹</span><span> </span>
-                        </li>
+                        </li-->
                     </ul>
-                    <div class="build">
+                    <div class="build" ng-controller="noteBookController">
                         <i class="pp_icon icon-file">&nbsp;</i><span>
-                            <form action="#"  method="post">
-                                <input type="text" class="N_text">
-                            </form></span><i class="ppp_icon_p icon-tag"></i> </span>
+                            <!--form action="#"  method="post"></form-->
+                                <input type="text" class="N_text" ng-click="newNoteBook()"/><button></button>
+                            </span><i class="ppp_icon_p icon-tag"></i> </span>
                     </div>
                 </div>
 
             </div>
         </div>
         <div class="more" id="more_over">
-            <ul>
+            <ul ng-controller="noteBookController">
                 <li><p>刷新</p></li>
-                <li id="new2"><p>新建文件夹</p></li>
+                <li id="new2" ><p>新建文件夹</p></li>
             </ul>
         </div>
         <div class="more_N">
-            <ul>
+            <ul ng-controller="noteBookController">
                 <li id="again"><p>重命名</p></li>
-                <li id="delete"><p>删除</p></li>
+                <li id="delete" ng-click="deleteNoteBook()"><p>删除</p></li>
             </ul>
         </div>
 
     </div>
-    <div class="N_middle">
-        <ul id="ul">
-            <li id="N1" class="List">
+    <div class="N_middle" >
+        <ul id="ul" ng-controller="noteController">
+            <li id="N@{{$index+1}}" class="List" ng-repeat="note in notes">
                 <div class="middle_header">
-                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记1</span></div>
-                    <div class="N_two" id="N_two_text"><p>尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
-                    <div class="N_three">2016/6/6 18:06</div>
+                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>@{{note.notehead}}</span></div>
+                    <div class="N_two" id="N_two_text"><p>@{{note.notebody}}</p></div>
+                    <div class="N_three">@{{note.createtime}}</div>
                 </div>
             </li>
-            <li id="N2" class="List">
+            <!--li id="N2" class="List">
                 <div class="middle_header">
                     <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记2</span></div>
                     <div class="N_two"><p>阿拉拉拉拉拉有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
@@ -111,7 +114,7 @@
                     <div class="N_two"><p>拉拉拉阿拉尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
                     <div class="N_three">2016/6/6 18:06</div>
                 </div>
-            </li>
+            </li-->
         </ul>
     </div>
     <div class="N_right">
@@ -135,9 +138,9 @@
         <div class="ad_ag">
         <p><i class="alt_ag">~重命名~</i></p>
         <ul class="load_cont_ag">
-            <form action="#" >
-                <li class="l_tit_ag">新的名字<input type="text"  id='mname' class="load_input_ag"></li>
-                <li><div style="padding-left:5px;margin-top:5px;"><input type="button" value="submit" style="width:100px;" class="button_blue_ag" onclick="add_admin()"/></div></li>
+            <form action="#" ng-controller="noteBookController">
+                <li class="l_tit_ag">新的名字<input type="text"  id='mname' class="load_input_ag" ng-model="name" ></li>
+                <li><div style="padding-left:5px;margin-top:5px;"><input type="button" value="submit" style="width:100px;" class="button_blue_ag" ng-click="modifyNoteBookName(name)"/></div></li>
             </form>
         </ul>
     </div>

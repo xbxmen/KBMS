@@ -77,7 +77,8 @@ var ZXXFILE = {
 		this.fileFilter = arrFile;
 		return this;
 	},
-	
+
+
 	//上传相关
 	funUploadFile: function() {
 		var xhr=new XMLHttpRequest();
@@ -133,10 +134,16 @@ var ZXXFILE = {
 
 		}
 
+		function updatePro(percent){
+			var p = (Math.floor(percent/100))*$("#load0").width();
+			$("#load-bar-inner").width(p);
+			$('#counter').html(percent+'%');
+		}
+
 		function smallUp() {
 			time = (new Date()).valueOf();
 			if (start < file.size) {
-				xhr.open('POST', 'upload/file', true);
+				xhr.open('POST', 'file/upload', true);
 				xhr.onreadystatechange=function() {
 					if (this.readyState==4) {
 						if (this.status >= 200 && this.status < 300) {
@@ -150,7 +157,7 @@ var ZXXFILE = {
 									if(timeArr[i][0]){
 										console.log("sss");
 										var newxhr = new XMLHttpRequest();
-										newxhr.open('POST', 'upload/file', true);
+										newxhr.open('POST', 'file/upload', true);
 										fd.append('filename',  timeArr[i][1]);
 										fd.append('myname', timeArr[i][0]);
 										fd.append('succeed',"1");
@@ -183,7 +190,8 @@ var ZXXFILE = {
 						if (pecent > 100) {
 							pecent = 100;
 						}
-						//des.style.width=pecent + '%';
+						updatePro(pecent);
+						//des.style.width = pecent + '%';
 						//des.innerHTML=parseInt(pecent) + '%'
 					}
 				}
@@ -205,7 +213,7 @@ var ZXXFILE = {
 
 		function BigUp() {
 			if (start < file.size) {
-				xhr.open('POST', 'upload/file', true);
+				xhr.open('POST', 'file/upload', true);
 				xhr.onreadystatechange=function() {
 					if (this.readyState==4) {
 						if (this.status >= 200 && this.status < 300) {
@@ -229,8 +237,9 @@ var ZXXFILE = {
 						if (pecent > 100) {
 							pecent = 100;
 						}
-						//	des.style.width=pecent + '%';
-						//	des.innerHTML=parseInt(pecent) + '%'
+						updatePro(pecent);
+						//des.style.width=pecent + '%';
+						//des.innerHTML=parseInt(pecent) + '%'
 					}
 				}
 				blob=file.slice(start, end);
@@ -241,7 +250,7 @@ var ZXXFILE = {
 				fd.append('succeed',"-1");
 				xhr.send(fd);
 			}else{
-				xhr.open('POST', 'upload/file', true);
+				xhr.open('POST', 'file/upload', true);
 				fd.append('filename', file.name);
 				fd.append('myname', time);
 				fd.append('succeed',"1");
@@ -251,34 +260,7 @@ var ZXXFILE = {
 				console.log(grade+"当前的级别：");
 				xhr.send(fd);
 			}
-
-
-			/*(function(file) {
-			 var xhr = new XMLHttpRequest();
-			 if (xhr.upload) {
-			 xhr.upload.addEventListener("progress", function(e) {
-			 self.onProgress(file, e.loaded, e.total);
-			 }, false);
-			 xhr.onreadystatechange = function(e) {
-			 if (xhr.readyState == 4) {
-			 if (xhr.status == 200) {
-			 self.onSuccess(file, xhr.responseText);
-			 self.funDeleteFile(file);
-			 if (!self.fileFilter.length) {
-			 self.onComplete();
-			 }
-			 } else {
-			 self.onFailure(file, xhr.responseText);
-			 }
-			 }
-			 };
-			 xhr.open("POST", self.url, true);
-			 xhr.setRequestHeader("X_FILENAME", file.name);
-			 xhr.send(file);
-			 }
-			 })(file);	*/
 		}
-			
 	},
 	
 	init: function() {

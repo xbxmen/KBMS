@@ -44,6 +44,8 @@ class ShowFilesController extends Controller
             $uid = session('id');
             $filegrade = $request->input('filegrade')? $request->input('filegrade'): "";
             $filepreid = $request->input('filepreid')? $request->input('filepreid'): "";
+            session(['preid'=>$filepreid]);
+            session(['grade'=>$filegrade]);
             if($uid && $filegrade && $filepreid != ""){
                 if($filepreid == -1){
                     $sql = "SELECT * from files WHERE filegrade=? and uid=?";
@@ -84,6 +86,22 @@ class ShowFilesController extends Controller
                     $res = DB::select($sql,[$filegrade,$filetype,$filepreid,$uid]);
                     return json_encode($res);
                 }
+            }else{
+                return response("-2");
+            }
+        }else{
+            return response("-1");
+        }
+    }
+
+    public function BackPre(Request $request){
+        if(session('id')) {
+            $uid = session('id');
+            $myid = $request->input('myid');
+            $sql = "SELECT folpreid FROM folders WHERE folid=? and uid=?";
+            $res = DB::select($sql,[$myid,$uid]);
+            if ($res){
+                return json_encode($res[0]);
             }else{
                 return response("-2");
             }

@@ -49,7 +49,7 @@
                     $filesize = $_POST['filesize']? round( $_POST['filesize']/(1024*1024),2): "" ;
                     $filesize .= "M";
                     $filegrade =  $_POST['filegrade']? $_POST['filegrade']: "";
-                    $createtime = $updatetime =  date("Y-M-D H:i:sa");
+                    $createtime = $updatetime =  date("Y-m-d H:i:s");
                     $filetype = $this->MyType($type);
                     if($filepath && $filehead && $filefolder && $filesize && $filegrade){
                         $sql  = "INSERT INTO files (filehead,filetype,filesize,filegrade,createtime,updatetime,filefolder,filepath,uid)
@@ -104,18 +104,30 @@
                 $uid = session('id');
                 $fileid= $request->input('fileid')? $request->input('fileid') : "";
                 if($uid && $fileid){
-                    $sql01 = "SELECT * FROM files WHERE  fileid=? and uid=?";
-                    $res01 =  DB::select($sql01,[$fileid,$uid]);
+                    $arr = "(";
+                    for($i =0;$i < count($fileid);$i++){
+                        $arr .= $fileid[$i];
+                        if($i != count($fileid)-1){
+                            $arr .= ",";
+                        }
+                    }
+                    $arr .= ")";
+                    $sql01 = "SELECT * FROM files WHERE fid in ".$arr." and uid=?";
+                    return $sql01;
+                    $res01 =  DB::select($sql01,$uid);
                     if($res01){
-                        $result  = @unlink('./upload/'.$res01[0]->filehead);
+                        for( $k=0;$k<count($res01);$k++){
+                            $result  = @unlink($res01[$k]->filepath);
+                        }
                         if(!$result){
-                            $sql02 = "DELETE FROM files WHERE fileid=? and uid=?";
-                            $res02 = DB::delete($sql02,[$fileid,$uid]);
+                            $sql02 = "DELETE FROM files WHERE fid in ".$arr." and uid=?";
+                            return $sql02;
+                            /*$res02 = DB::delete($sql02,$uid);
                             if ($res02){
                                 return response("1");
                             }else{
                                 return response("-5");
-                            }
+                            }*/
                         }else{
                             return response("-4");
                         }
@@ -178,8 +190,8 @@
                 $foldertype = $request->input('foldertype')? $request->input('foldertype') : "";
                 $updatetime = date("Y-m-d H:i:s");
                 if($uid && $foldername && $folderpreid != "" && $foldergrade && $foldertype){
-                    $sql01 = "SELECT * from folders WHERE folname=? and uid=? and grade=?";
-                    $res01 = DB::select($sql01,[$foldername,$uid,$foldergrade]);
+                    $sql01 = "SELECT * from folders WHERE folname=? and uid=? and folpreid=? and grade=?";
+                    $res01 = DB::select($sql01,[$foldername,$uid,$folderpreid,$foldergrade]);
                     if(!$res01){
                         /*
                          * 查看最大的索引
@@ -221,25 +233,30 @@
          * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
          */
         public function deletefolder( Request $request){
-            $uid = session('id');
-            $folderid = $request->input('folderid')? $request->input('folderid') : "";
-            if($uid && $folderid ){
-                $arr = "(";
-                for($i =1;$i <= count($folderid);$i++){
-                    $arr .= $folderid[i];
-                    if($i != count($folderid)){
-                        $arr .= ",";
-                    }
-                }
-                $arr .= ")";
-                $sql = "DELETE FROM folders where folid in ".$arr." and uid=?";
-                return $sql;
-              /*  $res = DB::delete($sql,[$folderid,$uid]);
-                if($res){
-                    return response("1");
+            if( session('id')){
+                $uid = session('id');
+                $folderid = $request->input('folderid')? $request->input('folderid') : "";
+                if($uid && $folderid ){
+                        var_dump($folderid);
+                        $arr = "(";
+                        for($i =0;$i < count($folderid);$i++){
+                            $arr .= $folderid[$i];
+                            if($i != count($folderid)-1){
+                                $arr .= ",";
+                            }
+                        }
+                        $arr .= ")";
+                        $sql = "DELETE FROM folders where folid in ".$arr." and uid=?";
+                        return $sql;
+                        /*  $res = DB::delete($sql,[$folderid,$uid]);
+                          if($res){
+                              return response("1");
+                          }else{
+                              return response("-3");
+                          }*/
                 }else{
-                    return response("-3");
-                }*/
+                    return response("-2");
+                }
             }else{
                 return response("-1");
             }

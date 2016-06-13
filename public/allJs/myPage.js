@@ -1,5 +1,4 @@
 var files = [];
-var createfolder_url = "{{url('upload/createfolder')}}";
 function addfile(src, isshare, isfolder, ischeck, file_type) {
     var file = {
         src: src,
@@ -86,10 +85,10 @@ $(function () {
         $(".show_main").css("display", "none");
         $(".nav").css("display", "none");
         $("#uploadmain").css("display", "block");
-        console.log("hello")
+        console.log("hello");
     });
     //点击回到图片回到图显示图片的界面
-    $(".return_pre").on("click", function () {
+    $(".w_icon").on("click", function () {
         if (confirm("确定退出上传？")) {
             $("#uploadmain").css("display", "none");
             $(".show_main").css("display", "block");
@@ -98,6 +97,7 @@ $(function () {
         }
 
     });
+
 });
 
 var file_type;
@@ -218,6 +218,8 @@ function keydownMsg(evt, filenamea, new_dir) {
         filenamea.firstChild.nodeValue = fname;
         new_dir.css({"display": "none"});
         document.getElementById("new_dir_fname").value = "新建文件夹";
+        console.log(grade);
+
         $.ajax({
             url: createfolder_url,
             type: 'post',
@@ -242,13 +244,55 @@ function keydownMsg(evt, filenamea, new_dir) {
         });
     }
 }
-function updatePro(percent){
-	var p = (percent/100)*$("#load0").width();
-	console.log(p);
- 	$("#load-bar-inner").width(p);
- 	
-    $('#counter').html(percent+'%');  
-}
-updatePro(10);
 addonload(shareFile());
 addonload(fokfloder());
+/*
+* 进行删除操作
+* */
+function deleteFF() {
+    if(folderarr.length > 0){
+        console.log(folderarr);
+        $.ajax({
+            url: deletefolder_url,
+            type: 'post',
+            data: {
+                "folderid": folderarr,
+            },
+            success: function (data) {//注册用户的信息返回到这里，data参数里
+                if (data == -1) {
+                    alert('登录超时!');
+                } else if (data == -2) {
+                    alert("参数有错误！");
+                } else {
+                    console.log(data);
+                }
+            }
+        });
+    }
+    if(filearr.length > 0){
+        console.log(filearr);
+        $.ajax({
+            url: deletefile_url,
+            type: 'post',
+            data: {
+                "fileid": filearr,
+            },
+            success: function (data) {//注册用户的信息返回到这里，data参数里
+                if (data == -1) {
+                    alert('登录超时!');
+                } else if (data == -2) {
+                    alert("参数有错误！");
+                } else {
+                    console.log(data);
+                }
+            }
+        });
+    }
+}
+
+$(function () {
+    $("#btn_se").click(function () {
+        $(".ad").hide();
+        $(".result").show();
+    })
+})

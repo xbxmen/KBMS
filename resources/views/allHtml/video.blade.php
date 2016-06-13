@@ -36,7 +36,7 @@
 								<li class="col first-col">
 									<span class="text">文件名</span>
 								</li>
-								<li class="col" style="width: 16%;">
+								<li class="col chen" style="width: 16%;">
 									<span class="size">大小</span>
 								</li>
 								<li class="col last-col" style="width: 21%;">
