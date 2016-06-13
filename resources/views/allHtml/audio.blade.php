@@ -40,7 +40,7 @@
 									
 									<span class="text">文件名</span>
 								</li>
-								<li class="col" style="width: 12%;">
+								<li class="col chen" style="width: 12%;">
 									<span class="size">大小</span>
 								</li>
 								<li class="col last-col" style="width: 25%;">

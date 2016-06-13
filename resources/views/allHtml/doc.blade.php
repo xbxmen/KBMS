@@ -36,7 +36,7 @@
 								<li class="col first-col">
 									<span class="text">文件名</span>
 								</li>
-								<li class="col" style="width: 12%;">
+								<li class="col chen" style="width: 12%;">
 									<span class="size">大小</span>
 								</li>
 								<li class="col last-col" style="width: 25%;">
@@ -86,6 +86,7 @@
 										<div class="doc dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
+										<img src="./img/show_doc.png">
 										<a class="media" class="file_name" href="guice.pdf" target="black">哈利波特全集.pdf</a>
 											<div class="operate inline_block ">
 												<a class="share" href="#"><img src="./img/share.png"></a>
@@ -102,6 +103,7 @@
 										<div class="doc dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
+										<img src="./img/show_doc.png">
 											<a href="#" class="file_name" >哈利波特全集</a>
 											<div class="operate inline_block ">
 												<a class="share" href="#"><img src="./img/share.png"></a>
@@ -118,6 +120,7 @@
 										<div class="doc dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
+										<img src="./img/show_doc.png">
 											<a href="#" class="file_name">哈利波特全集</a>
 											<div class="operate inline_block ">
 												<a class="share" href="#"><img src="./img/share.png"></a>
@@ -134,6 +137,7 @@
 										<div class="doc dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
+										<img src="./img/show_doc.png">
 											<a href="#" class="file_name">哈利波特全集</a>
 											<div class="operate inline_block ">
 												<a class="share" href="#"><img src="./img/share.png"></a>

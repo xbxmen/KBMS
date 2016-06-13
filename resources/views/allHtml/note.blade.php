@@ -48,8 +48,9 @@
                     <ul id="my_ul" >
                     @{{curNoteBookId}}
                         <li id="p@{{$index + 1}}" ng-repeat="book in noteBooks">
-                            <i class="pp_icon icon-file">&nbsp;</i> <span id="s11" style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden">@{{book.folname}}</span><span><i ng-init="initNoteBookMenuClick()" ng-click="changeNoteBookId(book.folid)" class="ppp_icon icon-tag" id="T@{{$index + 1}}"></i> </span>
+                            <i class="pp_icon icon-file">&nbsp;</i> <span id="s11" ng-click="getNote(book.folid)" style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden">@{{book.folname}}</span><span><i ng-init="initNoteBookMenuClick()" ng-click="changeNoteBookId(book.folid)" class="ppp_icon icon-tag" id="T@{{$index + 1}}"></i> </span>
                         </li>
+                        
                         <!--li id="p2" >
                            <i class="pp_icon icon-file">&nbsp;</i><span style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden;">我的笔记2</span><span><i class="ppp_icon icon-tag" id="T2"></i> </span>
                         </li>
@@ -73,7 +74,7 @@
         <div class="more" id="more_over">
             <ul ng-controller="noteBookController">
                 <li><p>刷新</p></li>
-                <li id="new2" ng-click="showNewBook()"><p>新建文件夹</p></li>
+                <li id="new2" ><p>新建文件夹</p></li>
             </ul>
         </div>
         <div class="more_N">
@@ -84,16 +85,16 @@
         </div>
 
     </div>
-    <div class="N_middle">
-        <ul id="ul">
-            <li id="N1" class="List">
+    <div class="N_middle" >
+        <ul id="ul" ng-controller="noteController">
+            <li id="N@{{$index+1}}" class="List" ng-repeat="note in notes">
                 <div class="middle_header">
-                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记1</span></div>
-                    <div class="N_two" id="N_two_text"><p>尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
-                    <div class="N_three">2016/6/6 18:06</div>
+                    <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>@{{note.notehead}}</span></div>
+                    <div class="N_two" id="N_two_text"><p>@{{note.notebody}}</p></div>
+                    <div class="N_three">@{{note.createtime}}</div>
                 </div>
             </li>
-            <li id="N2" class="List">
+            <!--li id="N2" class="List">
                 <div class="middle_header">
                     <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记2</span></div>
                     <div class="N_two"><p>阿拉拉拉拉拉有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
@@ -113,7 +114,7 @@
                     <div class="N_two"><p>拉拉拉阿拉尽管有些人冲我欢笑鼓掌；有些人则漫骂指责；每个人站在他们独有的欢娱里；释放自己认为的正确；在路上，我不表达；为了这种纵容；我不断修造自己的海岸线</p></div>
                     <div class="N_three">2016/6/6 18:06</div>
                 </div>
-            </li>
+            </li-->
         </ul>
     </div>
     <div class="N_right">
