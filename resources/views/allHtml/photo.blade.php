@@ -229,13 +229,15 @@
 		</div>	
 		<script src="./allJs/base.js"></script>
 		<script>
+			function updateimg(imgsrc){
+				var imgli = '<a class="timeline-content-item" href="photo_show.html"><img src="'+imgsrc+'" />'+
+				'<div class="timeline-checkbox"><input type="checkbox" class="checkbox"/></div></a>'
+			}
 			function Seleccheckbox(){
 				$(".timeline-content-item").on("mouseover",function(){
 					$(this).children(".timeline-checkbox").show();
 				});
 				$(".timeline-content-item").on("mouseout",function(){
-	//				console.log(($(this).find(".checkbox").attributes.checked));
-	//				var cbox = 
 					$(this).children(".timeline-checkbox").hide();
 				});
 				$(".timeline-item").delegate(".allcheckbox","click",function(){
@@ -248,13 +250,39 @@
 					}else{
 						cbox.hide();
 						cbox.children(".checkbox").each(function(){
-							$(this).context.checked = true;
+							$(this).context.checked = false;
 						});
+					}
+					if(hasCheck($(".checkbox"))){
+						console.log("hhh");
+						$(".grid-cols").first().fadeIn();
+					}else{
+						console.log("hh");
+						$(".grid-cols").first().fadeOut();
 					}
 					
 				});
+				$(".timeline-item").delegate(".checkbox","click",function(){
+//					console.log($(this).siblings());
+					if(hasCheck($(".checkbox"))){
+						console.log("hhh");
+						$(".grid-cols").first().fadeIn();
+					}else{
+						console.log("hh");
+						$(".grid-cols").first().fadeOut();
+					}
+				});
 			}
-				
+	function hasCheck(checkbox){
+		var ischeck = false;
+		for(var i = 0; i<checkbox.length;i++){
+			if(checkbox[i].checked){
+				ischeck = true;
+			}
+		}
+
+		return ischeck;//返回是否全选
+	}
 				Seleccheckbox();
 				
 		</script>
