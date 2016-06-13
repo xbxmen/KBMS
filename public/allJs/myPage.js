@@ -85,10 +85,10 @@ $(function () {
         $(".show_main").css("display", "none");
         $(".nav").css("display", "none");
         $("#uploadmain").css("display", "block");
-        console.log("hello")
+        console.log("hello");
     });
     //点击回到图片回到图显示图片的界面
-    $(".return_pre").on("click", function () {
+    $(".w_icon").on("click", function () {
         if (confirm("确定退出上传？")) {
             $("#uploadmain").css("display", "none");
             $(".show_main").css("display", "block");
@@ -97,7 +97,11 @@ $(function () {
         }
 
     });
+
 });
+
+
+
 
 var file_type;
 //根据选择的不同的文件类型来到不同的页面
@@ -243,3 +247,10 @@ function keydownMsg(evt, filenamea, new_dir) {
 }
 addonload(shareFile());
 addonload(fokfloder());
+
+$(function () {
+    $("#btn_se").click(function () {
+        $(".ad").hide();
+        $(".result").show();
+    })
+})

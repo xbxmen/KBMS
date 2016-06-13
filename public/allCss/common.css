@@ -125,7 +125,7 @@ body
     float: left;
     margin-left:5%;
 }
-.nav_R p
+.nav_R p,.nav_R span
 {
 	font-size: 20px;
     color: #4a4a4a;

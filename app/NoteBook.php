@@ -17,6 +17,8 @@ class NoteBook extends Model
      * @var string
      */
     protected $table = 'folders';
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *

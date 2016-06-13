@@ -129,7 +129,7 @@
    <div class="san">
            <a href="note.html">
                <div class="gon_top3" ></div>
-               <div class="gon_middle3" ><i class="gon_icon icon-folder-open-alt"></i> </div>
+               <div class="gon_middle3" ><i class="gon_icon icon-book"></i> </div>
                <div class="gon_bottom3"></div>
            </a>
        </div>
