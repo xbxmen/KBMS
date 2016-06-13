@@ -193,48 +193,48 @@ $ (document).ready (function ()
     $(".more_N").hide();
 
 
-    var index;
-    $(".ppp_icon").click(ppp_click);
-    function ppp_click(event){
+    // var index;
+    // $(".ppp_icon").click(ppp_click);
+    // function ppp_click(event){
 
-        var u_id = null;
-        l_id = $(this).attr("id");
-        u_id = l_id;
-        u_id = u_id.substr(1);
-        //console.log(event.clientX);
-        var x = event.clientX;
-        var y = event.clientY;
-        console.log(-y+120+" "+y);
-        $(".more_N").css("top",(y-600)+"px");
-        $(".more_N").show();
+    //     var u_id = null;
+    //     l_id = $(this).attr("id");
+    //     u_id = l_id;
+    //     u_id = u_id.substr(1);
+    //     //console.log(event.clientX);
+    //     var x = event.clientX;
+    //     var y = event.clientY;
+    //     console.log(-y+120+" "+y);
+    //     $(".more_N").css("top",(y-600)+"px");
+    //     $(".more_N").show();
 
-    };
+    // };
 
 
 
-    $("#new").click(function(){
-        //$(".build").css("display","block");
-        $("#my_ul").html('<li>'+
-            '<i class="pp_icon icon-file">&nbsp;</i>' +
-            '<span> <form action="#"  method="post">'+
-            '<input type="text" class="N_text">'+
-            '</form></span><i class="ppp_icon_p icon-tag"></i> </span>'+
-            '</li>'+$("#my_ul").html());
-            $(".ppp_icon").click(ppp_click);
+    // $("#new").click(function(){
+    //     //$(".build").css("display","block");
+    //     $("#my_ul").html('<li>'+
+    //         '<i class="pp_icon icon-file">&nbsp;</i>' +
+    //         '<span> <form action="#"  method="post">'+
+    //         '<input type="text" class="N_text">'+
+    //         '</form></span><i class="ppp_icon_p icon-tag"></i> </span>'+
+    //         '</li>'+$("#my_ul").html());
+    //         // $(".ppp_icon").click(ppp_click);
 
-    })
+    // })
 
-    $("#new2").click(function(){
-        //$(".build").css("display","block");
-        $("#my_ul").html('<li>'+
-            '<i class="pp_icon icon-file">&nbsp;</i>' +
-            '<span> <form action="#"  method="post">'+
-            '<input type="text" class="N_text">'+
-            '</form></span><i class="ppp_icon_p icon-tag"></i> </span>'+
-            '</li>'+$("#my_ul").html());
-            $(".ppp_icon").click(ppp_click);
+    // $("#new2").click(function(){
+    //     //$(".build").css("display","block");
+    //     $("#my_ul").html('<li>'+
+    //         '<i class="pp_icon icon-file">&nbsp;</i>' +
+    //         '<span> '+
+    //         '<input type="text" class="N_text">'+
+    //         '</span><i class="ppp_icon_p icon-tag"></i> </span>'+
+    //         '</li>'+$("#my_ul").html());
+    //         // $(".ppp_icon").click(ppp_click);
 
-    })
+    // })
 
     $("#delete").click(function () {
         //var m =$(".more_N").style;
