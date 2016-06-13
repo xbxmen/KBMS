@@ -24,15 +24,17 @@
                 $type = trim(strrchr($_POST['test'], '.'),'.');
                 if($succeed != '1'){
                     if($file['error'] == 0){
-                        if(!file_exists('./uploads/upload.'.$type)){
-                            if(!move_uploaded_file($file['tmp_name'],'./uploads/UP.'.$myname.".".$type)){
+                        $path = "UP".$myname.".".$type;
+
+                        if(!file_exists('./uploads/'.$path)){
+                            if(!move_uploaded_file($file['tmp_name'],'./uploads/'.$path)){
                                 return response('failed');
                             }else{
                                 return response('ok');
                             }
                         }else{
                             $content=file_get_contents($file['tmp_name']);
-                            if (!file_put_contents('./uploads/upload.'.$myname.".".$type, $content,FILE_APPEND)) {
+                            if (!file_put_contents('./uploads/'.$path, $content,FILE_APPEND)) {
                                 return response('failed');
                             }else{
                                 return response('ok');
@@ -42,35 +44,54 @@
                         return response('failed');
                     }
                 }else{
-                    $filepath = $_POST['myname']?  "./uploads/UP.".$myname = $_POST['myname'].$type : "" ;
+                    $filepath = $_POST['myname']?  "./uploads/UP.".$myname.$type : "" ;
                     $filehead = $_POST['filename']? $_POST['filename']: "" ;
-                    $filesize = $_POST['filesize']?  $_POST['filesize']: "" ;
                     $filefolder = $_POST['filefolder']? $_POST['filefolder']: "";
+                    $filesize = $_POST['filesize']?  $_POST['filesize']/(1024*1024): "" ;
+                    $filesize .= "M";
+                    $filegrade =  $_POST['filegrade']? $_POST['filegrade']: "";
                     $createtime = $updatetime =  date("Y-M-D H:i:sa");
-                    $sql  = "INSERT INTO files (filehead,)";
-
-                    return response("succeed");
+                    $filetype = $this->MyType($type);
+                    $sql  = "INSERT INTO files (filehead,filetype,filesize,filegrade,createtime,updatetime,filefolder,filepath,uid)
+                            VALUES (?,?,?,?,?,?,?,?,?)";
+                    $res = DB::insert($sql,[$filehead,$filetype,$filesize,$filegrade,$createtime,$updatetime,$filefolder,$filepath,$uid]);
+                    if($res){
+                        return response("succeed");
+                    }else{
+                        return response("-2");
+                    }
                 }
             }else{
                 return response("-1");
             }
 
         }
-
+        /*
+         *返回 文件的类型
+         * */
         public function MyType($type){
+            $filetype = $this->RESOURCE;
             $type = strtolower($type);
-            $photo = array("bmp","pcx","tiff","gif","jpeg","tga",
+            $doc = array("doc","docx","xls","xlsx","xlsm","ppt","pptx","pdf","txt");
+            $photo = array("bmp","pcx","tiff","gif","jpg","jpeg","tga",
                         "exif","fpx","svg","cdr","pcd","dxf","ufo",
                         "eps","ai","png","hdri","raw");
-            $music = array("");
+            $music = array("mp3","wma","wav","aac","vqf","flac","ape","mid","ogc");
             $video = array("mpeg","mpg","dat","avi","mov","asf",
                         "wmv","rmvb","flv","f4v","mp4","3gp","amv");
 
-            if($type == "jpg" || $type == "jpeg" ){
-
-            }else if(""){
-
+            if(in_array($type, $doc)){
+                $filetype = $this->DOC;
+            }else if(in_array($type, $photo)){
+                $filetype = $this->PICTURE;
+            }else if(in_array($type, $music)){
+                $filetype = $this->MUSIC;
+            }else if(in_array($type, $video)){
+                $filetype = $this->VIDEO;
+            }else{
+                $filetype = $this->RESOURCE;
             }
+            return $filetype;
         }
         /*
          *删除文件
