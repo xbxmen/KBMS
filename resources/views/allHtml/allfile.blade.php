@@ -197,8 +197,13 @@
 			</div>
 		</div>
 		<script>
+			var createfolder_url = "{{url('upload/createfolder')}}";
 			var preid = "{{session('preid')}}";
 			var grade = "{{session('grade')}}";
+			var foldertype = 2;
+
+			console.log(preid);
+			console.log(grade);
 		</script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>

@@ -77,7 +77,8 @@ var ZXXFILE = {
 		this.fileFilter = arrFile;
 		return this;
 	},
-	
+
+
 	//上传相关
 	funUploadFile: function() {
 		var xhr=new XMLHttpRequest();
@@ -133,6 +134,12 @@ var ZXXFILE = {
 
 		}
 
+		function updatePro(percent){
+			var p = (Math.floor(percent/100))*$("#load0").width();
+			$("#load-bar-inner").width(p);
+			$('#counter').html(percent+'%');
+		}
+
 		function smallUp() {
 			time = (new Date()).valueOf();
 			if (start < file.size) {
@@ -183,7 +190,8 @@ var ZXXFILE = {
 						if (pecent > 100) {
 							pecent = 100;
 						}
-						//des.style.width=pecent + '%';
+						updatePro(pecent);
+						//des.style.width = pecent + '%';
 						//des.innerHTML=parseInt(pecent) + '%'
 					}
 				}
@@ -229,8 +237,9 @@ var ZXXFILE = {
 						if (pecent > 100) {
 							pecent = 100;
 						}
-						//	des.style.width=pecent + '%';
-						//	des.innerHTML=parseInt(pecent) + '%'
+						updatePro(pecent);
+						//des.style.width=pecent + '%';
+						//des.innerHTML=parseInt(pecent) + '%'
 					}
 				}
 				blob=file.slice(start, end);

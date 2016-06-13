@@ -19,8 +19,6 @@ class ShowFilesController extends Controller
             $uid = session('id');
             $filegrade = $request->input('filegrade')? $request->input('filegrade'): "";
             $filepreid = $request->input('filepreid')? $request->input('filepreid'): "";
-            session(['preid'=>$filegrade]);
-            session(['grade'=>$filepreid]);
             if($uid  && $filegrade && $filepreid != ""){
                 if($filepreid == -1){
                     $sql = "SELECT * from folders WHERE grade=? and uid=?";
@@ -46,8 +44,8 @@ class ShowFilesController extends Controller
             $uid = session('id');
             $filegrade = $request->input('filegrade')? $request->input('filegrade'): "";
             $filepreid = $request->input('filepreid')? $request->input('filepreid'): "";
-            session(['preid'=>$filegrade]);
-            session(['grade'=>$filepreid]);
+            session(['preid'=>$filepreid]);
+            session(['grade'=>$filegrade]);
             if($uid && $filegrade && $filepreid != ""){
                 if($filepreid == -1){
                     $sql = "SELECT * from files WHERE filegrade=? and uid=?";
