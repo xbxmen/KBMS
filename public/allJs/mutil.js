@@ -92,11 +92,18 @@ var ZXXFILE = {
 		var pecent;
 		var time;
 		var filename;
-
-		var self = this;	
 		if (location.host.indexOf("sitepointstatic") >= 0) {
 			return;	
 		}
+		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
+			if(this.fileFilter.length >= 2 ){
+				if(myfile.size >= 10*1024*1024){
+					alert("大文件请分开上传~~");
+					return;
+				}
+			}
+		}
+
 		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
 			console.log(myfile);
 			des=document.getElementById('load0');
@@ -114,8 +121,7 @@ var ZXXFILE = {
 		}
 
 		function smallUp() {
-			console.log("@1");
-			/*time = (new Date()).valueOf();
+			time = (new Date()).valueOf();
 			if (start < file.size) {
 				xhr.open('POST', 'upload/file', true);
 				xhr.onreadystatechange=function() {
@@ -159,13 +165,10 @@ var ZXXFILE = {
 				fd.append('myname', null);
 				fd.append('succeed',"1");
 				xhr.send(fd);
-				return
-			}*/
+			}
 		}
 
 		function BigUp() {
-			console.log("@2");
-			time = time;
 			if (start < file.size) {
 				xhr.open('POST', 'upload/file', true);
 				xhr.onreadystatechange=function() {
@@ -204,16 +207,40 @@ var ZXXFILE = {
 				xhr.send(fd);
 			}else{
 				xhr.open('POST', 'upload/file', true);
-				fd.append('mof', null);
-				fd.append('test', null);
-				fd.append('myname', null);
+				fd.append('filename', file.name);
+				fd.append('myname', time);
 				fd.append('succeed',"1");
+				fd.append('filesize',file.size);
+				fd.append('filefolder',preid);
 				xhr.send(fd);
 				time = (new Date()).valueOf();
-				return;
 			}
 
 
+			/*(function(file) {
+			 var xhr = new XMLHttpRequest();
+			 if (xhr.upload) {
+			 xhr.upload.addEventListener("progress", function(e) {
+			 self.onProgress(file, e.loaded, e.total);
+			 }, false);
+			 xhr.onreadystatechange = function(e) {
+			 if (xhr.readyState == 4) {
+			 if (xhr.status == 200) {
+			 self.onSuccess(file, xhr.responseText);
+			 self.funDeleteFile(file);
+			 if (!self.fileFilter.length) {
+			 self.onComplete();
+			 }
+			 } else {
+			 self.onFailure(file, xhr.responseText);
+			 }
+			 }
+			 };
+			 xhr.open("POST", self.url, true);
+			 xhr.setRequestHeader("X_FILENAME", file.name);
+			 xhr.send(file);
+			 }
+			 })(file);	*/
 		}
 			
 	},

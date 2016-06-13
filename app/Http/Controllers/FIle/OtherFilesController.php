@@ -17,9 +17,10 @@
          * */
         public function upload(Request $request){
             if(session('id')){
+                $uid = session('id');
                 $file = $_FILES['mof'];
-                $myname = $_POST['myname'];
                 $succeed = $_POST['succeed'];
+                $myname = $_POST['myname'];
                 $type = trim(strrchr($_POST['test'], '.'),'.');
                 if($succeed != '1'){
                     if($file['error'] == 0){
@@ -41,12 +42,35 @@
                         return response('failed');
                     }
                 }else{
+                    $filepath = $_POST['myname']?  "./uploads/UP.".$myname = $_POST['myname'].$type : "" ;
+                    $filehead = $_POST['filename']? $_POST['filename']: "" ;
+                    $filesize = $_POST['filesize']?  $_POST['filesize']: "" ;
+                    $filefolder = $_POST['filefolder']? $_POST['filefolder']: "";
+                    $createtime = $updatetime =  date("Y-M-D H:i:sa");
+                    $sql  = "INSERT INTO files (filehead,)";
+
                     return response("succeed");
                 }
             }else{
                 return response("-1");
             }
 
+        }
+
+        public function MyType($type){
+            $type = strtolower($type);
+            $photo = array("bmp","pcx","tiff","gif","jpeg","tga",
+                        "exif","fpx","svg","cdr","pcd","dxf","ufo",
+                        "eps","ai","png","hdri","raw");
+            $music = array("");
+            $video = array("mpeg","mpg","dat","avi","mov","asf",
+                        "wmv","rmvb","flv","f4v","mp4","3gp","amv");
+
+            if($type == "jpg" || $type == "jpeg" ){
+
+            }else if(""){
+
+            }
         }
         /*
          *删除文件
