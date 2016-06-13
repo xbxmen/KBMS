@@ -182,7 +182,13 @@
 			                        <div class="upload_submit">
 			                            <button type="button" id="fileSubmit" class="upload_submit_btn">确认上传</button>
 			                        </div>
-			                       <p id="load0">NAN%</p>
+			                       <!--<p id="load0">NAN%</p>-->
+			                       <div id="load0"> 
+									  <div class="load-bar"> 
+									    <div id="load-bar-inner" data-loading="0"> <span id="counter"></span> </div> 
+									  </div> 
+								  
+									</div> 
 			                    </div>
 			                </form>
 			            </div>
