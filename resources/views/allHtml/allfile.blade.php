@@ -85,70 +85,6 @@
 						
 						<div>
 							<ul class="list">
-								<li class="fileshow_li">
-									<input name="file" id="1" data-type="0" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
-									<div class="samll_folder dir_small inline_block">
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html" class="file_name">哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
-									</div>
-
-									<div class="filesize inline_block">-</div>
-									<div class="filedate inline_block"><span class="text">2016-05-26 13:22</span></div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" id="2" data-type="0" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
-									<div class="samll_folder dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html"  class="file_name" >哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
-									</div>
-									
-									<div class="filesize inline_block">-</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" id="3" data-type="1" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
-									<div class="image dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html"  class="file_name" >哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>
-									</div>
-									
-									<div class="filesize inline_block">16KB</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" id="3" data-type="1" class="checkbox"  type="checkbox" onclick="boxSelect(this)"/>
-									<div class="image dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html" class="file_name" >哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
-									</div>
-									
-									<div class="filesize inline_block">16KB</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
 							</ul>
 							<div id="new_dir_item">
 								<li class="fileshow_li">
@@ -228,8 +164,6 @@
 					success: function(data){//注册用户的信息返回到这里，data参数里
 						if(data == -1){
 							alert('登录超时!');
-						}else if(data == -2){
-							alert("参数有错误！");
 						}else{
 							console.log(data);
 							for(var i = 0;i<data.length;i++){
@@ -274,8 +208,6 @@
 					success: function(data){//注册用户的信息返回到这里，data参数里
 						if(data == -1){
 							alert('登录超时!');
-						}else if(data == -2){
-							alert("参数有错误！");
 						}else{
 							console.log(data);
 							for(var i = 0;i<data.length;i++){
@@ -292,6 +224,8 @@
 				});
 			}
 			$(".list").empty();
+			console.log(preid);
+			console.log(grade);
 			showFolder();
 			showFiles();
 		</script>
@@ -313,24 +247,38 @@
 			*返回上一级
 			* */
 			function BackPre() {
-				$.ajax({
-					url: '{{url('show/BackPre')}}',
-					type: 'post',
-					dataType: 'json',
-					data: {
-						"myid" : preid
-					},
-					success: function(data) {//注册用户的信息返回到这里，data参数里
-						if(data == -1){
-							alert('登录超时!');
-						}else if(data == -2){
-							alert("参数有错误！");
-						}else{
-							console.log(data['folpreid']);
+				if(grade ==  1){
+					preid = -1;
+					$(".list").empty();
+					showFolder();
+					showFiles();
+				}else{
+					$.ajax({
+						url: '{{url('show/BackPre')}}',
+						type: 'post',
+						dataType: 'json',
+						data: {
+							"myid" : preid
+						},
+						success: function(data) {//注册用户的信息返回到这里，data参数里
+							if(data == -1){
+								alert('登录超时!');
+							}else{
+								console.log(data['folpreid']);
+								grade--;
+								if(grade == 1){
+									preid = -1;
+								}else{
+									preid = data['folpreid'];
+								}
+								console.log(grade);
+								$(".list").empty();
+								showFolder();
+								showFiles();
+							}
 						}
-					}
-				});
-				grade--;
+					});
+				}
 			}
 
 		</script>

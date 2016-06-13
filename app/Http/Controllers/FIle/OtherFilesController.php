@@ -49,7 +49,7 @@
                     $filesize = $_POST['filesize']? round( $_POST['filesize']/(1024*1024),2): "" ;
                     $filesize .= "M";
                     $filegrade =  $_POST['filegrade']? $_POST['filegrade']: "";
-                    $createtime = $updatetime =  date("Y-M-D H:i:sa");
+                    $createtime = $updatetime =  date("Y-m-d H:i:s");
                     $filetype = $this->MyType($type);
                     if($filepath && $filehead && $filefolder && $filesize && $filegrade){
                         $sql  = "INSERT INTO files (filehead,filetype,filesize,filegrade,createtime,updatetime,filefolder,filepath,uid)
@@ -178,8 +178,8 @@
                 $foldertype = $request->input('foldertype')? $request->input('foldertype') : "";
                 $updatetime = date("Y-m-d H:i:s");
                 if($uid && $foldername && $folderpreid != "" && $foldergrade && $foldertype){
-                    $sql01 = "SELECT * from folders WHERE folname=? and uid=? and grade=?";
-                    $res01 = DB::select($sql01,[$foldername,$uid,$foldergrade]);
+                    $sql01 = "SELECT * from folders WHERE folname=? and uid=? and folpreid=? and grade=?";
+                    $res01 = DB::select($sql01,[$foldername,$uid,$folderpreid,$foldergrade]);
                     if(!$res01){
                         /*
                          * 查看最大的索引

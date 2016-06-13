@@ -103,7 +103,7 @@ class ShowFilesController extends Controller
             if ($res){
                 return json_encode($res[0]);
             }else{
-                return response("-1");
+                return response("-2");
             }
         }else{
             return response("-1");
