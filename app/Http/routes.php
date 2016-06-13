@@ -82,6 +82,8 @@ Route::group(['namespace' => 'Note', 'prefix' => 'note', 'middleware' => 'login'
     Route::post('i/folder', 'NotesController@newNoteBook');
     Route::post('i/folder/{folderId}/note', 'NotesController@newNote');
     Route::get('i/folder/{folderId}/note', 'NotesController@getAllNotes');
+    Route::post('i/folder/{folderId}/note/{noteId}', 'NotesController@optNote');
+    Route::get('i/search', 'NotesController@searchNote');
 });
 
 

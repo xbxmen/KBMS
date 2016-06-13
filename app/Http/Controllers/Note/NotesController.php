@@ -71,4 +71,29 @@ class NotesController extends Controller
         $notes = Note::where('notefolder', $folderId)->where('uid', $userId)->get();
         return $notes;
     }
+
+    public function optNote(Request $request, $folderId, $noteId)
+    {
+        $userId = $this->getId($request);
+        $noteSet = Note::where('nid', $noteId)->where('uid', $userId)->where('notefolder', -1);
+        if($noteSet->count() < 1)
+            return '笔记不存在';
+        if($request->input('opt') == 'mdf')
+        {
+            $noteSet->update($request->except('opt'));
+        }
+        if($request->input('opt') == 'del')
+        {
+            $noteSet->delete();
+        }
+        return 0;
+    }
+
+    public function searchNote(Request $request)
+    {
+        $userId = $this->getId($request);
+        $keyword = $request->input('keyword');
+        $note = Note::where('notebody', 'like', "%{$keyword}%")->where('uid', $userId)->get();
+        return $note;
+    }
 }
