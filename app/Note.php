@@ -6,7 +6,7 @@
  * Time: 13:55
  */
 
-namespace App\Http;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 class Note extends Model
@@ -17,13 +17,14 @@ class Note extends Model
      * @var string
      */
     protected $table = 'notes';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'uid','account','password','username'
+        'notehead', 'notebody', 'notetype', 'noteindex', 'notesize', 'notegrade', 'remark', 'notefolder', 'isshare'
     ];
 
     /**
@@ -32,7 +33,6 @@ class Note extends Model
      * @var array
      */
     protected $hidden  = [
-        'password','username','account','uid'
     ];
 
 }

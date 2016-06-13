@@ -23,7 +23,7 @@ class Folder extends Model
      * @var array
      */
     protected $fillable = [
-        'folid','folname','folpreid','grade', 'type', 'updatetime', 'uid'
+        'folid', 'folname', 'folpreid', 'grade', 'type', 'updatetime', 'uid'
     ];
 
     /**

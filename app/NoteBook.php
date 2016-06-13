@@ -23,7 +23,7 @@ class NoteBook extends Model
      * @var array
      */
     protected $fillable = [
-        'folid','folname','folpreid','grade', 'type', 'updatetime', 'uid'
+        'folname', 'folpreid', 'grade', 'updatetime', 'uid'
     ];
 
     /**
@@ -31,6 +31,6 @@ class NoteBook extends Model
      *
      * @var array
      */
-    protected $hidden  = ['folpreid', 'grade', 'type', 'uid'];
+    protected $hidden  = [];
 
 }
