@@ -28,7 +28,7 @@
 </div>
 <div class="M_left">
     <div class="one">
-        <a href="#">
+        <a href="resource.html">
         <div class="hax_top"></div>
         <div class="hax_middle"><i class="middle_icon icon-lightbulb"></i><p>resource</p></div>
         <div class="hax_bottom"></div>

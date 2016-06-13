@@ -264,7 +264,10 @@ function deleteFF() {
                 } else if (data == -2) {
                     alert("参数有错误！");
                 } else {
-                    console.log(data);
+                    alert("文件夹删除成功~~");
+                    $(".list").empty();
+                    showFolder();
+                    showFiles();
                 }
             }
         });
@@ -282,7 +285,12 @@ function deleteFF() {
                     alert('登录超时!');
                 } else if (data == -2) {
                     alert("参数有错误！");
-                } else {
+                } else if(data == 1) {
+                    alert("文件删除成功~~");
+                    $(".list").empty();
+                    showFolder();
+                    showFiles();
+                }else{
                     console.log(data);
                 }
             }

@@ -126,14 +126,13 @@
                             $result  = @unlink($res01[$k]->filepath);
                         }
                         if(!$result){
-                            $sql02 = "DELETE FROM files WHERE fid ".$arr." and uid=?";
-                            return $sql02;
-                            /*$res02 = DB::delete($sql02,$uid);
+                            $sql02 = "DELETE FROM files WHERE fid ".$arr." and uid=".$uid;
+                            $res02 = DB::delete($sql02);
                             if ($res02){
                                 return response("1");
                             }else{
                                 return response("-5");
-                            }*/
+                            }
                         }else{
                             return response("-4");
                         }
@@ -259,14 +258,13 @@
                         if(count($folderid) >= 2){
                             $arr .= ")";
                         }
-                        $sql = "DELETE FROM folders where folid in ".$arr." and uid=?";
-                        return $sql;
-                        /*  $res = DB::delete($sql,[$folderid,$uid]);
-                          if($res){
+                        $sql = "DELETE FROM folders where folid  ".$arr." and uid=".$uid;
+                        $res = DB::delete($sql);
+                        if($res){
                               return response("1");
-                          }else{
+                        }else{
                               return response("-3");
-                          }*/
+                        }
                 }else{
                     return response("-2");
                 }
