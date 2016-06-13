@@ -129,13 +129,11 @@ var imgparams = {
             if (file) {
                 html = html + '<div id="uploadList_' + i + '" class="upload_append_list"><p><strong>' + file.name + '</strong>' +
                     '<a href="javascript:" class="upload_delete" title="删除" data-index="' + i + '">删除</a><br />' +
-                    '<span id="uploadProgress_' + i + '" class="upload_progress"></span>' +
                     '</div>';
                 i++;
                 console.log(file);
                 funAppendImage();
             } else {
-                $("#preview").html(html);
                 if (html) {
                     //删除方法
                     $(".upload_delete").click(function () {
@@ -144,9 +142,11 @@ var imgparams = {
                     });
                     //提交按钮显示
                     $("#fileSubmit").show();
+                    $("#load0").show();
                 } else {
                     //提交按钮隐藏
                     $("#fileSubmit").hide();
+                     $("#load0").hide();
                 }
             }
         };

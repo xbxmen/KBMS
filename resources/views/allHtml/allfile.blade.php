@@ -175,14 +175,14 @@
 			                        <div class="upload_main">
 			                            <div class="upload_choose">
 			                                <input id="fileImage" type="file" size="30" name="fileselect[]" multiple />
-			                                <span id="fileDragArea" class="upload_drag_area">或者将图片拖到此处</span>
+			                                <span id="fileDragArea" class="upload_drag_area">或者将文件拖到此处</span>
 			                            </div>
 			                            <div id="preview" class="upload_preview"></div>
 			                        </div>
 			                        <div class="upload_submit">
-			                            <button type="button" id="fileSubmit" class="upload_submit_btn">确认上传图片</button>
+			                            <button type="button" id="fileSubmit" class="upload_submit_btn">确认上传</button>
 			                        </div>
-			                        <div id="uploadInf" class="upload_inf"></div>
+			                       <p id="load0">NAN%</p>
 			                    </div>
 			                </form>
 			            </div>

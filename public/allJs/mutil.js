@@ -91,15 +91,9 @@ var ZXXFILE = {
 		var blob;
 		var pecent;
 		var time;
-		var filename;
-		var self = this;	
+		var filename;	
 		if (location.host.indexOf("sitepointstatic") >= 0) {
 			return;	
-		}
-		if (xhr.upload) {
-			xhr.upload.addEventListener("progress", function(e) {
-				self.onProgress(file, e.loaded, e.total);
-			}, false);
 		}
 		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
 			if(this.fileFilter.length >= 2 ){
@@ -109,7 +103,6 @@ var ZXXFILE = {
 				}
 			}
 		}
-
 		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
 			console.log(myfile);
 			des=document.getElementById('load0');
@@ -123,7 +116,6 @@ var ZXXFILE = {
 				time = (new Date()).valueOf();
 				BigUp();
 			}
-
 		}
 
 		function smallUp() {
