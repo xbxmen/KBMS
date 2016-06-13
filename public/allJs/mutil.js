@@ -92,8 +92,14 @@ var ZXXFILE = {
 		var pecent;
 		var time;
 		var filename;
+		var self = this;	
 		if (location.host.indexOf("sitepointstatic") >= 0) {
 			return;	
+		}
+		if (xhr.upload) {
+			xhr.upload.addEventListener("progress", function(e) {
+				self.onProgress(file, e.loaded, e.total);
+			}, false);
 		}
 		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
 			if(this.fileFilter.length >= 2 ){

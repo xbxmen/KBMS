@@ -354,6 +354,9 @@
 	position:absolute; 
 	left:25px; 
 	top:45px;
+	width: 40px;
+    height: 10px;
+    line-height: 10px;
 }
 .foxfloder{
 	border: none;
