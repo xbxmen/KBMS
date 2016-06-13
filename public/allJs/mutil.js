@@ -2,7 +2,6 @@
  * zxxFile.js 鍩轰簬HTML5 鏂囦欢涓婁紶鐨勬牳蹇冭剼鏈� http://www.zhangxinxu.com/wordpress/?p=1923
  * by zhangxinxu 2011-09-12
 */
-
 var ZXXFILE = {
 //	fileInput: null,				//html file鎺т欢
 //	dragDrop: null,					//鎷栨嫿鏁忔劅鍖哄煙
@@ -91,7 +90,17 @@ var ZXXFILE = {
 		var blob;
 		var pecent;
 		var time;
-		var filename;	
+		var timeArr = new Array();
+
+		for (var k = 0 ;k < 10;k++){
+			timeArr[k] = new Array();
+			for(var i = 0; i < 3;i++){
+				timeArr[k][i] = "";
+			}
+		}
+
+		var timeindex = 0;
+		var filename;
 		if (location.host.indexOf("sitepointstatic") >= 0) {
 			return;	
 		}
@@ -99,9 +108,12 @@ var ZXXFILE = {
 		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
 			if(this.fileFilter.length >= 2 ){
 				if(myfile.size >= 10*1024*1024){
-					alert("大文件请分开上传~~");
+					alert("大文件请单独上传~~");
 					return;
 				}
+			}else if(this.fileFilter.length > 10){
+				alert("文件数目不可多于十个~~~");
+				return;
 			}
 		}
 
@@ -133,18 +145,30 @@ var ZXXFILE = {
 								alert('文件发送失败，请重新发送');
 								des.style.width='0%';
 							}else if(this.responseText == 'ok'){
-								xhr.open('POST', 'upload/file', true);
-								fd.append('filename', file.name);
-								fd.append('myname', time);
-								fd.append('succeed',"1");
-								fd.append('filesize',file.size);
-								fd.append('filefolder',preid);
-								fd.append('filegrade',grade);
-								console.log(grade+"当前的级别：");
-								xhr.send(fd);
-							}else if(this.responseText == 'succeed'){
-								alert('上传成功~~~');
-								location.reload();
+								console.log(timeArr);
+								for(i = 0;i < timeArr.length;i++){
+									if(timeArr[i][0]){
+										console.log("sss");
+										var newxhr = new XMLHttpRequest();
+										newxhr.open('POST', 'upload/file', true);
+										fd.append('filename',  timeArr[i][1]);
+										fd.append('myname', timeArr[i][0]);
+										fd.append('succeed',"1");
+										fd.append('filesize', timeArr[i][2]);
+										fd.append('filefolder',preid);
+										fd.append('filegrade',grade);
+										console.log(grade+"当前的级别：");
+										newxhr.send(fd);
+										newxhr.onreadystatechange=function() {
+											if (this.readyState==4) {
+												if(this.responseText == 'succeed'){
+													console.log('succeed');
+													alert('上传成功~~~');
+												}
+											}
+										}
+									}
+								}
 							} else {
 								start = end;
 								end=start + LENGTH;
@@ -169,6 +193,10 @@ var ZXXFILE = {
 				fd.append('test', file.name);
 				fd.append('myname', time);
 				fd.append('succeed',"-2");
+				timeArr[timeindex][0] = time;
+				timeArr[timeindex][1] = file.name;
+				timeArr[timeindex][2] = file.size;
+				timeindex++;
 				xhr.send(fd);
 			}else{
 				return;

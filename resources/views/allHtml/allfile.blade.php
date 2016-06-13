@@ -197,8 +197,8 @@
 			</div>
 		</div>
 		<script>
-			var createfolder_url = "{{url('upload/createfolder')}}";
-			var foldertype =  2;
+			var preid = {};
+			var grade = {};
 		</script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>
@@ -209,8 +209,6 @@
 			ZXXFILE.init();
 		</script>
 		<script>
-			var preid = -1;
-			var grade = 1;
 			function showFiles() {
 				$.ajax({
 					url: '{{url('show/files')}}',
@@ -272,7 +270,6 @@
 						}else if(data == -2){
 							alert("参数有错误！");
 						}else{
-							$(".list").empty();
 							console.log(data);
 							for(var i = 0;i<data.length;i++){
 								console.log(data[i]['grade']);
@@ -287,11 +284,13 @@
 					}
 				});
 			}
+			$(".list").empty();
 			showFolder();
 			showFiles();
 		</script>
 		<script>
 			function myFolder(ele) {
+				$(".list").empty();
 				preid = ele.getAttribute("id");
 				grade = ele.getAttribute("data-grade").valueOf();
 				grade++;
