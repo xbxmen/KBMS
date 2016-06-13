@@ -81,36 +81,140 @@ var ZXXFILE = {
 	
 	//上传相关
 	funUploadFile: function() {
+		var xhr=new XMLHttpRequest();
+		var fd;
+		var des;
+		var file;
+		const LENGTH=10 * 1024 * 1024;
+		var start;
+		var end;
+		var blob;
+		var pecent;
+		var time;
+		var filename;
+
 		var self = this;	
 		if (location.host.indexOf("sitepointstatic") >= 0) {
 			return;	
 		}
-		for (var i = 0, file; file = this.fileFilter[i]; i++) {
-			(function(file) {
-				var xhr = new XMLHttpRequest();
-				if (xhr.upload) {
-					xhr.upload.addEventListener("progress", function(e) {
-						self.onProgress(file, e.loaded, e.total);
-					}, false);
-					xhr.onreadystatechange = function(e) {
-						if (xhr.readyState == 4) {
-							if (xhr.status == 200) {
-								self.onSuccess(file, xhr.responseText);
-								self.funDeleteFile(file);
-								if (!self.fileFilter.length) {
-									self.onComplete();	
-								}
+		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
+			console.log(myfile);
+			des=document.getElementById('load0');
+			time = (new Date()).valueOf();
+			start = 0;
+			end = LENGTH + start;
+			file = myfile;
+			if (file.size <= 10 * 1024 * 1024) {
+				smallUp();
+			} else {
+				time = (new Date()).valueOf();
+				BigUp();
+			}
+
+		}
+
+		function smallUp() {
+			console.log("@1");
+			/*time = (new Date()).valueOf();
+			if (start < file.size) {
+				xhr.open('POST', 'upload/file', true);
+				xhr.onreadystatechange=function() {
+					if (this.readyState==4) {
+						if (this.status >= 200 && this.status < 300) {
+							console.log(this.responseText);
+							if (this.responseText.indexOf('failed') >=0) {
+								alert('文件发送失败，请重新发送');
+								des.style.width='0%';
+							}else if(this.responseText == 'ok'){
+								alert('上传成功~~~');
 							} else {
-								self.onFailure(file, xhr.responseText);		
+								start = end;
+								end=start + LENGTH;
+								//setTimeout(smallUp(), 1000);
 							}
 						}
-					};
-					xhr.open("POST", self.url, true);
-					xhr.setRequestHeader("X_FILENAME", file.name);
-					xhr.send(file);
-				}	
-			})(file);	
-		}	
+					}
+				}
+				xhr.upload.onprogress=function(ev) {
+					if (ev.lengthComputable) {
+						pecent=100 * (ev.loaded + start) / file.size;
+						if (pecent > 100) {
+							pecent = 100;
+						}
+						//des.style.width=pecent + '%';
+						//des.innerHTML=parseInt(pecent) + '%'
+					}
+				}
+				blob=file.slice(start, end);
+				fd=new FormData();
+				fd.append('mof', blob);
+				fd.append('test', file.name);
+				fd.append('myname', time);
+				fd.append('succeed',"-2");
+				xhr.send(fd);
+			}else{
+				xhr.open('POST', 'upload/file', true);
+				fd.append('mof', null);
+				fd.append('test', null);
+				fd.append('myname', null);
+				fd.append('succeed',"1");
+				xhr.send(fd);
+				return
+			}*/
+		}
+
+		function BigUp() {
+			console.log("@2");
+			time = time;
+			if (start < file.size) {
+				xhr.open('POST', 'upload/file', true);
+				xhr.onreadystatechange=function() {
+					if (this.readyState==4) {
+						if (this.status >= 200 && this.status < 300) {
+							console.log(this.responseText);
+							if (this.responseText.indexOf('failed') >=0) {
+								alert('文件发送失败，请重新发送');
+								des.style.width='0%';
+							}else if(this.responseText == 'succeed'){
+								alert('上传成功~~~');
+							} else {
+								start = end;
+								end=start + LENGTH;
+								setTimeout(BigUp(), 1000);
+							}
+						}
+					}
+				}
+				xhr.upload.onprogress=function(ev) {
+					if (ev.lengthComputable) {
+						pecent=100 * (ev.loaded + start) / file.size;
+						if (pecent > 100) {
+							pecent = 100;
+						}
+						//	des.style.width=pecent + '%';
+						//	des.innerHTML=parseInt(pecent) + '%'
+					}
+				}
+				blob=file.slice(start, end);
+				fd=new FormData();
+				fd.append('mof', blob);
+				fd.append('test', file.name);
+				fd.append('myname', time);
+				fd.append('succeed',"-1");
+				xhr.send(fd);
+			}else{
+				xhr.open('POST', 'upload/file', true);
+				fd.append('mof', null);
+				fd.append('test', null);
+				fd.append('myname', null);
+				fd.append('succeed',"1");
+				xhr.send(fd);
+				time = (new Date()).valueOf();
+				return;
+			}
+
+
+		}
 			
 	},
 	

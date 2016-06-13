@@ -75,7 +75,7 @@ Route::post('show/files', 'File\ShowFilesController@showFiles');
 Route::post('show/folders', 'File\ShowFilesController@showFolders');
 Route::post('upload/createfolder', 'File\OtherFilesController@createfolder');
 
-Route::post('upload/file', 'Upload\UploadController@upload');
+Route::post('upload/file', 'File\OtherFilesController@upload');
 
 Route::group(['namespace' => 'Note', 'prefix' => 'note'], function(){
     Route::get('i/folder', 'NotesController@getAllNoteBooks');

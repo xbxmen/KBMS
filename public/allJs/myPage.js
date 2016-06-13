@@ -116,19 +116,10 @@ $(function () {
 
 //实现图片文件上传
 var imgparams = {
-
     filter: function (files) {
         var arrFiles = [];
         for (var i = 0, file; file = files[i]; i++) {
-            if (file.type.indexOf("image") == 0) {
-                if (file.size >= 512000) {
-                    alert('您这张"' + file.name + '"图片大小过大，应小于500k');
-                } else {
-                    arrFiles.push(file);
-                }
-            } else {
-                alert('文件"' + file.name + '"不是图片。');
-            }
+            arrFiles.push(file);
         }
         return arrFiles;
     },
@@ -138,19 +129,14 @@ var imgparams = {
         var funAppendImage = function () {
             var file = files[i];
             if (file) {
-                var reader = new FileReader()
-                reader.onload = function (e) {
-                    html = html + '<div id="uploadList_' + i + '" class="upload_append_list"><p><strong>' + file.name + '</strong>' +
-                        '<a href="javascript:" class="upload_delete" title="删除" data-index="' + i + '">删除</a><br />' +
-                        '<img id="uploadImage_' + i + '" src="' + e.target.result + '" class="upload_image" /></p>' +
-                        '<span id="uploadProgress_' + i + '" class="upload_progress"></span>' +
-                        '</div>';
+                html = html + '<div id="uploadList_' + i + '" class="upload_append_list"><p><strong>' + file.name + '</strong>' +
+                    '<a href="javascript:" class="upload_delete" title="删除" data-index="' + i + '">删除</a><br />' +
+                    '<span id="uploadProgress_' + i + '" class="upload_progress"></span>' +
+                    '</div>';
 
-                    i++;
-                    console.log(file);
-                    funAppendImage();
-                }
-                reader.readAsDataURL(file);
+                i++;
+                console.log(file);
+                funAppendImage();
             } else {
                 $("#preview").html(html);
                 if (html) {
@@ -185,6 +171,7 @@ var imgparams = {
         $("#uploadInf").append("<p>当前图片全部上传完毕，可继续添加上传。</p>");
     }
 };
+/*
 //ZXXFILE = $.extend(ZXXFILE, params);
 //实现视频文件上传
 var videoparams = {
@@ -387,7 +374,7 @@ var textparams = {
         $("#uploadInf").append("<p>当前文档全部上传完毕，可继续添加上传。</p>");
     }
 };
-
+*/
 //文件上传成功后文档视图页面增加一行//a的跳转还没有写
 function updatefloder(fname,fdate,fid,fgrade){
 	var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox'/><div class='samll_folder dir_small inline_block'></div>"

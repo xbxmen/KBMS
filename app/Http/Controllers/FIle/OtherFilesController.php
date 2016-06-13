@@ -16,24 +16,38 @@
          * 上传文件
          * */
         public function upload(Request $request){
-            $arr = array();
-            $finalpath = "./uploads/";
-            if($request->file()){
-                $file = $request->file();
-                for($i = 1;$i <= count($file) ;$i++){
-                    $index = "file".$i;
-                    $myfile = $file[$index];
-                    $foldername = $myfile->getClientOriginalName();
-                    $filesize = $myfile->getSize();
-                    $filetype = $myfile->getClientMimeType();
-                    $aa = $myfile->getMaxFilesize();
-                    echo  $aa;
+            if(session('id')){
+                $file = $_FILES['mof'];
+                $myname = $_POST['myname'];
+                $succeed = $_POST['succeed'];
+                $type = trim(strrchr($_POST['test'], '.'),'.');
+                if($succeed != '1'){
+                    if($file['error'] == 0){
+                        if(!file_exists('./uploads/upload.'.$type)){
+                            if(!move_uploaded_file($file['tmp_name'],'./uploads/UP.'.$myname.".".$type)){
+                                return response('failed');
+                            }else{
+                                return response('ok');
+                            }
+                        }else{
+                            $content=file_get_contents($file['tmp_name']);
+                            if (!file_put_contents('./uploads/upload.'.$myname.".".$type, $content,FILE_APPEND)) {
+                                return response('failed');
+                            }else{
+                                return response('ok');
+                            }
+                        }
+                    }else{
+                        return response('failed');
+                    }
+                }else{
+                    return response("succeed");
                 }
             }else{
-                return -2;
+                return response("-1");
             }
-        }
 
+        }
         /*
          *删除文件
          * */
