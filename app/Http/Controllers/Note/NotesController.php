@@ -60,7 +60,7 @@ class NotesController extends Controller
         $note = new Note($request->all());
         $note->notefolder = $folderId;
         $note->uid = $userId;
-        $note->createtime = date("Y-m-d H:i:s");;
+        $note->createtime = date("Y-m-d H:i:s");
         $note->save();
         return 0;
     }
@@ -81,6 +81,7 @@ class NotesController extends Controller
         if($request->input('opt') == 'mdf')
         {
             $noteSet->update($request->except('opt'));
+            $noteSet->update('updatetime', date("Y-m-d H:i:s"));
         }
         if($request->input('opt') == 'del')
         {
