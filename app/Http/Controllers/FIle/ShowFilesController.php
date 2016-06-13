@@ -50,7 +50,7 @@ class ShowFilesController extends Controller
                     $res = DB::select($sql,[$filegrade,$uid]);
                     return json_encode($res);
                 }else{
-                    $sql = "SELECT * from files WHERE grade=? and filefolder=? and uid=?";
+                    $sql = "SELECT * from files WHERE filegrade=? and filefolder=? and uid=?";
                     $res = DB::select($sql,[$filegrade,$filepreid,$uid]);
                     return json_encode($res);
                 }
@@ -61,8 +61,11 @@ class ShowFilesController extends Controller
             return response("-1");
         }
     }
+
+
+
     /*
-     *分页获取全部 文件
+     *分页获取各个类别的全部 文件
      * */
     public function showMyFiles(Request $request){
         if(session('id')){
@@ -93,7 +96,7 @@ class ShowFilesController extends Controller
      * 显示word内容
      * */
     public function MyDoc(Request $request){
-        
+
     }
     /*
      * 显示ppt

@@ -3,9 +3,6 @@
     use App\Http\Controllers\Controller;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\DB;
-    use Illuminate\Support\Facades\Session;
-    use PhpParser\Node\Scalar\MagicConst\File;
-
     /**
      * Created by PhpStorm.
      * User: 98259
@@ -13,7 +10,7 @@
      * Time: 15:39
      */
     date_default_timezone_set("Asia/Shanghai");
-    class UploadController extends Controller
+    class OtherFilesController extends Controller
     {
         /*
          * 上传文件
@@ -107,8 +104,6 @@
         public function Filecopy(){
 
         }
-
-
         /*
          * 创建文件夹
          * */
@@ -154,8 +149,6 @@
             }else{
                 return response("-1");
             }
-
-
         }
 
         /*

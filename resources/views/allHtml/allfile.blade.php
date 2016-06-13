@@ -251,8 +251,8 @@
 							$(".list").empty();
 							console.log(data);
 							for(var i = 0;i<data.length;i++){
+								console.log(data[i]['grade']);
 								var fileli = $(updatefloder(data[i]['folname'], data[i]['updatetime'], data[i]['folid'],data[i]['grade']));
-								//        var fileli = $(updateFile("新建文件夹","12" ,currentTime(),"audio","","给我一个id"));
 								if($(".list li").first().length!=0){
 									fileli.insertBefore($(".list li").first());
 								}else{
@@ -268,8 +268,11 @@
 		</script>
 		<script>
 			function myFolder(ele) {
-				preid = ele.attr("id");
-				grade = ele.attr("");
+				preid = ele.getAttribute("id");
+				grade = ele.getAttribute("data-grade").valueOf();
+				grade++;
+				console.log(preid);
+				console.log(grade);
 				showFolder();
 				showFiles();
 			}

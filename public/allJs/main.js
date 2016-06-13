@@ -62,7 +62,6 @@ function li_share(){
 		on(fileshow_li[i],"mouseover",function(){
 			if(this.getElementsByClassName("operate")[0]){
 				this.getElementsByClassName("operate")[0].style.visibility ="visible";
-				console.log(this.getElementsByClassName("operate")[0]);
 			}	
 		});
 		on(fileshow_li[i],"mouseout",function(){
@@ -76,7 +75,6 @@ function visible(parent){
 }
 function myhidden(parent){
 	parent.getElementsByClassName("operate")[0].style.visibility ="hidden";
-	console.log(parent);
 }
 addonload(li_share());
 addonload(boxSelect());
