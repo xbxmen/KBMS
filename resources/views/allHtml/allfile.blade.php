@@ -36,6 +36,7 @@
 								<li class="col first-col">
 									<!--<input name="filegroup" class="allcheckbox" type="checkbox"/>-->
 									<!--<span class="black">&nbsp;</span>-->
+									<button class="return"><img src="./img/return.png"/></button>
 									<button class="foxfloder">新建文件夹</button>
 									<span class="text">文件名</span>
 								</li>
