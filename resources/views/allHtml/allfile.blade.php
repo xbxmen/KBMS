@@ -191,8 +191,8 @@
 			</div>
 		</div>
 		<script>
-			var preid = {};
-			var grade = {};
+			var preid = "{{session('preid')}}";
+			var grade = "{{session('grade')}}";
 		</script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>
