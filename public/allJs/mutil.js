@@ -115,7 +115,6 @@ var ZXXFILE = {
 				return;
 			}
 		}
-
 		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
 			console.log(myfile);
 			des=document.getElementById('load0');
@@ -129,7 +128,6 @@ var ZXXFILE = {
 				time = (new Date()).valueOf();
 				BigUp();
 			}
-
 		}
 
 		function smallUp() {

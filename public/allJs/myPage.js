@@ -130,13 +130,11 @@ var imgparams = {
             if (file) {
                 html = html + '<div id="uploadList_' + i + '" class="upload_append_list"><p><strong>' + file.name + '</strong>' +
                     '<a href="javascript:" class="upload_delete" title="删除" data-index="' + i + '">删除</a><br />' +
-                    '<span id="uploadProgress_' + i + '" class="upload_progress"></span>' +
                     '</div>';
                 i++;
                 console.log(file);
                 funAppendImage();
             } else {
-                $("#preview").html(html);
                 if (html) {
                     //删除方法
                     $(".upload_delete").click(function () {
@@ -145,9 +143,11 @@ var imgparams = {
                     });
                     //提交按钮显示
                     $("#fileSubmit").show();
+                    $("#load0").show();
                 } else {
                     //提交按钮隐藏
                     $("#fileSubmit").hide();
+                     $("#load0").hide();
                 }
             }
         };
@@ -215,9 +215,7 @@ function keydownMsg(evt, filenamea, new_dir) {
     var keyCode = evt.keyCode ? evt.keyCode : (evt.which ? evt.which : evt.charCode);
     if (keyCode == 13) {
         var fname = document.getElementById("new_dir_fname").value;
-        console.log(fname);//回车键弹出文本框信息
         filenamea.firstChild.nodeValue = fname;
-        console.log(filenamea.firstChild.nodeValue);
         new_dir.css({"display": "none"});
         document.getElementById("new_dir_fname").value = "新建文件夹";
         $.ajax({
