@@ -37,6 +37,7 @@
 								<li class="col first-col">
 									<!--<input name="filegroup" class="allcheckbox" type="checkbox"/>-->
 									<!--<span class="black">&nbsp;</span>-->
+									<button class="return"><img src="./img/return.png"/></button>
 									<button class="foxfloder">新建文件夹</button>
 									<span class="text">文件名</span>
 								</li>
@@ -169,21 +170,27 @@
 		    <div id="uploadmain">
 			    <div id="body" class="light">
 			        <div id="content" class="show">
-			            <div class="return_pre"><a href="#show_main"><i class="show_icon icon-double-angle-left></i></a></div>
+			            <div class="return_pre"><a href="#show_main"><i class="w_icon icon-double-angle-left"></i></a></div>
 			            <div class="demo">
 			                <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
 			                    <div class="upload_box">
 			                        <div class="upload_main">
 			                            <div class="upload_choose">
-			                                <input id="fileImage" type="file" size="30" name="fileselect[]" multiple />
-			                                <span id="fileDragArea" class="upload_drag_area">或者将文件拖到此处</span>
+			                                <a href="#" class="file">选择文件<input  class="up_input" id="fileImage" type="file" size="30" name="fileselect[]" multiple /></a>
+
 			                            </div>
 			                            <div id="preview" class="upload_preview"></div>
 			                        </div>
 			                        <div class="upload_submit">
-			                            <button type="button" id="fileSubmit" class="upload_submit_btn">确认上传</button>
+			                            <input type="button" id="fileSubmit" class="upload_submit_btn" value="确认上传"></input>
 			                        </div>
-			                        <div id="uploadInf" class="upload_inf"></div>
+			                       <!--<p id="load0">NAN%</p>-->
+			                       <div id="load0"> 
+									  <div class="load-bar"> 
+									    <div id="load-bar-inner" data-loading="0"> <span id="counter"></span> </div> 
+									  </div> 
+								  
+									</div> 
 			                    </div>
 			                </form>
 			            </div>
@@ -192,8 +199,8 @@
 			</div>
 		</div>
 		<script>
-			var createfolder_url = "{{url('upload/createfolder')}}";
-			var foldertype =  2;
+			var preid = {};
+			var grade = {};
 		</script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>
@@ -204,8 +211,6 @@
 			ZXXFILE.init();
 		</script>
 		<script>
-			var preid = -1;
-			var grade = 1;
 			function showFiles() {
 				$.ajax({
 					url: '{{url('show/files')}}',
@@ -267,7 +272,6 @@
 						}else if(data == -2){
 							alert("参数有错误！");
 						}else{
-							$(".list").empty();
 							console.log(data);
 							for(var i = 0;i<data.length;i++){
 								console.log(data[i]['grade']);
@@ -282,11 +286,13 @@
 					}
 				});
 			}
+			$(".list").empty();
 			showFolder();
 			showFiles();
 		</script>
 		<script>
 			function myFolder(ele) {
+				$(".list").empty();
 				preid = ele.getAttribute("id");
 				grade = ele.getAttribute("data-grade").valueOf();
 				grade++;

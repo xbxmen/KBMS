@@ -18,14 +18,13 @@
         public function upload(Request $request){
             if(session('id')){
                 $uid = session('id');
-                $file = $_FILES['mof'];
                 $succeed = $_POST['succeed'];
                 $myname = $_POST['myname'];
                 $type = trim(strrchr($_POST['test'], '.'),'.');
                 if($succeed != '1'){
+                    $file = $_FILES['mof'];
                     if($file['error'] == 0){
-                        $path = "UP".$myname.".".$type;
-
+                        $path = 'UP.'.$myname.".".$type;
                         if(!file_exists('./uploads/'.$path)){
                             if(!move_uploaded_file($file['tmp_name'],'./uploads/'.$path)){
                                 return response('failed');
@@ -47,16 +46,20 @@
                     $filepath = $_POST['myname']?  "./uploads/UP.".$myname.$type : "" ;
                     $filehead = $_POST['filename']? $_POST['filename']: "" ;
                     $filefolder = $_POST['filefolder']? $_POST['filefolder']: "";
-                    $filesize = $_POST['filesize']?  $_POST['filesize']/(1024*1024): "" ;
+                    $filesize = $_POST['filesize']? round( $_POST['filesize']/(1024*1024),2): "" ;
                     $filesize .= "M";
                     $filegrade =  $_POST['filegrade']? $_POST['filegrade']: "";
                     $createtime = $updatetime =  date("Y-M-D H:i:sa");
                     $filetype = $this->MyType($type);
-                    $sql  = "INSERT INTO files (filehead,filetype,filesize,filegrade,createtime,updatetime,filefolder,filepath,uid)
+                    if($filepath && $filehead && $filefolder && $filesize && $filegrade){
+                        $sql  = "INSERT INTO files (filehead,filetype,filesize,filegrade,createtime,updatetime,filefolder,filepath,uid)
                             VALUES (?,?,?,?,?,?,?,?,?)";
-                    $res = DB::insert($sql,[$filehead,$filetype,$filesize,$filegrade,$createtime,$updatetime,$filefolder,$filepath,$uid]);
-                    if($res){
-                        return response("succeed");
+                        $res = DB::insert($sql,[$filehead,$filetype,$filesize,$filegrade,$createtime,$updatetime,$filefolder,$filepath,$uid]);
+                        if($res){
+                            return response("succeed");
+                        }else{
+                            return response("-3");
+                        }
                     }else{
                         return response("-2");
                     }

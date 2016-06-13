@@ -12,7 +12,7 @@
     <script language="JavaScript" type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
     <script src="./allJs/mutil.js" type="text/javascript"></script>
     <script src="./allJs/base.js" type="text/javascript"></script>
-    <script src="./allJs/myPage.js" type="text/javascript"></script>
+    <!--<script src="./allJs/myPage.js" type="text/javascript"></script>-->
     <title>INGSERVE</title>
 
     <script type="text/javascript">

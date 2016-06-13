@@ -1,4 +1,5 @@
 var files = [];
+var createfolder_url = "{{url('upload/createfolder')}}";
 function addfile(src, isshare, isfolder, ischeck, file_type) {
     var file = {
         src: src,
@@ -79,6 +80,28 @@ $(function () {
 });
 
 
+$(function () {
+    //点击UPLOAD出现上传界面
+    $("#upload").on('click', function () {
+        $(".show_main").css("display", "none");
+        $(".nav").css("display", "none");
+        $("#uploadmain").css("display", "block");
+        console.log("hello");
+    });
+    //点击回到图片回到图显示图片的界面
+    $(".w_icon").on("click", function () {
+        if (confirm("确定退出上传？")) {
+            $("#uploadmain").css("display", "none");
+            $(".show_main").css("display", "block");
+            $(".nav").css("display", "block");
+
+        }
+
+    });
+
+});
+
+
 
 
 var file_type;
@@ -111,13 +134,12 @@ var imgparams = {
             if (file) {
                 html = html + '<div id="uploadList_' + i + '" class="upload_append_list"><p><strong>' + file.name + '</strong>' +
                     '<a href="javascript:" class="upload_delete" title="删除" data-index="' + i + '">删除</a><br />' +
-                    '<span id="uploadProgress_' + i + '" class="upload_progress"></span>' +
                     '</div>';
                 i++;
                 console.log(file);
                 funAppendImage();
             } else {
-                $("#preview").html(html);
+            	 $("#preview").html(html);
                 if (html) {
                     //删除方法
                     $(".upload_delete").click(function () {
@@ -126,9 +148,10 @@ var imgparams = {
                     });
                     //提交按钮显示
                     $("#fileSubmit").show();
+                   
                 } else {
                     //提交按钮隐藏
-                    $("#fileSubmit").hide();
+                     $("#load0").hide();
                 }
             }
         };
@@ -223,6 +246,14 @@ function keydownMsg(evt, filenamea, new_dir) {
         });
     }
 }
+function updatePro(percent){
+	var p = (percent/100)*$("#load0").width();
+	console.log(p);
+ 	$("#load-bar-inner").width(p);
+ 	
+    $('#counter').html(percent+'%');  
+}
+updatePro(10);
 addonload(shareFile());
 addonload(fokfloder());
 
