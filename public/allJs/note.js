@@ -1,4 +1,4 @@
-var baseUrl = 'http://localhost/KBMS/public/note/i/'
+var baseUrl = 'http://localhost/KBMS/public/note/i/';
 
 var app = angular.module('noteApp', []);
 app.controller('noteBookController', ['$scope', '$http', '$rootScope', function noteBookController($scope, $http, $rootScope){
@@ -6,7 +6,9 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
     $scope.now = 2;
     $scope.getNoteBook = function(){
         $http.get(baseUrl+'folder').then(function(response){
-        $rootScope.noteBooks = response.data;
+            $rootScope.noteBooks = response.data;
+            // console.log(response.data[0]);
+            $rootScope.curNoteBookId = response.data[0].folid;
         });
     }
 
@@ -91,6 +93,7 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
         $rootScope.curNoteId = id;
         $rootScope.curNoteTitle = title;
         $rootScope.curNoteContent = content;
+        console.log(content);
         // $rootScope.currentNoteContent = content;
         // alert('here');
         // function clickEvent(){
@@ -106,12 +109,13 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
         //     angular.element(".right_bottom p")[0].innerHTML = o;
         //     angular.element(".text_area")[0].value = o;
 
-        //     if (angular.element(".edit_text").is(":visible")){
-        //         angular.element(".right_bottom").css("display","block");
-        //         //$(".right_bottom p").text();
-        //         angular.element(".edit_text").css("display","none");
-        //         angular.element("#"+cur_id+" .N_two p")[0].innerHTML = ori_content;
-        //     }
+            if (angular.element(".edit_text").is(":visible")){
+                angular.element(".right_bottom").css("dirootScopesplay","block");
+                angular.element(".right_bottom").css("display","block");
+                //$(".right_bottom p").text();
+                angular.element(".edit_text").css("display","none");
+                // angular.element("#"+$scope.curNoteId+" .N_two p")[0].innerHTML = ori_content;
+            }
         // }
         // angular.element(".List").click(clickEvent);
     }
@@ -125,6 +129,12 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
 }]);
 
 app.controller('noteController', ['$scope', '$http', '$rootScope', function noteController($scope, $http, $rootScope){
+//     rootScope.fields = {
+//     inputModel: ''
+// }
+    // $scope.curNoteId = $rootScope.curNoteId;
+    // $scope.curTitle = $rootScope.curTitle;
+    // $scope.curContent = $rootScope.curContent;
     $scope.clickEdit = function(){
         var  i =$(".right_bottom p")[0].innerHTML;
         $(".edit_text").css("display","block");
@@ -148,14 +158,14 @@ app.controller('noteController', ['$scope', '$http', '$rootScope', function note
             {
                 i = notes[note];
                 if (i.nid == $rootScope.curNoteId){
-                    i.notebody = $scope.curNoteContent;
+                    i.notebody = $rootScope.curNoteContent;
                     $http.post(baseUrl+'folder/'+$rootScope.curNoteBookId+'/note/'+$rootScope.curNoteId, {
                         'opt': 'mdf',
                         'notehead': i.notehead,
                         'notebody': i.notebody
                     }).then(function(response){
                         if(response.data == 0)
-                            $rootScope.updateNote();
+                            $rootScope.geteNote($rootScope.curNoteBookId);
                         else
                             alert(response.data);
                     });
@@ -163,6 +173,20 @@ app.controller('noteController', ['$scope', '$http', '$rootScope', function note
             }
             // $[].notebody = ;
         }
+    }
+
+    $scope.clickNewNote = function(){
+        alert(baseUrl);
+        var url = baseUrl;
+        $http.post(url+'folder/'+$rootScope.curNoteBookId+'/note', {
+            'notehead': '新笔记',
+            'notebody': ''
+        }).then(function(response){
+            if(response.data == 0)
+                $rootScope.updateNote();
+            else
+                alert(response.data);
+        });
     }
 
 

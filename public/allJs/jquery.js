@@ -156,23 +156,23 @@ $(function(){
     //         });
 
 
-    $("#rebuild").click(function(){
-        $(".right_bottom").css("display","none");
-        $(".edit_text").css("display","block");
-        $(".text_area").val('');
-        $("#ul").html('<li id="N'+num+'" class="List">'+
-                        '<div class="middle_header">'+
-                            '<div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记1</span></div>'+
-                        '<div class="N_two" id="N_two_text"><p></p></div>'+
-                        '<div class="N_three">2016/6/6 18:06</div>'+
-                        '</div>'+
-                        '</li>'+$("#ul").html());
+    // $("#rebuild").click(function(){
+    //     $(".right_bottom").css("display","none");
+    //     $(".edit_text").css("display","block");
+    //     $(".text_area").val('');
+    //     $("#ul").html('<li id="N'+num+'" class="List">'+
+    //                     '<div class="middle_header">'+
+    //                         '<div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>新笔记1</span></div>'+
+    //                     '<div class="N_two" id="N_two_text"><p></p></div>'+
+    //                     '<div class="N_three">2016/6/6 18:06</div>'+
+    //                     '</div>'+
+    //                     '</li>'+$("#ul").html());
 
-        $(".List").click(clickEvent);
-        $('#N'+num).click();
-        $("#edit").click();
-        num++;
-    });
+    //     $(".List").click(clickEvent);
+    //     $('#N'+num).click();
+    //     $("#edit").click();
+    //     num++;
+    // });
 
 
 

@@ -119,17 +119,17 @@
         </ul>
     </div>
     <div class="N_right" ng-controller="noteController">
-        <div class="right_top"><p>标题：@{{curNoteTitle}}</p></div>
-        <div class="right_bottom"><p>@{{curNoteContent}}</p></div>
+        <div class="right_top"><p>标题：@{{$root.curNoteTitle}}</p></div>
+        <div class="right_bottom"><p>@{{$root.curNoteContent}}</p></div>
           <form method="post" action="#">
                     <div class="edit_text">
-                        <textarea name="#" class="text_area" cols="85px" rows="400px" ng-model="curNoteContent"></textarea>
+                        <textarea name="#" class="text_area" cols="85px" rows="400px" ng-model="$root.curNoteContent"></textarea>
                     </div>
                 </form>
                  <div class="right_last">
                             <input type="button" value="编辑" style="width: 80px;height: 40px" class="btn_last" id="edit" ng-click="clickEdit()">
                             <input type="button" value="保存" style="width: 80px;height: 40px" class="btn_last" id="save" ng-click="clickSave()">
-                            <input type="button" value="新建" style="width: 80px;height: 40px" class="btn_last" id="rebuild">
+                            <input type="button" value="新建" style="width: 80px;height: 40px" class="btn_last" id="rebuild" ng-click="clickNewNote()">
                             <input type="button" value="删除" style="width: 80px;height: 40px" class="btn_last" id="moit">
                  </div>
     </div>
