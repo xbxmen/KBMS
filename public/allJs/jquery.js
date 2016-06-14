@@ -294,15 +294,15 @@ function openNewG(){
 
     }
 }
-
-var oBTN=document.getElementById("again");//获取元素结点
-oBTN.onclick=function(){
+$("#again").click(function(){
     openNewG();
-
+})
 
 //打开pdf
     $(function() {
-        $('a.media').media({width:800, height:600});
+        $(".media").click(function(){
+            $('a.this').media({width:800, height:600});
+        })
+
     });
 
-}
