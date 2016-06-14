@@ -127,4 +127,11 @@ class NotesController extends Controller
         $note = Note::where('notebody', 'like', "%{$keyword}%")->where('uid', $userId)->get();
         return $note;
     }
+
+    public function recentNote(Request $request)
+    {
+        $userId = $this->getId($request);
+        $note = Note::where('uid', $userId)->orderBy('updatetime')->take(10)->get();
+        return $note;
+    }
 }
