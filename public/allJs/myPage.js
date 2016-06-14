@@ -86,6 +86,7 @@ $(function () {
         $(".nav").css("display", "none");
         $("#uploadmain").css("display", "block");
         console.log("hello");
+        
     });
     //点击回到图片回到图显示图片的界面
     $(".w_icon").on("click", function () {
@@ -99,9 +100,6 @@ $(function () {
     });
 
 });
-
-
-
 
 var file_type;
 //根据选择的不同的文件类型来到不同的页面
@@ -194,24 +192,34 @@ function fokfloder() {
     var fokbutton = $(".foxfloder");
     var new_dir = $("#new_dir_item");
     var list = $(".list");
+    var valid = true;
     fokbutton.on('click', function (e) {
-        var fileli = $(updatefloder("新建文件夹", currentTime(), "给我一个id","1"));
-//        var fileli = $(updateFile("新建文件夹","12" ,currentTime(),"audio","","给我一个id"));
-        if($(".list li").first().length!=0){
-        	fileli.insertBefore($(".list li").first());
-        }else{
-        	$(".list").append(fileli);
-        }
-        new_dir.css({"display": "block", "top": "41px"});
-		
+    	if(valid){
+    		valid = false;
+	    	var fileli = $(updatefloder("新建文件夹", currentTime(), "给我一个id","1"));
+	        if($(".list li").first().length!=0){
+	        	fileli.insertBefore($(".list li").first());
+	        }else{
+	        	$(".list").append(fileli);
+	        }
+	        new_dir.css({"display": "block", "top": "41px"});
+			var fname = $("#new_dir_fname");
+		    //按回车键命名成功
+		    fname.keydown(function (e) {
+		        var filenamea = document.getElementsByClassName("file_name")[0];
+		        keydownMsg(e, filenamea, new_dir);
+		        valid = true;
+		    });
+    	}
+       
     });
 
-    var fname = $("#new_dir_fname");
-    //按回车键命名成功
-    fname.keydown(function (e) {
-        var filenamea = document.getElementsByClassName("file_name")[0];
-        keydownMsg(e, filenamea, new_dir);
-    });
+//  var fname = $("#new_dir_fname");
+//  //按回车键命名成功
+//  fname.keydown(function (e) {
+//      var filenamea = document.getElementsByClassName("file_name")[0];
+//      keydownMsg(e, filenamea, new_dir);
+//  });
 }
 function keydownMsg(evt, filenamea, new_dir) {
     evt = (evt) ? evt : ((window.event) ? window.event : "")
@@ -221,6 +229,8 @@ function keydownMsg(evt, filenamea, new_dir) {
         filenamea.firstChild.nodeValue = fname;
         new_dir.css({"display": "none"});
         document.getElementById("new_dir_fname").value = "新建文件夹";
+        console.log(grade);
+
         $.ajax({
             url: createfolder_url,
             type: 'post',
@@ -237,6 +247,9 @@ function keydownMsg(evt, filenamea, new_dir) {
                     alert("参数有错误！");
                 } else if(data == 1){
                     alert('创建成功~~');
+                    $(".list").empty();
+                    showFolder();
+                    showFiles();
                 }else if(data == -3){
                     alert("文件名不可重复~");
                     $(".list li").first().remove();
@@ -247,6 +260,61 @@ function keydownMsg(evt, filenamea, new_dir) {
 }
 addonload(shareFile());
 addonload(fokfloder());
+/*
+* 进行删除操作
+* */
+function deleteFF() {
+    if(folderarr.length > 0){
+        console.log(folderarr);
+        $.ajax({
+            url: deletefolder_url,
+            type: 'post',
+            data: {
+                "folderid": folderarr,
+            },
+            success: function (data) {//注册用户的信息返回到这里，data参数里
+                if (data == -1) {
+                    alert('登录超时!');
+                } else if (data == -2) {
+                    alert("参数有错误！");
+                } else {
+                    alert("文件夹删除成功~~");
+                    $(".allcheckbox").prop("checked",false);
+                    $(".grid-cols").hide();
+                    $(".list").empty();
+                    showFolder();
+                    showFiles();
+                }
+            }
+        });
+    }
+    if(filearr.length > 0){
+        console.log(filearr);
+        $.ajax({
+            url: deletefile_url,
+            type: 'post',
+            data: {
+                "fileid": filearr,
+            },
+            success: function (data) {//注册用户的信息返回到这里，data参数里
+                if (data == -1) {
+                    alert('登录超时!');
+                } else if (data == -2) {
+                    alert("参数有错误！");
+                } else if(data == 1) {
+                    alert("文件删除成功~~");
+                    $(".allcheckbox").prop("checked",false);
+                    $(".grid-cols").hide();
+                    $(".list").empty();
+                    showFolder();
+                    showFiles();
+                }else{
+                    console.log(data);
+                }
+            }
+        });
+    }
+}
 
 $(function () {
     $("#btn_se").click(function () {

@@ -34,13 +34,13 @@
 						<input name="filegroup" class="allcheckbox" type="checkbox" onclick="boxSelect(this);"/>
 						<div class="list_cols">
 						<input class="foxfloder" type="button" value="新建文件夹">
-							<ul class="list_head head_one">
+							<ul class="list_head">
 								<li class="col first-col">
 									<!--<input name="filegroup" class="allcheckbox" type="checkbox"/>-->
 									<!--<span class="black">&nbsp;</span>-->
-
-									<div class="re_icon"><i class="return icon-double-angle-left"></i></div>
-									<span class="text" >文件名</span>
+									<button class="return" onclick="BackPre()" id="back"><img src="./img/return.png"/></button>
+									<button class="foxfloder">新建文件夹</button>
+									<span class="text">文件名</span>
 								</li>
 								<li class="col chen" style="width: 12%;">
 									<span class="size">大小</span>
@@ -67,7 +67,7 @@
 												下载
 												<img src="./img/download.png">
 											</button>
-											<button class="delete">
+											<button class="delete" id="delete" onclick="deleteFF()">
 												删除
 												<img src="./img/delete.png">
 											</button>
@@ -86,70 +86,6 @@
 						
 						<div>
 							<ul class="list">
-								<li class="fileshow_li">
-									<input name="file" id="1" data-type="0" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
-									<div class="samll_folder dir_small inline_block">
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html" class="file_name">哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
-									</div>
-
-									<div class="filesize inline_block">-</div>
-									<div class="filedate inline_block"><span class="text">2016-05-26 13:22</span></div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" id="2" data-type="0" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
-									<div class="samll_folder dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html"  class="file_name" >哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
-									</div>
-									
-									<div class="filesize inline_block">-</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" id="3" data-type="1" class="checkbox" type="checkbox" onclick="boxSelect(this)"/>
-									<div class="image dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html"  class="file_name" >哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-									</div>
-									</div>
-									
-									<div class="filesize inline_block">16KB</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
-								<li class="fileshow_li">
-									<input name="file" id="3" data-type="1" class="checkbox"  type="checkbox" onclick="boxSelect(this)"/>
-									<div class="image dir_small inline_block">	
-									</div>
-									<div class="filename inline_block">
-										<a href="photo_show.html" class="file_name" >哈利波特全集</a>
-										<div class="operate inline_block ">
-											<a class="share" href="#"><img src="./img/share.png"></a>
-											<a class="download"  href="#"><img src="./img/download.png"></a>
-											<a class="menu"  href="#"><img src="./img/menu.png"></a>
-										</div>
-									</div>
-									
-									<div class="filesize inline_block">16KB</div>
-									<div class="filedate inline_block">2016-05-26 13:22</div>
-								</li>
 							</ul>
 							<div id="new_dir_item">
 								<li class="fileshow_li">
@@ -200,7 +136,10 @@
 			</div>
 		</div>
 		<script>
-			var createfolder_url = "{{url('upload/createfolder')}}";
+			var createfolder_url = "{{url('file/createfolder')}}";
+			var deletefolder_url = "{{url('file/deletefolder')}}";
+			var deletefile_url = "{{url('file/deletefile')}}";
+
 			var preid = "{{session('preid')}}";
 			var grade = "{{session('grade')}}";
 			var foldertype = 2;
@@ -229,8 +168,6 @@
 					success: function(data){//注册用户的信息返回到这里，data参数里
 						if(data == -1){
 							alert('登录超时!');
-						}else if(data == -2){
-							alert("参数有错误！");
 						}else{
 							console.log(data);
 							for(var i = 0;i<data.length;i++){
@@ -275,8 +212,6 @@
 					success: function(data){//注册用户的信息返回到这里，data参数里
 						if(data == -1){
 							alert('登录超时!');
-						}else if(data == -2){
-							alert("参数有错误！");
 						}else{
 							console.log(data);
 							for(var i = 0;i<data.length;i++){
@@ -293,10 +228,15 @@
 				});
 			}
 			$(".list").empty();
+			console.log(preid);
+			console.log(grade);
 			showFolder();
 			showFiles();
 		</script>
 		<script>
+			/*
+			* 获取单个文件夹里面的东西
+			* */
 			function myFolder(ele) {
 				$(".list").empty();
 				preid = ele.getAttribute("id");
@@ -307,6 +247,44 @@
 				showFolder();
 				showFiles();
 			}
+			/*
+			*返回上一级
+			* */
+			function BackPre() {
+				if(grade ==  1){
+					preid = -1;
+					$(".list").empty();
+					showFolder();
+					showFiles();
+				}else{
+					$.ajax({
+						url: '{{url('show/BackPre')}}',
+						type: 'post',
+						dataType: 'json',
+						data: {
+							"myid" : preid,
+							"mygrade" : grade
+						},
+						success: function(data) {//注册用户的信息返回到这里，data参数里
+							if(data == -1){
+								alert('登录超时!');
+							}else{
+								console.log(data['folpreid']);
+								grade--;
+								if(grade == 1){
+									preid = -1;
+								}else{
+									preid = data['folpreid'];
+								}
+								$(".list").empty();
+								showFolder();
+								showFiles();
+							}
+						}
+					});
+				}
+			}
+
 		</script>
 	</body>
 </html>

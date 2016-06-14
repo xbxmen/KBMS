@@ -64,8 +64,6 @@ class ShowFilesController extends Controller
         }
     }
 
-
-
     /*
      *分页获取各个类别的全部 文件
      * */
@@ -89,6 +87,44 @@ class ShowFilesController extends Controller
             }else{
                 return response("-2");
             }
+        }else{
+            return response("-1");
+        }
+    }
+
+    /*
+     *获取上一级的id
+     * */
+    public function BackPre(Request $request){
+        if(session('id')) {
+            $uid = session('id');
+            $myid = $request->input('myid');
+            $mygrade = $request->input('mygrade');
+            $mygrade--;
+            session(['preid'=>$myid]);
+            session(['grade'=>$mygrade]);
+            $sql = "SELECT folpreid FROM folders WHERE folid=? and uid=?";
+            $res = DB::select($sql,[$myid,$uid]);
+            if ($res){
+                return json_encode($res[0]);
+            }else{
+                return response("-2");
+            }
+        }else{
+            return response("-1");
+        }
+    }
+
+    /*
+     * 获取 图片的 时间轴
+     * */
+    public function  PhotoTimeArr(){
+        if(session('id')) {
+            $uid = session('id');
+            $type = $this->PICTURE;
+            $sql = "SELECT SUBSTR(updatetime,1,9) FROM files WHERE filetype = ? and uid = ?";
+            $res = DB::select($sql,[$type,$uid]);
+            return json_encode($res);
         }else{
             return response("-1");
         }
