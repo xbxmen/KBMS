@@ -74,6 +74,7 @@ class NotesController extends Controller
         if($request->input('opt') == 'del')
         {
             Folder::where('folid', $folderId)->delete();
+            Note::where('notefolder', $folderId)->delete();
             return 0;
         }
         if($request->input('opt') == 'mdf')

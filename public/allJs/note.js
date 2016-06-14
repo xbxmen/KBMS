@@ -8,12 +8,16 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
         $http.get(baseUrl+'folder').then(function(response){
             $rootScope.noteBooks = response.data;
             // console.log(response.data[0]);
-            $rootScope.curNoteBookId = response.data[0].folid;
+            if(response.data.length > 0)
+                $rootScope.curNoteBookId = response.data[0].folid;
         });
     }
 
     $scope.changeNoteBookId = function(id){
         $rootScope.curNoteBookId = id;
+        $rootScope.curNoteId = null;
+        $rootScope.curNoteTitle = null;
+        $rootScope.curNoteContent = null;
     }
 
     $scope.search = function(keyword){
@@ -43,7 +47,13 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
     $scope.deleteNoteBook = function(){
         $http.post(baseUrl+'folder/'+$rootScope.curNoteBookId, {'opt': 'del'}).then(function(response){
             if(response.data == 0)
+            {
+                $rootScope.notes = null;
+                $rootScope.curNoteId = null;
+                $rootScope.curNoteTitle = null;
+                $rootScope.curNoteContent = null;
                 $scope. getNoteBook();
+            }
             else
                 alert(response.data);
         });
@@ -105,7 +115,6 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
         $rootScope.curNoteId = id;
         $rootScope.curNoteTitle = title;
         $rootScope.curNoteContent = content;
-        console.log(content);
         // $rootScope.currentNoteContent = content;
         // alert('here');
         // function clickEvent(){
@@ -162,8 +171,7 @@ app.controller('noteController', ['$scope', '$http', '$rootScope', function note
         $scope.noteTitle.disabled = false;
         var  i =$(".right_bottom p")[0].innerHTML;
         $(".edit_text").css("display","block");
-        console.log(i)
-        $(".text_area")[0].value = i;
+        // $(".text_area")[0].value = i;
         $(".right_bottom").css("display","none");
     }
 
@@ -214,11 +222,18 @@ app.controller('noteController', ['$scope', '$http', '$rootScope', function note
     }
 
     $scope.clickDeleteNote = function(){
+        $scope.noteTitle.disabled = true;
         $http.post(baseUrl+'folder/'+$rootScope.curNoteBookId+'/note/'+$rootScope.curNoteId, {
             'opt': 'del',
         }).then(function(response){
-            if(response.data == 0)
+            if(response.data == 0){
+                $(".right_bottom").css("display","block");
+                $(".edit_text").css("display","none");
+                $rootScope.curNoteId = null;
+                $rootScope.curNoteTitle = null;
+                $rootScope.curNoteContent = null;
                 $rootScope.getNote($rootScope.curNoteBookId);
+            }
             else
                 alert(response.data);
         });
