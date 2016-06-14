@@ -9,6 +9,7 @@ function addfile(src, isshare, isfolder, ischeck, file_type) {
     }
     files.push(file);
 }
+
 //模拟插入文件
 addfile("等待后台给我文件1", false, true, false, "image");
 addfile("等待后台给我文件2", false, true, false, "image");
@@ -22,8 +23,6 @@ function shareFile() {
     var share = document.getElementsByClassName("share");
     for (var i = 0; i < share.length; i++) {
         share[i].index = i;
-//		var share = file_list[i].getElementsByClassName("share")[0];
-//      console.log(share);
         on(share[i], "click", function (e) {
             if (files[this.index].isshare) {
                 files[this.index].isshare = false;

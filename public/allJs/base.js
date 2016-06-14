@@ -1,3 +1,5 @@
+var folderarr=[];
+var filearr = [];
 //处理触发事件的统一方法
 function on(node,eventType,handler){
 		node = typeof node =="string"?document.getElementById(node):node;
@@ -122,3 +124,35 @@ $(document).ready(function () {
     $(".img_bg").width(screenW);
     $(".img_bg").height(screenH);
 });
+
+function push_current_file(current_type,currentfid){
+	if(current_type=="1"){
+		if(folderarr.indexOf(currentfid)==-1){
+			folderarr.push(currentfid);
+		}
+	}else if(current_type=="2"){
+			if(filearr.indexOf(currentfid)==-1){
+				filearr.push(currentfid);
+			}
+			
+	}
+}
+function remove_current_file(current_type,currentfid){
+	if(current_type=="1"){
+			folderarr.remove(currentfid);
+	}else if(current_type=="2"){
+			filearr.remove(currentfid);
+	}
+}
+Array.prototype.indexOf = function(val) {
+	for (var i = 0; i < this.length; i++) {
+		if (this[i] == val) return i;
+		}
+	return -1;
+};
+Array.prototype.remove = function(val) {
+	var index = this.indexOf(val);
+	if (index > -1) {
+	this.splice(index, 1);
+	}
+};
