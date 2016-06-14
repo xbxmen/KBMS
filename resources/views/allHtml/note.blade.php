@@ -46,7 +46,6 @@
                 <p>文件夹</p><span><i class="p_icon icon-tags"></i> </span>
                 <div class="note_nav" >
                     <ul id="my_ul" >
-                    @{{curNoteBookId}}
                         <li id="p@{{$index + 1}}" ng-repeat="book in noteBooks" ng-click="changeNoteBookId(book.folid)">
                             <i class="pp_icon icon-file">&nbsp;</i> <span id="s11" ng-click="getNote(book.folid)" style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden">@{{book.folname}}</span><span><i ng-init="initNoteBookMenuClick()" ng-click="changeNoteBookId(book.folid)" class="ppp_icon icon-tag" id="T@{{$index + 1}}"></i> </span>
                         </li>
