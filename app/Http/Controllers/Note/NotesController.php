@@ -90,6 +90,7 @@ class NotesController extends Controller
         $note->notefolder = $folderId;
         $note->uid = $userId;
         $note->createtime = date("Y-m-d H:i:s");
+        $note->updatetime = date("Y-m-d H:i:s");
         $note->save();
         return 0;
     }
