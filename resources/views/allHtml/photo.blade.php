@@ -209,8 +209,29 @@
 				</from>
 			</div>
 		
-		</div>	
+		</div>
+		<script>
+			var photoShow_url = "{{url('show/PhotoArr')}}";
+		</script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/show_img.js"></script>
+		<script>
+			$.ajax({
+				url: '{{url('show/PhotoTimeArr')}}',
+				type: 'post',
+				dataType: 'json',
+				success: function(data) {//注册用户的信息返回到这里，data参数里
+					if(data == -1){
+						alert('登录超时!');
+					}else{
+						console.log(data);
+						$(".main_timeline").empty();
+						for(var i = 0; i < data.length;i++){
+							updatebyData(data[i]['ptime']);
+						}
+					}
+				}
+			});
+		</script>
 	</body>
 </html>
