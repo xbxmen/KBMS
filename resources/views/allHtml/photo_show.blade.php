@@ -29,10 +29,7 @@
 			<div class="show_main">
 				<div class="media_content">
 						<h3 id="photoinfo">
-							<span class="photo_name">张柏芝.jpg4</span>
-							<span class="photo_dictionary">所属文件夹：
-								<span class="dictionary" data-txt ="img">img</span>
-							</span>
+							<span class="photo_name">张柏芝.jpg</span>
 						</h3>
 						
 						<div id="myphoto" >
@@ -63,7 +60,10 @@
 	</body>
 	<script>
 		var imgsrc = GetQueryString('imgsrc');
+		var imgname = GetQueryString('imgname');
+
 		console.log(imgsrc);
+		console.log(imgname)
 		function GetQueryString(name)
 		{
 			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -71,6 +71,6 @@
 			if(r!=null)return  unescape(r[2]); return null;
 		}
 		$(".photo_contanier").css("background-image","url("+imgsrc+")");
-
+		$(".photo_name").html(imgname);
 	</script>
 </html>

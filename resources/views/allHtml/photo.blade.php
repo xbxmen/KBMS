@@ -45,7 +45,7 @@
 		<div class="contanier"> 
 			<div class="top">
 					<div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
-					<div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你，Dear</p> </div>
+					<div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你,{{session('username')}}</p> </div>
 				</div>
 				<div class="nav">
 					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
@@ -92,117 +92,6 @@
 						</div>
 						<div class="timeline-show">
 							<div class="main_timeline">
-								<div class="timeline-item">
-									<div class="timeline-item-title">
-										<span class="timeline-day">2014-6-12</span>
-										<span class="timeline-icon show_img" onclick="timelinePack(this)"></span>
-										<span class="timeline-sum">4张</span>
-										<div class="timeline-checkall">
-											<input name="filegroup" class="allcheckbox checkbox" type="checkbox" onclick="allcheckbox(this)"/>
-											<label>全选</label>
-										</div>
-									</div>
-									<div class="timeline-content">
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input name="file" type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input name="file" type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="timeline-item">
-									<div class="timeline-item-title">
-										<span class="timeline-day">2014-6-12</span>
-										<span class="timeline-icon show_img" onclick="timelinePack(this)"></span>
-										<span class="timeline-sum">4张</span>
-										<div class="timeline-checkall">
-											<input name="filegroup" class="allcheckbox checkbox" type="checkbox" onclick="allcheckbox(this)"/>
-											<label>全选</label>
-										</div>
-									</div>
-									<div class="timeline-content">
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input name="file" type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input name="file" type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-									</div>
-								</div>
-								<div class="timeline-item">
-									<div class="timeline-item-title">
-										<span class="timeline-day">2014-6-12</span>
-										<span class="timeline-icon show_img" onclick="timelinePack(this)"></span>
-										<span class="timeline-sum">4张</span>
-										<div class="timeline-checkall">
-											<input name="filegroup" class="allcheckbox checkbox" type="checkbox" onclick="allcheckbox(this)"/>
-											<label>全选</label>
-										</div>
-									</div>
-									<div class="timeline-content">
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input name="file" type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input name="file" type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-										<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)" onmouseover="showbox(this)">
-											<img src="./myphoto/zhangbozhi.jpg" />
-											<div class="timeline-checkbox">
-												<input type="checkbox" class="checkbox" onclick="checkboxClick(this)" />
-											</div>
-										</a>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>

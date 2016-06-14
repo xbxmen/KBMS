@@ -1,12 +1,12 @@
-function updateimg(imgsrc,fdate,fid,fgrade,pnode){
-	var imgli = '<a class="timeline-content-item" href="photo_show.html?imgsrc='+imgsrc+'" onmouseout="hiddenbox(this)"'+
+function updateimg(imgsrc,fname,fid,fgrade,pnode){
+	var imgli = '<a class="timeline-content-item" href="photo_show.html?imgsrc='+imgsrc+'&imgname='+fname+'" onmouseout="hiddenbox(this)"'+
 	'onmouseover="showbox(this)"><img id="'+fid+'" src="'+imgsrc+'" /><div class="timeline-checkbox">'+
 	'<input name="file" type="checkbox" data-type="2" class="checkbox" onclick="checkboxClick(this)" /></div></a>';
 	$(pnode).append(imgli);
 }
 function updatebyData(upload_data){
 	var timelineitem = "<div class='timeline-item'><div class='timeline-item-title'><span class='timeline-day'>"+
-						upload_data+"</span><span class='timeline-icon show_img' data-time='"+upload_data+"' onclick='timelinePack(this)'></span>"+
+						upload_data+"</span><span class='timeline-icon hidden_img' data-time='"+upload_data+"' onclick='timelinePack(this)'></span>"+
 						"<div class='timeline-checkall'><input name='filegroup'"+
 						"class='allcheckbox checkbox' type='checkbox' onclick='allcheckbox(this)'/><label>全选</label>"+
 						"</div></div><div class='timeline-content'></div></div>";
@@ -163,7 +163,7 @@ function timelinePack(obj){
 				}else{
 					console.log(data);
 					for(var i = 0; i < data.length;i++){
-						updateimg(data[i]['filepath'],"fdate","fid","fgrade",content);
+						updateimg(data[i]['filepath'],data[i]['filehead'],data[i]['fid'],"fgrade",content);
 					}
 				}
 			}
