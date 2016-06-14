@@ -47,7 +47,7 @@
                 <div class="note_nav" ng-controller="noteBookController">
                     <ul id="my_ul" >
                     @{{curNoteBookId}}
-                        <li id="p@{{$index + 1}}" ng-repeat="book in noteBooks">
+                        <li id="p@{{$index + 1}}" ng-repeat="book in noteBooks" ng-click="changeNoteBookId(book.folid)">
                             <i class="pp_icon icon-file">&nbsp;</i> <span id="s11" ng-click="getNote(book.folid)" style="color: #3c3837;float: left;position: absolute;z-index: 1;margin-left: -105px;overflow: hidden">@{{book.folname}}</span><span><i ng-init="initNoteBookMenuClick()" ng-click="changeNoteBookId(book.folid)" class="ppp_icon icon-tag" id="T@{{$index + 1}}"></i> </span>
                         </li>
                         
@@ -86,8 +86,9 @@
 
     </div>
     <div class="N_middle" >
-        <ul id="ul" ng-controller="noteController">
-            <li id="N@{{$index+1}}" class="List" ng-repeat="note in notes">
+    
+        <ul id="ul" ng-controller="noteBookController">
+            <li id="@{{note.nid}}" class="List" ng-repeat="note in notes" ng-click="updateNote(note.nid, note.notehead, note.notebody)">
                 <div class="middle_header">
                     <div class="N_one"> <i class="h_icon icon-file">&nbsp;&nbsp;</i><span>@{{note.notehead}}</span></div>
                     <div class="N_two" id="N_two_text"><p>@{{note.notebody}}</p></div>
@@ -117,17 +118,17 @@
             </li-->
         </ul>
     </div>
-    <div class="N_right">
-        <div class="right_top"><p>标题：</p></div>
-        <div class="right_bottom"><p></p></div>
+    <div class="N_right" ng-controller="noteController">
+        <div class="right_top"><p>标题：@{{curNoteTitle}}</p></div>
+        <div class="right_bottom"><p>@{{curNoteContent}}</p></div>
           <form method="post" action="#">
                     <div class="edit_text">
-                        <textarea name="#" class="text_area" cols="85px" rows="400px"></textarea>
+                        <textarea name="#" class="text_area" cols="85px" rows="400px" ng-model="curNoteContent"></textarea>
                     </div>
                 </form>
                  <div class="right_last">
-                            <input type="button" value="编辑" style="width: 80px;height: 40px" class="btn_last" id="edit">
-                            <input type="button" value="保存" style="width: 80px;height: 40px" class="btn_last" id="save">
+                            <input type="button" value="编辑" style="width: 80px;height: 40px" class="btn_last" id="edit" ng-click="clickEdit()">
+                            <input type="button" value="保存" style="width: 80px;height: 40px" class="btn_last" id="save" ng-click="clickSave()">
                             <input type="button" value="新建" style="width: 80px;height: 40px" class="btn_last" id="rebuild">
                             <input type="button" value="删除" style="width: 80px;height: 40px" class="btn_last" id="moit">
                  </div>

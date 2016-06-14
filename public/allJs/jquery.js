@@ -109,51 +109,51 @@ $(function(){
     //})
 
 
-    function clickEvent(){
-            $(this).css("background-color","#c5e7ff");
-            $(this).nextAll().css("background-color","#ffffff");
-            $(this).prevAll().css("background-color","#ffffff");
+    // function clickEvent(){
+    //         $(this).css("background-color","#c5e7ff");
+    //         $(this).nextAll().css("background-color","#ffffff");
+    //         $(this).prevAll().css("background-color","#ffffff");
 
-            var this_id = $(this).attr("id");
-            cur_id = this_id;
-            var o =$("#"+this_id+" p")[0].innerHTML;
-            ori_content = o;
-            $(".right_bottom p")[0].innerHTML = o;
-            $(".text_area")[0].value = o;
+    //         var this_id = $(this).attr("id");
+    //         cur_id = this_id;
+    //         var o =$("#"+this_id+" p")[0].innerHTML;
+    //         ori_content = o;
+    //         $(".right_bottom p")[0].innerHTML = o;
+    //         $(".text_area")[0].value = o;
 
-            if ($(".edit_text").is(":visible")){
-                $(".right_bottom").css("display","block");
-                //$(".right_bottom p").text();
-                $(".edit_text").css("display","none");
-                $("#"+cur_id+" .N_two p")[0].innerHTML = ori_content;
-            }
-    }
+    //         if ($(".edit_text").is(":visible")){
+    //             $(".right_bottom").css("display","block");
+    //             //$(".right_bottom p").text();
+    //             $(".edit_text").css("display","none");
+    //             $("#"+cur_id+" .N_two p")[0].innerHTML = ori_content;
+    //         }
+    // }
 
-    $(".List").click(clickEvent);
+    // $(".List").click(clickEvent);
 
-    $("#edit").click(function(){
-        var  i =$(".right_bottom p")[0].innerHTML;
-        $(".edit_text").css("display","block");
-        console.log(i)
-        $(".text_area")[0].value = i;
-        $(".right_bottom").css("display","none");
+    // $("#edit").click(function(){
+    //     var  i =$(".right_bottom p")[0].innerHTML;
+    //     $(".edit_text").css("display","block");
+    //     console.log(i)
+    //     $(".text_area")[0].value = i;
+    //     $(".right_bottom").css("display","none");
 
-    });
-
-
+    // });
 
 
 
-    $("#save").click(function () {
-                if ($(".edit_text").is(":visible")){
-                    var s =$(".text_area").val();
-                    $(".right_bottom").css("display","block");
-                    $(".right_bottom p")[0].innerHTML = s;
-                    $(".edit_text").css("display","none");
-                    $("#"+cur_id+" .N_two p")[0].innerHTML = s;
-                    ori_content = '';
-                }
-            });
+
+
+    // $("#save").click(function () {
+    //             if ($(".edit_text").is(":visible")){
+    //                 var s =$(".text_area").val();
+    //                 $(".right_bottom").css("display","block");
+    //                 $(".right_bottom p")[0].innerHTML = s;
+    //                 $(".edit_text").css("display","none");
+    //                 $("#"+cur_id+" .N_two p")[0].innerHTML = s;
+    //                 ori_content = '';
+    //             }
+    //         });
 
 
     $("#rebuild").click(function(){
