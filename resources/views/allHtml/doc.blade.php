@@ -86,7 +86,7 @@
 										<div class="doc dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
-										<img src="./img/show_doc.png">
+
 										<a class="media" class="file_name" href="guice.pdf" target="black">哈利波特全集.pdf</a>
 											<div class="operate inline_block ">
 												<a class="share" href="#"><img src="./img/share.png"></a>
@@ -103,7 +103,7 @@
 										<div class="doc dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
-										<img src="./img/show_doc.png">
+
 											<a href="#" class="file_name" >哈利波特全集</a>
 											<div class="operate inline_block ">
 												<a class="share" href="#"><img src="./img/share.png"></a>
@@ -120,7 +120,7 @@
 										<div class="doc dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
-										<img src="./img/show_doc.png">
+
 											<a href="#" class="file_name">哈利波特全集</a>
 											<div class="operate inline_block ">
 												<a class="share" href="#"><img src="./img/share.png"></a>
@@ -137,7 +137,7 @@
 										<div class="doc dir_small inline_block">	
 										</div>
 										<div class="filename inline_block">
-										<img src="./img/show_doc.png">
+
 											<a href="#" class="file_name">哈利波特全集</a>
 											<div class="operate inline_block ">
 												<a class="share" href="#"><img src="./img/share.png"></a>

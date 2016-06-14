@@ -104,13 +104,13 @@ class NotesController extends Controller
     public function optNote(Request $request, $folderId, $noteId)
     {
         $userId = $this->getId($request);
-        $noteSet = Note::where('nid', $noteId)->where('uid', $userId)->where('notefolder', -1);
+        $noteSet = Note::where('nid', $noteId)->where('uid', $userId)->where('notefolder', $folderId);
         if($noteSet->count() < 1)
             return '笔记不存在';
         if($request->input('opt') == 'mdf')
         {
             $noteSet->update($request->except('opt'));
-            $noteSet->update('updatetime', date("Y-m-d H:i:s"));
+            $noteSet->update(['updatetime' => date("Y-m-d H:i:s")]);
         }
         if($request->input('opt') == 'del')
         {

@@ -3,7 +3,7 @@ var baseUrl = 'http://localhost/KBMS/public/note/i/'
 var app = angular.module('noteApp', []);
 app.controller('noteBookController', ['$scope', '$http', '$rootScope', function noteBookController($scope, $http, $rootScope){
     $rootScope.curNoteBookId = 1;
-    
+    $scope.now = 2;
     $scope.getNoteBook = function(){
         $http.get(baseUrl+'folder').then(function(response){
         $rootScope.noteBooks = response.data;
@@ -83,7 +83,37 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
     $scope.getNote = function(folid){
         $http.get(baseUrl+'folder/'+folid+'/note').then(function(response){
             $rootScope.notes = response.data;
+            // $scope.updateNote();
         })
+    }
+
+    $rootScope.updateNote = function(id, title, content){
+        $rootScope.curNoteId = id;
+        $rootScope.curNoteTitle = title;
+        $rootScope.curNoteContent = content;
+        // $rootScope.currentNoteContent = content;
+        // alert('here');
+        // function clickEvent(){
+        //     alert('got');
+            angular.element('#'+id).css("background-color","#c5e7ff");
+            angular.element('#'+id).nextAll().css("background-color","#ffffff");
+            angular.element('#'+id).prevAll().css("background-color","#ffffff");
+
+        //     var this_id = angular.element(this).attr("id");
+        //     cur_id = this_id;
+        //     var o =angular.element("#"+this_id+" p")[0].innerHTML;
+        //     ori_content = o;
+        //     angular.element(".right_bottom p")[0].innerHTML = o;
+        //     angular.element(".text_area")[0].value = o;
+
+        //     if (angular.element(".edit_text").is(":visible")){
+        //         angular.element(".right_bottom").css("display","block");
+        //         //$(".right_bottom p").text();
+        //         angular.element(".edit_text").css("display","none");
+        //         angular.element("#"+cur_id+" .N_two p")[0].innerHTML = ori_content;
+        //     }
+        // }
+        // angular.element(".List").click(clickEvent);
     }
 
     $scope.init = function(){
@@ -95,7 +125,45 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
 }]);
 
 app.controller('noteController', ['$scope', '$http', '$rootScope', function noteController($scope, $http, $rootScope){
-    $scope.data = 'nihao';
+    $scope.clickEdit = function(){
+        var  i =$(".right_bottom p")[0].innerHTML;
+        $(".edit_text").css("display","block");
+        console.log(i)
+        $(".text_area")[0].value = i;
+        $(".right_bottom").css("display","none");
+    }
+
+    $scope.clickSave = function(){
+        if ($(".edit_text").is(":visible")){
+            // var s =$(".text_area").val();
+            $(".right_bottom").css("display","block");
+            // $(".right_bottom p")[0].innerHTML = s;
+            $(".edit_text").css("display","none");
+            // $("#"+$rootScope.curNoteId+" .N_two p")[0].innerHTML = s;
+            // ori_content = '';
+            console.log('0 index'+$rootScope.notes[0]);
+            var notes = $rootScope.notes;
+            // console.log(notes);
+            for(var note in notes)
+            {
+                i = notes[note];
+                if (i.nid == $rootScope.curNoteId){
+                    i.notebody = $scope.curNoteContent;
+                    $http.post(baseUrl+'folder/'+$rootScope.curNoteBookId+'/note/'+$rootScope.curNoteId, {
+                        'opt': 'mdf',
+                        'notehead': i.notehead,
+                        'notebody': i.notebody
+                    }).then(function(response){
+                        if(response.data == 0)
+                            $rootScope.updateNote();
+                        else
+                            alert(response.data);
+                    });
+                }
+            }
+            // $[].notebody = ;
+        }
+    }
 
 
 }]);
