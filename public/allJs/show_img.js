@@ -1,7 +1,7 @@
 function updateimg(imgsrc,fdate,fid,fgrade,pnode){
 	var imgli = '<a class="timeline-content-item" href="photo_show.html?imgsrc='+imgsrc+'" onmouseout="hiddenbox(this)"'+
-	'onmouseover="showbox(this)"><img src="'+imgsrc+'" /><div class="timeline-checkbox">'+
-	'<input name="file" type="checkbox" class="checkbox" onclick="checkboxClick(this)" /></div></a>';
+	'onmouseover="showbox(this)"><img id="'+fid+'" src="'+imgsrc+'" /><div class="timeline-checkbox">'+
+	'<input name="file" type="checkbox" data-type="2" class="checkbox" onclick="checkboxClick(this)" /></div></a>';
 	$(pnode).append(imgli);
 }
 function updatebyData(upload_data){
@@ -11,7 +11,6 @@ function updatebyData(upload_data){
 						"class='allcheckbox checkbox' type='checkbox' onclick='allcheckbox(this)'/><label>全选</label>"+
 						"</div></div><div class='timeline-content'></div></div>";
 	$(".main_timeline").append(timelineitem);
-	console.log($(".main_timeline").find(".timeline-item"));
 }
 addonload(updatebyData(5,4));
 //鼠标在a标签上复选框出现
@@ -29,12 +28,13 @@ function allcheckbox(obj){
 		if($(obj).context.checked){
 			cbox.show();
 			cbox.children(".checkbox").each(function(){
-				$(this).context.checked = true;
+				bselect(this);
+
 			});
 		}else{
 			cbox.hide();
 			cbox.children(".checkbox").each(function(){
-				$(this).context.checked = false;
+				fail_select(this);
 			});
 		}
 		if(hasCheck($(".checkbox"))){
@@ -50,6 +50,16 @@ function allcheckbox(obj){
 			all.checked = false;
 		}
 }
+function fail_select(obj){
+		obj.checked = false;
+		var cimg= obj.parentNode.parentNode.getElementsByTagName("img")[0];
+		remove_current_file("2",cimg.id);
+}
+function bselect(obj){
+		obj.checked = true;
+		var cimg= obj.parentNode.parentNode.getElementsByTagName("img")[0];
+		push_current_file("2",cimg.id);
+}
 //每个复选框的效果,
 function checkboxClick(obj){
 	if(hasCheck($(".checkbox"))){
@@ -61,8 +71,12 @@ function checkboxClick(obj){
 	var all = temp.getElementsByClassName("allcheckbox")[0]; 
 	if(!obj.checked){
 		all.checked = false;
-	}else if(isAllcheck(temp.getElementsByClassName("checkbox"))){//每一组是否全选情况
-		all.checked = true;
+		fail_select(obj);
+	}else {
+		bselect(obj);
+		if(isAllcheck(temp.getElementsByClassName("checkbox"))){//每一组是否全选情况
+			all.checked = true;
+		}
 	}
 	var isallcheck = isAllcheck($(".checkbox"));
 	var all =document.getElementById("check-all");
@@ -72,7 +86,6 @@ function checkboxClick(obj){
 	}else{
 		all.checked = false;
 	}
-	
 }
 //是否有选中的
 function hasCheck(checkbox){
@@ -99,18 +112,25 @@ function isAllcheck(checkbox){
 //是否全选
 function allcheck(obj){
 	var check = document.getElementsByClassName("checkbox");
+	var cimg;
 	if(obj.checked){
 		for(var i = 0;i<check.length;i++){
-			check[i].checked = true;
+			var temp = check[i].getAttribute("class")
 			check[i].parentNode.style.display = "block";
+			if(temp.indexOf("allcheckbox")==-1){
+
+				bselect(check[i]);
+			}
+			
 		}
 	}else{
 		for(var i = 0;i<check.length;i++){
 			check[i].checked = false;
-			var temp = check[i].getAttribute("class")
+			var temp = check[i].getAttribute("class");
 			if(temp.indexOf("allcheckbox")==-1){
 				check[i].parentNode.style.display = "none";
-			};
+				fail_select(check[i]);
+			}
 			document.getElementsByClassName("grid-cols")[0].style.display = "none"
 		}
 	}

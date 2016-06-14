@@ -3,10 +3,7 @@
  * by zhangxinxu 2011-09-12
 */
 var ZXXFILE = {
-//	fileInput: null,				//html file鎺т欢
-//	dragDrop: null,					//鎷栨嫿鏁忔劅鍖哄煙
-//	upButton: null,					//鎻愪氦鎸夐挳
-//	url: "",						//ajax鍦板潃
+					//ajax鍦板潃
  	fileInput: $("#fileImage").get(0),
     dragDrop: $("#fileDragArea").get(0),//拖拽区域
     upButton: $("#fileSubmit").get(0),//上传按钮

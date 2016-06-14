@@ -1,5 +1,4 @@
-var folderarr=[];
-var filearr = [];
+
 function selectAll(beCheckobj){ 
 	allcheckBoxs=document.getElementsByName("file"); 
 	var check_all=document.getElementsByName("filegroup"); 
@@ -40,20 +39,8 @@ function hasCheck(checkbox,grid_list){
 	return allcheck;//返回是否全选
 }
 
-function push_current_file(current_type,currentfid){
-	if(current_type=="1"){
-		folderarr.push(currentfid);
-	}else if(current_type=="2"){
-			filearr.push(currentfid);
-	}
-}
-function remove_current_file(current_type,currentfid){
-	if(current_type=="1"){
-			folderarr.remove(currentfid);
-	}else if(current_type=="2"){
-			filearr.remove(currentfid);
-	}
-}
+
+
 function boxSelect(obj){
 	var allcheckbox = document.getElementsByClassName("allcheckbox")[0];//全选框
 	var checkbox = document.getElementsByClassName("checkbox");//选一个的框
@@ -81,18 +68,7 @@ function boxSelect(obj){
 		allcheck = hasCheck(checkbox,grid_list);
 	}
 }
-Array.prototype.indexOf = function(val) {
-	for (var i = 0; i < this.length; i++) {
-	if (this[i] == val) return i;
-	}
-	return -1;
-};
-Array.prototype.remove = function(val) {
-	var index = this.indexOf(val);
-	if (index > -1) {
-	this.splice(index, 1);
-	}
-};
+
 function li_share(){
 	var fileshow_li = document.getElementsByClassName("fileshow_li");
 //	var operate = document.getElementsByClassName("operate");
@@ -116,5 +92,4 @@ function myhidden(parent){
 	parent.getElementsByClassName("operate")[0].style.visibility ="hidden";
 }
 addonload(li_share());
-//addonload(boxSelect());
  
