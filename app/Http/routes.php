@@ -76,6 +76,8 @@ Route::post('show/folders', 'File\ShowFilesController@showFolders');
 Route::post('show/BackPre', 'File\ShowFilesController@BackPre');
 Route::post('show/PhotoTimeArr', 'File\ShowFilesController@PhotoTimeArr');
 Route::post('show/PhotoArr', 'File\ShowFilesController@PhotoArr');
+Route::post('show/ShowMyFiles', 'File\ShowFilesController@showMyFiles');
+
 Route::post('file/createfolder', 'File\OtherFilesController@createfolder');
 Route::post('file/deletefolder', 'File\OtherFilesController@deletefolder');
 Route::post('file/deletefile', 'File\OtherFilesController@delete');

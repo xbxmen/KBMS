@@ -204,5 +204,35 @@
 		<script src="./allJs/main.js"></script>
 		<script type="text/javascript" src="./allJs/mutil.js"></script>
 		<script src="./allJs/myPage.js"></script>
+		<script>
+			var page = 1;
+
+			$.ajax({
+				url: '{{url('show/ShowMyFiles')}}',
+				type: 'post',
+				dataType: 'json',
+				data:{
+					"filetype" : 4,
+					"page" : page
+				},
+				success: function(data) {//注册用户的信息返回到这里，data参数里
+					if(data == -1){
+						alert('登录超时!');
+					}else{
+						console.log(data);
+						$(".list").empty();
+						for(var i = 0;i<data.length;i++){
+							var fileli = $(updateFile(data[i]['filehead'],data[i]['filesize'] ,data[i]['updatetime'],mytype(data[i]['filetype']),data[i]['filepath'],data[i]['fid'],data[i]['filegrade']));
+							if($(".list li").first().length!=0){
+								fileli.insertBefore($(".list li").first());
+							}else{
+								$(".list").append(fileli);
+							}
+						}
+					}
+				}
+			});
+		</script>
+
 	</body>
 </html>

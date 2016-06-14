@@ -80,58 +80,6 @@
 						
 						<div>
 								<ul class="list">
-									
-									<li class="fileshow_li">
-										<input name="file" class="checkbox" type="checkbox"/>
-										<div class="doc dir_small inline_block">	
-										</div>
-										<div class="filename inline_block">
-
-										<a class="media" class="file_name" href="guice.pdf" target="black">哈利波特全集.pdf</a>
-											<div class="operate inline_block ">
-												<a class="share" href="#"><img src="./img/share.png"></a>
-												<a class="download"  href="#"><img src="./img/download.png"></a>
-												<a class="menu"  href="#"><img src="./img/menu.png"></a>
-											</div>
-										</div>
-										
-										<div class="filesize inline_block">16KB</div>
-										<div class="filedate inline_block">2016-05-26 13:22</div>
-									</li>
-									<li class="fileshow_li">
-										<input name="file" class="checkbox"  type="checkbox"/>
-										<div class="doc dir_small inline_block">	
-										</div>
-										<div class="filename inline_block">
-
-											<a href="#" class="file_name" >哈利波特全集</a>
-											<div class="operate inline_block ">
-												<a class="share" href="#"><img src="./img/share.png"></a>
-												<a class="download"  href="#"><img src="./img/download.png"></a>
-												<a class="menu"  href="#"><img src="./img/menu.png"></a>
-											</div>
-										</div>
-										
-										<div class="filesize inline_block">16KB</div>
-										<div class="filedate inline_block">2016-05-26 13:22</div>
-									</li>
-									<li class="fileshow_li">
-										<input name="file" class="checkbox"  type="checkbox"/>
-										<div class="doc dir_small inline_block">	
-										</div>
-										<div class="filename inline_block">
-
-											<a href="#" class="file_name">哈利波特全集</a>
-											<div class="operate inline_block ">
-												<a class="share" href="#"><img src="./img/share.png"></a>
-												<a class="download"  href="#"><img src="./img/download.png"></a>
-												<a class="menu"  href="#"><img src="./img/menu.png"></a>
-											</div>
-										</div>
-										
-										<div class="filesize inline_block">16KB</div>
-										<div class="filedate inline_block">2016-05-26 13:22</div>
-									</li>
 									<li class="fileshow_li">
 										<input name="file" class="checkbox"  type="checkbox"/>
 										<div class="doc dir_small inline_block">	
@@ -159,7 +107,6 @@
 											<input type="text" id="new_dir_fname" value="新建文件夹"/>
 											
 										</div>
-										
 										<div class="filesize inline_block">-</div>
 										<div class="filedate inline_block">-</div>
 									</li>
@@ -170,69 +117,43 @@
 			</div>
 			
 		</div>
-
-
-
         <script>
             var createfolder_url = "{{url('upload/createfolder')}}";
             var foldertype =  2;
+			var page = 1;
         </script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>
 		<script type="text/javascript" src="./allJs/mutil.js"></script>
 		<script src="./allJs/myPage.js"></script>
-        <script>
-            var preid = -1;
-            var grade = 1;
-            function showDoc() {
-                $.ajax({
-                    url: '{{url('show/doc')}}',
-                    type: 'post',
-                    dataType: 'json',
-                    data: {
-                        "filegrade" : grade,
-                        "filepreid" : preid
-                    },
-                    success: function(data){//注册用户的信息返回到这里，data参数里
-                        if(data == -1){
-                            alert('登录超时!');
-                        }else if(data == -2){
-                            alert("参数有错误！");
-                        }else{
-                            $(".list").empty();
-                            console.log(data);
-                        }
-                    }
-                });
-            }
-            showDoc();
-            function showDocFolder() {
-                $.ajax({
-                    url: '{{url('show/docfolder')}}',
-                    type: 'post',
-                    dataType: 'json',
-                    data: {
-                        "filegrade" : grade,
-                        "filepreid" : preid
-                    },
-                    success: function(data){//注册用户的信息返回到这里，data参数里
-                        if(data == -1){
-                            alert('登录超时!');
-                        }else if(data == -2){
-                            alert("参数有错误！");
-                        }else{
-                            console.log(data);
-                        }
-                    }
-                });
-            }
-            showDocFolder();
-
-
-
-
-		</script>
 	</body>
+	<script>
+		$.ajax({
+			url: '{{url('show/ShowMyFiles')}}',
+			type: 'post',
+			dataType: 'json',
+			data:{
+				"filetype" : 2,
+				"page" : page
+			},
+			success: function(data) {//注册用户的信息返回到这里，data参数里
+				if(data == -1){
+					alert('登录超时!');
+				}else{
+					console.log(data);
+					$(".list").empty();
+					for(var i = 0;i<data.length;i++){
+						var fileli = $(updateFile(data[i]['filehead'],data[i]['filesize'] ,data[i]['updatetime'],mytype(data[i]['filetype']),data[i]['filepath'],data[i]['fid'],data[i]['filegrade']));
+						if($(".list li").first().length!=0){
+							fileli.insertBefore($(".list li").first());
+						}else{
+							$(".list").append(fileli);
+						}
+					}
+				}
+			}
+		});
+	</script>
 
 	<script type="text/javascript" src="./allJs/media.js"></script>
 	<script src="./allJs/jquery.js" language="JavaScript" type="text/javascript"></script>

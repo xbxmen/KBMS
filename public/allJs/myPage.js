@@ -1,4 +1,4 @@
-var files = [];
+ var files = [];
 function addfile(src, isshare, isfolder, ischeck, file_type) {
     var file = {
         src: src,
@@ -187,6 +187,22 @@ function updateFile(fname,fsize,fdate,filetype,filesrc,fid,fgrade){//ftype是指
 	+fsize+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";
     return flist;
 }
+ /*
+  *判断类别的方法
+  * */
+ function mytype(type) {
+     if(type == 2){
+         return "doc";
+     }else if(type == 3){
+         return "image";
+     }else if(type == 4){
+         return "audio";
+     }else if(type == 5){
+         return "video";
+     }else if(type == 6){
+         return "bt";
+     }
+ }
 
 function fokfloder() {
     var fokbutton = $(".foxfloder");

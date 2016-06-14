@@ -183,22 +183,6 @@
 					}
 				});
 			}
-			/*
-			*判断类别的方法
-			* */
-			function mytype(type) {
-				if(type == 2){
-					return "doc";
-				}else if(type == 3){
-					return "image";
-				}else if(type == 4){
-					return "audio";
-				}else if(type == 5){
-					return "video";
-				}else if(type == 6){
-					return "bt";
-				}
-			}
 
 			function showFolder() {
 				$.ajax({

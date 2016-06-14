@@ -71,19 +71,11 @@ class ShowFilesController extends Controller
         if(session('id')){
             $uid = session('id');
             $filetype = $request->input('filetype')? $request->input('filetype'): "";
-            $filegrade = $request->input('filegrade')? $request->input('filegrade'): "";
-            $filepreid = $request->input('filepreid')? $request->input('filepreid'): "";
-            $page = $request->input('page')? $request->input('page')-1: "";
-            if($uid && $filetype && $filegrade && $filepreid != ""){
-                if($filepreid == -1){
-                    $sql = "SELECT * from files WHERE filegrade=? and filetype=? and uid=? limit $page,10";
-                    $res = DB::select($sql,[$filegrade,$filetype,$uid]);
-                    return json_encode($res);
-                }else{
-                    $sql = "SELECT * from files WHERE grade=? and filetype=? and filefolder=? and uid=?";
-                    $res = DB::select($sql,[$filegrade,$filetype,$filepreid,$uid]);
-                    return json_encode($res);
-                }
+            $page = $request->input('page')? $request->input('page')-1 : "0";
+            if($uid && $filetype){
+                $sql = "SELECT * from files WHERE filetype=? and uid=? limit $page,10";
+                $res = DB::select($sql,[$filetype,$uid]);
+                return json_encode($res);
             }else{
                 return response("-2");
             }
@@ -145,6 +137,10 @@ class ShowFilesController extends Controller
             return response("-1");
         }
     }
+
+    /*
+     *获取
+     * */
 
 
 

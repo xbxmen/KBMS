@@ -75,7 +75,8 @@
         public function MyType($type){
             $filetype = $this->RESOURCE;
             $type = strtolower($type);
-            $doc = array("doc","docx","xls","xlsx","xlsm","ppt","pptx","pdf","txt");
+            $doc = array("doc","docx","xls","xlsx","xlsm","ppt","pptx",
+                        "pdf","txt","html","java","php","js","css");
             $photo = array("bmp","pcx","tiff","gif","jpg","jpeg","tga",
                         "exif","fpx","svg","cdr","pcd","dxf","ufo",
                         "eps","ai","png","hdri","raw");
