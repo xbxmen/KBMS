@@ -16,6 +16,18 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
         $rootScope.curNoteBookId = id;
     }
 
+    $scope.search = function(keyword){
+        $http.get(baseUrl+'search?keyword='+keyword).then(function(response){
+            $rootScope.notes = response.data;
+        });
+    }
+
+    $scope.recentNote = function(){
+        $http.get(baseUrl+'recentNote').then(function(response){
+            $rootScope.notes = response.data
+        });
+    }
+
     $scope.modifyNoteBookName = function(name){
         $http.post(baseUrl+'folder/'+$rootScope.curNoteBookId, {'opt': 'mdf', 'folname': name}).then(function(response){
             if(response.data == 0)
@@ -82,7 +94,7 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
         });
     }
 
-    $scope.getNote = function(folid){
+    $rootScope.getNote = function(folid){
         $http.get(baseUrl+'folder/'+folid+'/note').then(function(response){
             $rootScope.notes = response.data;
             // $scope.updateNote();
@@ -120,7 +132,16 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
         // angular.element(".List").click(clickEvent);
     }
 
+    $scope.registerSearchListener = function(){
+        angular.element('.N_search_text').bind('keyup', function(event){
+            if(event.keyCode == 13){
+                $scope.search(angular.element('.N_search_text').val());
+            }
+        });
+    }
+
     $scope.init = function(){
+        $scope.registerSearchListener();
         $scope.getNoteBook();
         $scope.showNewBook();
     }
@@ -129,6 +150,8 @@ app.controller('noteBookController', ['$scope', '$http', '$rootScope', function 
 }]);
 
 app.controller('noteController', ['$scope', '$http', '$rootScope', function noteController($scope, $http, $rootScope){
+    $scope.noteTitle = angular.element('#noteTitleInput')[0];
+    $scope.noteTitle.disabled = true;
 //     rootScope.fields = {
 //     inputModel: ''
 // }
@@ -136,6 +159,7 @@ app.controller('noteController', ['$scope', '$http', '$rootScope', function note
     // $scope.curTitle = $rootScope.curTitle;
     // $scope.curContent = $rootScope.curContent;
     $scope.clickEdit = function(){
+        $scope.noteTitle.disabled = false;
         var  i =$(".right_bottom p")[0].innerHTML;
         $(".edit_text").css("display","block");
         console.log(i)
@@ -144,6 +168,7 @@ app.controller('noteController', ['$scope', '$http', '$rootScope', function note
     }
 
     $scope.clickSave = function(){
+        $scope.noteTitle.disabled = true;
         if ($(".edit_text").is(":visible")){
             // var s =$(".text_area").val();
             $(".right_bottom").css("display","block");
@@ -151,13 +176,13 @@ app.controller('noteController', ['$scope', '$http', '$rootScope', function note
             $(".edit_text").css("display","none");
             // $("#"+$rootScope.curNoteId+" .N_two p")[0].innerHTML = s;
             // ori_content = '';
-            console.log('0 index'+$rootScope.notes[0]);
             var notes = $rootScope.notes;
             // console.log(notes);
             for(var note in notes)
             {
                 i = notes[note];
                 if (i.nid == $rootScope.curNoteId){
+                    i.notehead = $rootScope.curNoteTitle;
                     i.notebody = $rootScope.curNoteContent;
                     $http.post(baseUrl+'folder/'+$rootScope.curNoteBookId+'/note/'+$rootScope.curNoteId, {
                         'opt': 'mdf',
@@ -165,7 +190,7 @@ app.controller('noteController', ['$scope', '$http', '$rootScope', function note
                         'notebody': i.notebody
                     }).then(function(response){
                         if(response.data == 0)
-                            $rootScope.geteNote($rootScope.curNoteBookId);
+                            $rootScope.updateNote($rootScope.curNotekId, $rootScope.curNoteTitle, $rootScope.curNoteContent);
                         else
                             alert(response.data);
                     });
@@ -176,14 +201,24 @@ app.controller('noteController', ['$scope', '$http', '$rootScope', function note
     }
 
     $scope.clickNewNote = function(){
-        alert(baseUrl);
-        var url = baseUrl;
-        $http.post(url+'folder/'+$rootScope.curNoteBookId+'/note', {
+        $scope.noteTitle.disabled = true;
+        $http.post(baseUrl+'folder/'+$rootScope.curNoteBookId+'/note', {
             'notehead': '新笔记',
             'notebody': ''
         }).then(function(response){
             if(response.data == 0)
-                $rootScope.updateNote();
+                $rootScope.getNote($rootScope.curNoteBookId);
+            else
+                alert(response.data);
+        });
+    }
+
+    $scope.clickDeleteNote = function(){
+        $http.post(baseUrl+'folder/'+$rootScope.curNoteBookId+'/note/'+$rootScope.curNoteId, {
+            'opt': 'del',
+        }).then(function(response){
+            if(response.data == 0)
+                $rootScope.getNote($rootScope.curNoteBookId);
             else
                 alert(response.data);
         });

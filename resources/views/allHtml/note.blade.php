@@ -34,17 +34,17 @@
                 <i class="left_icon icon-edit"></i>
                 <i class="left_icon icon-search" id="se_ch"></i>
                 <i class="left_icon icon-file-alt"></i>
-                <form action="#"  method="post">
+                <!--form action="#"  method="post"-->
                     <input type="text" class="N_search_text_more">
-                </form>
+                <!--/form-->
             </div>
-            <div class="N_left_two">
-                <p >近期笔记</p>
-                <form action="#"  method="post">
+            <div class="N_left_two" ng-controller="noteBookController">
+                <p ng-click="recentNote()">近期笔记</p>
+                <!--form action="#"  method="post"-->
                     <input type="text" class="N_search_text">
-                </form>
+                <!--/form-->
                 <p>文件夹</p><span><i class="p_icon icon-tags"></i> </span>
-                <div class="note_nav" ng-controller="noteBookController">
+                <div class="note_nav" >
                     <ul id="my_ul" >
                     @{{curNoteBookId}}
                         <li id="p@{{$index + 1}}" ng-repeat="book in noteBooks" ng-click="changeNoteBookId(book.folid)">
@@ -119,7 +119,7 @@
         </ul>
     </div>
     <div class="N_right" ng-controller="noteController">
-        <div class="right_top"><p>标题：@{{$root.curNoteTitle}}</p></div>
+        <div class="right_top"><span>标题：</span><!--span>@{{$root.curNoteTitle}}</span--><input id="noteTitleInput" ng-model="$root.curNoteTitle"></input></div>
         <div class="right_bottom"><p>@{{$root.curNoteContent}}</p></div>
           <form method="post" action="#">
                     <div class="edit_text">
@@ -130,7 +130,7 @@
                             <input type="button" value="编辑" style="width: 80px;height: 40px" class="btn_last" id="edit" ng-click="clickEdit()">
                             <input type="button" value="保存" style="width: 80px;height: 40px" class="btn_last" id="save" ng-click="clickSave()">
                             <input type="button" value="新建" style="width: 80px;height: 40px" class="btn_last" id="rebuild" ng-click="clickNewNote()">
-                            <input type="button" value="删除" style="width: 80px;height: 40px" class="btn_last" id="moit">
+                            <input type="button" value="删除" style="width: 80px;height: 40px" class="btn_last" id="moit" ng-click="clickDeleteNote()">
                  </div>
     </div>
 </div>
