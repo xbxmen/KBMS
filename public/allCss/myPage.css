@@ -70,6 +70,8 @@ body{
 .my_top_ul{
 	list-style-type: none;
 	font-size: 20px;
+	width: 391px;
+	margin-left: 132px;
 }
 .my_top_li{
 	float: left;

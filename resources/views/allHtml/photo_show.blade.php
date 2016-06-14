@@ -42,7 +42,7 @@
 								<span class="pre_img"></span>
 							</div><div class="img_nav_right">
 								<span class="last_img"></span>
-							
+
 						</div>
 						</div>
 						
@@ -53,11 +53,24 @@
 							<li class="photo_operate share"><a href="#"><img src="./img/share1.png"></a></li>
 							<li class="photo_operate download"><a href="#"><img src="./img/download2.png"></a></li>
 							<li class="photo_operate delete"><a href="#"><img src="./img/delete1.png"></a></li>
-						</ul>		
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript" src="./allJs/base.js" ></script>
 		<script type="text/javascript" src="./allJs/myPage.js"></script>
 	</body>
+	<script>
+		var imgsrc = GetQueryString('imgsrc');
+		console.log(imgsrc);
+		function GetQueryString(name)
+		{
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r!=null)return  unescape(r[2]); return null;
+		}
+		$(".photo_contanier").css("background-image","url("+imgsrc+")");
+
+	</script>
 </html>

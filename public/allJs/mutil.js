@@ -120,7 +120,6 @@ var ZXXFILE = {
 
 		for (var i = 0, myfile; myfile = this.fileFilter[i]; i++) {
 			console.log(myfile);
-			des=document.getElementById('load0');
 			time = (new Date()).valueOf();
 			start = 0;
 			end = LENGTH + start;
@@ -128,7 +127,6 @@ var ZXXFILE = {
 			if (file.size <= 10 * 1024 * 1024) {
 				smallUp();
 			} else {
-				time = (new Date()).valueOf();
 				BigUp();
 			}
 
@@ -191,8 +189,6 @@ var ZXXFILE = {
 							pecent = 100;
 						}
 						updatePro(pecent);
-						//des.style.width = pecent + '%';
-						//des.innerHTML=parseInt(pecent) + '%'
 					}
 				}
 				blob=file.slice(start, end);
