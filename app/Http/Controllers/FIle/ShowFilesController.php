@@ -122,13 +122,31 @@ class ShowFilesController extends Controller
         if(session('id')) {
             $uid = session('id');
             $type = $this->PICTURE;
-            $sql = "SELECT SUBSTR(updatetime,1,9) FROM files WHERE filetype = ? and uid = ?";
+            $sql = "SELECT DISTINCT SUBSTR(updatetime,1,10) as ptime FROM files WHERE filetype = ? and uid = ?";
             $res = DB::select($sql,[$type,$uid]);
             return json_encode($res);
         }else{
             return response("-1");
         }
     }
+
+    /*
+     * 获取 某个时段的图片
+     * */
+    public function PhotoArr(Request $request){
+        if(session('id')){
+            $uid = session('id');
+            $type = $this->PICTURE;
+            $ptime = $request->input('ptime');
+            $sql = "SELECT * FROM files WHERE filetype = ? and SUBSTR(updatetime,1,10) = ? and uid = ?";
+            $res = DB::select($sql,[$type,$ptime,$uid]);
+            return json_encode($res);
+        }else{
+            return response("-1");
+        }
+    }
+
+
 
     /*
      * 显示word内容

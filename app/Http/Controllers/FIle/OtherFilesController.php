@@ -24,7 +24,7 @@
                 if($succeed != '1'){
                     $file = $_FILES['mof'];
                     if($file['error'] == 0){
-                        $path = 'UP.'.$myname.".".$type;
+                        $path = 'UP'.$myname.".".$type;
                         if(!file_exists('./uploads/'.$path)){
                             if(!move_uploaded_file($file['tmp_name'],'./uploads/'.$path)){
                                 return response('failed');
@@ -43,7 +43,7 @@
                         return response('failed');
                     }
                 }else{
-                    $filepath = $_POST['myname']?  "./uploads/UP.".$myname.$type : "" ;
+                    $filepath = $_POST['myname']?  "./uploads/UP".$myname.".".$type : "" ;
                     $filehead = $_POST['filename']? $_POST['filename']: "" ;
                     $filefolder = $_POST['filefolder']? $_POST['filefolder']: "";
                     $filesize = $_POST['filesize']? round( $_POST['filesize']/(1024*1024),2): "" ;

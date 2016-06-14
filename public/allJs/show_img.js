@@ -1,13 +1,13 @@
-function updateimg(imgsrc,fsize,fdate,filetype,fid,fgrade,pnode){
-	var imgli = '<a class="timeline-content-item" href="photo_show.html" onmouseout="hiddenbox(this)"'+
-	'onmouseover="showbox(this)"><img src="./myphoto/zhangbozhi.jpg" /><div class="timeline-checkbox">'+
+function updateimg(imgsrc,fdate,fid,fgrade,pnode){
+	var imgli = '<a class="timeline-content-item" href="photo_show.html?imgsrc='+imgsrc+'" onmouseout="hiddenbox(this)"'+
+	'onmouseover="showbox(this)"><img src="'+imgsrc+'" /><div class="timeline-checkbox">'+
 	'<input name="file" type="checkbox" class="checkbox" onclick="checkboxClick(this)" /></div></a>';
 	$(pnode).append(imgli);
 }
-function updatebyData(upload_data,num){
+function updatebyData(upload_data){
 	var timelineitem = "<div class='timeline-item'><div class='timeline-item-title'><span class='timeline-day'>"+
-						upload_data+"</span><span class='timeline-icon show_img' onclick='timelinePack(this)'></span>"+
-						"<span class='timeline-sum'>"+num+"张</span><div class='timeline-checkall'><input name='filegroup'"+
+						upload_data+"</span><span class='timeline-icon show_img' data-time='"+upload_data+"' onclick='timelinePack(this)'></span>"+
+						"<div class='timeline-checkall'><input name='filegroup'"+
 						"class='allcheckbox checkbox' type='checkbox' onclick='allcheckbox(this)'/><label>全选</label>"+
 						"</div></div><div class='timeline-content'></div></div>";
 	$(".main_timeline").append(timelineitem);
@@ -111,33 +111,42 @@ function allcheck(obj){
 			if(temp.indexOf("allcheckbox")==-1){
 				check[i].parentNode.style.display = "none";
 			};
-			
-			
 			document.getElementsByClassName("grid-cols")[0].style.display = "none"
 		}
 	}
 }
 //收起和放下
 function timelinePack(obj){
+	var ptime = obj.getAttribute('data-time');
 	var pcontent = obj.parentNode;
 	var content = pcontent.parentNode.getElementsByClassName("timeline-content")[0];
-	console.log(pcontent.getElementsByClassName("show_img"));
-	console.log(pcontent.getElementsByClassName("hidden_img"));
 	if(pcontent.getElementsByClassName("show_img").length!=0){
 		removeClass(obj,"show_img");
 		addClass(obj,"hidden_img");
 		$(content).empty();//收起是时释放当前时间的所有图片
 		content.style.display = "none";
-		
-	}
-	else if(pcontent.getElementsByClassName("hidden_img")!=0){
+
+	} else if(pcontent.getElementsByClassName("hidden_img")!=0){
 		removeClass(obj,"hidden_img");
 		addClass(obj,"show_img");
 		content.style.display = "block";
-		var num = Math.round(Math.random()*10);//num应该是这个日期传的所有图片的数目
-		for(var i =0;i<num;i++){
-			updateimg("imgsrc","fsize","fdate","filetype","fid","fgrade",content);
-		}
-		
+		$.ajax({
+			url: photoShow_url,
+			type: 'post',
+			dataType: 'json',
+			data:{
+				"ptime" : ptime
+			},
+			success: function(data) {//注册用户的信息返回到这里，data参数里
+				if(data == -1){
+					alert('登录超时!');
+				}else{
+					console.log(data);
+					for(var i = 0; i < data.length;i++){
+						updateimg(data[i]['filepath'],"fdate","fid","fgrade",content);
+					}
+				}
+			}
+		});
 	}
 }
