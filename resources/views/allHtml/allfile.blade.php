@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="./css/font-awesome.css">
 		  <script src="./allJs/jquery.js" type="text/javascript"></script>
 		<script type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
-		<script type="text/javascript" src="./allJs/moxie.js"></script>
+		
 	</head>
 	<body>
 		<div class="bg">
@@ -26,8 +26,8 @@
 					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
 					<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
 					<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-					<div class="nav_R" id="upload"><input type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
-					<div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
+					<div class="nav_R" id="upload"><input type="file" multiple="multiple" style="display: none;"><span >UPLOAD</span><img src="./img/right.png"></div>
+					<div class="nav_R"><a href="help.html"><p >HELP</p><img src="./img/right.png"></a></div>
 					<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 				</div>
 			<div class="show_main">

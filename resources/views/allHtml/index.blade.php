@@ -41,7 +41,7 @@
     <div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
     <div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
     <div class="nav_R" id="upload" ><input id="file" type="file" multiple="multiple" style="display: none;" /><span >UPLOAD</span><img src="./img/right.png"></div>
-    <div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
+    <div class="nav_R"><a href="help.html"><p >HELP</p><img src="./img/right.png"></a></div>
     <div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 </div>
 <div class="ad" id="picBox">

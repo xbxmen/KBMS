@@ -58,6 +58,9 @@ Route::get('allfile.html', function () {
 Route::get('resource.html', function () {
     return view('allHtml/resource');
 });
+Route::get('help.html', function () {
+    return view('allHtml/help');
+});
 
 /*
 |--------------------------------------------------------------------------

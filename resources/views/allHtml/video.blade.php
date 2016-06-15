@@ -25,7 +25,7 @@
 				<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
 				<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
 				<div class="nav_R"><p>UPLOAD</p><img src="./img/right.png"></div>
-				<div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
+				<div class="nav_R"><a href="help.html"><p >HELP</p><img src="./img/right.png"></a></div>
 				<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 			</div>
 			<div class="show_main">
@@ -78,23 +78,21 @@
 						</div>
 						
 						<div>
-								<ul class="list">
-								</ul>
-								<div id="new_dir_item">
-									<li class="fileshow_li">
-										<input  class="checkbox"  type="checkbox"/>
-										<div class="samll_folder dir_small  inline_block">	
-										</div>
-										<div class="filename inline_block">
-											<input type="text" id="new_dir_fname" value="新建文件夹"/>
-											
-										</div>
-										
-										<div class="filesize inline_block">-</div>
-										<div class="filedate inline_block">-</div>
-									</li>
-								</div>
+							<ul class="list">
+							</ul>
+							<div id="new_dir_item">
+								<li class="fileshow_li">
+									<input name="file" class="checkbox"  type="checkbox"/>
+									<div class="samll_folder dir_small  inline_block">	
+									</div>
+									<div class="filename inline_block">
+										<input type="text" id="new_dir_fname" value="新建文件夹"/>
+									</div>
+									<div class="filesize inline_block">-</div>
+									<div class="filedate inline_block">-</div>
+								</li>
 							</div>
+						</div>
 					</div>
 				</from>
 			</div>
