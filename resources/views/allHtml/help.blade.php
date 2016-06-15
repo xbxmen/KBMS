@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>ingServer我的</title>
-		<link rel="stylesheet" type="text/css" href="../allCss/base.css">
-		<link rel="stylesheet" type="text/css" href="../allCss/myPage.css" />
-		<link rel="stylesheet" type="text/css" href="../allCss/show.css" />
-		<link href="../allCss/common.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="../allJs/jquery-2.1.4.js"></script>
-		<script type="text/javascript" src="../allJs/plupload.full.min.js"></script>
-		<script type="text/javascript" src="../allJs/moxie.js"></script>
+		<link rel="stylesheet" type="text/css" href="./allCss/base.css">
+		<link rel="stylesheet" type="text/css" href="./allCss/myPage.css" />
+		<link rel="stylesheet" type="text/css" href="./allCss/show.css" />
+		<link href="./allCss/common.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="./allJs/plupload.full.min.js"></script>
+		<script type="text/javascript" src="./allJs/moxie.js"></script>
 		<style>
 		body{
 			overflow: scroll;
@@ -46,20 +46,20 @@
 	</head>
 	<body>
 		<!--<div class="bg">
-			<img class="img_bg" src="../img/show.png"/>
+			<img class="img_bg" src="./img/show.png"/>
 		</div>-->
 		<div class="contanier"> 
 			<div class="top">
 					<div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
-					<div class="top2"><div class="M_top2_I"><img src="../img/gl7.jpg"></div><p class="M_top2_S">欢迎你，Dear</p> </div>
+					<div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你，Dear</p> </div>
 				</div>
 				<div class="nav">
-					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="../img/right.jpg"></a> </div>
-					<div class="nav_L"><p >MY WORK</p><img src="../img/right.jpg"></div>
-					<div class="nav_L"><p >HOT</p><img src="../img/right.jpg"></div>
-					<div class="nav_R" id="upload"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span>UPLOAD</span><img src="../img/left.jpg"></div>
-					<div class="nav_R"><p >HELP</p><img src="../img/left.jpg"></div>
-					<div class="nav_R"><p >ABOUT</p><img src="../img/left.jpg"></div>
+					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/right.jpg"></a> </div>
+					<div class="nav_L"><p >MY WORK</p><img src="./img/right.jpg"></div>
+					<div class="nav_L"><p >HOT</p><img src="./img/right.jpg"></div>
+					<div class="nav_R" id="upload"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span>UPLOAD</span><img src="./img/left.jpg"></div>
+					<div class="nav_R"><p >HELP</p><img src="./img/left.jpg"></div>
+					<div class="nav_R"><p >ABOUT</p><img src="./img/left.jpg"></div>
 				</div>
 			</div>
 			<div class="show_main">
@@ -102,10 +102,10 @@
 						</li>
 						<li class="help">
 							<h2 class="help_title">
-								<em>5</em>INGSERVER上传的文件会丢失么？
+								<em>5</em>INGSERVER文件的批量上传？
 							</h2>
 							<p class="helpcontent">
-								百度云是百度公司推出的一款云服务产品。通过百度云，您可以将照片、文档、音乐、通讯录数据在各类设备中使用，在众多朋友圈里分享与交流。
+								由于技术原因,可以支持小文件的批量上传。
 							</p>
 						</li>
 						<li class="help">
@@ -113,7 +113,7 @@
 								<em>6</em>大文件怎么上传
 							</h2>
 							<p class="helpcontent">
-								百度云是百度公司推出的一款云服务产品。通过百度云，您可以将照片、文档、音乐、通讯录数据在各类设备中使用，在众多朋友圈里分享与交流。
+								技术实现使用XMlhttprequest实现。在不重新加载页面的情况下更新网页。在页面已加载后从服务器请求数据，在页面已加载后从服务器接收数据，在后台向服务器发送数据。
 							</p>
 						</li>
 					</ul>

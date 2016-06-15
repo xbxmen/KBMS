@@ -23,8 +23,8 @@
 				<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
 				<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
 				<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-				<div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
-				<div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
+				<div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;"/><span >UPLOAD</span><img src="./img/right.png"></div>
+				<div class="nav_R"><a href="help.html"><p >HELP</p><img src="./img/right.png"></a></div>
 				<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 			</div>
 			<div class="show_main">
@@ -32,7 +32,6 @@
 						<h3 id="photoinfo">
 							<span class="photo_name">张柏芝.jpg</span>
 						</h3>
-						
 						<div id="myphoto" >
 								<div class="photo_contanier">
 								</div>
@@ -40,10 +39,8 @@
 								<span class="pre_img"></span>
 							</div><div class="img_nav_right">
 								<span class="last_img"></span>
-
 						</div>
 						</div>
-						
 					<div id="photo_control-col">
 						<ul class="my_top_ul">
 							<li class="photo_operate left_rotate"><a href="#"><img src="./img/leftrotate.png"></a></li>

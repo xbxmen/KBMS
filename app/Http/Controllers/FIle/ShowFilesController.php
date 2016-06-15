@@ -21,11 +21,11 @@ class ShowFilesController extends Controller
             $filepreid = $request->input('filepreid')? $request->input('filepreid'): "";
             if($uid  && $filegrade && $filepreid != ""){
                 if($filepreid == -1){
-                    $sql = "SELECT * from folders WHERE grade=? and uid=?";
+                    $sql = "SELECT * from folders WHERE grade=? and type='2' and uid=?";
                     $res = DB::select($sql,[$filegrade,$uid]);
                     return json_encode($res);
                 }else{
-                    $sql = "SELECT * from folders WHERE grade=? and folpreid=? and uid=?";
+                    $sql = "SELECT * from folders WHERE grade=? and folpreid=? and type='2' and uid=?";
                     $res = DB::select($sql,[$filegrade,$filepreid,$uid]);
                     return json_encode($res);
                 }
