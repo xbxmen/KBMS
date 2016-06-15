@@ -189,6 +189,7 @@ Array.prototype.remove = function(val) {
 	this.splice(index, 1);
 	}
 };
+/*
 $.ajax({
 	url: checksession_url,
 	type: 'post',
@@ -198,4 +199,4 @@ $.ajax({
 			window.location.href = "index.html";
 		}
 	}
-});
+});*/
