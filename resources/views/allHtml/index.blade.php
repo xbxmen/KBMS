@@ -11,6 +11,7 @@
     <link href="./myfocus/mf-pattern/mF_YSlider.css" rel="stylesheet" type="text/css"/>
     <script language="JavaScript" type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
     <script src="./allJs/mutil.js" type="text/javascript"></script>
+    <script src="./allJs/jquery.js" type="text/javascript"></script>
     <!--<script src="./allJs/myPage.js" type="text/javascript"></script>-->
     <title>INGSERVE</title>
     <script type="text/javascript">
@@ -30,6 +31,7 @@
     <div id="welcome"  style="display: none">
         <div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
         <div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你,{{session('username')}}</p> </div>
+        <div class="change"><p>LOG OUT</p></div>
     </div>
 </div>
 

@@ -21,6 +21,7 @@
         <div class="top2">
             <div class="M_top2_I"><img src="./img/gl7.jpg"></div>
             <p class="M_top2_S">欢迎你,{{session('username')}}</p></div>
+            <div class="change"><p>LOG OUT</p></div>
     </div>
     <div class="nav">
         <div class="nav_L"><a href="index.html"><p>HOME</p><img src="./img/left.png"></a></div>
