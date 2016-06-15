@@ -22,14 +22,14 @@
 					<div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你,{{session('username')}}</p> </div>
 					<div class="change"><p>LOG OUT</p></div>
 			</div>
-				<div class="nav">
-					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
-					<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
-					<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-					<div class="nav_R" id="upload"><input type="file" multiple="multiple" style="display: none;"><span >UPLOAD</span><img src="./img/right.png"></div>
-					<div class="nav_R"><a href="help.html"><p >HELP</p><img src="./img/right.png"></a></div>
-					<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
-				</div>
+			<div class="nav">
+				<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
+				<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
+				<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
+				<div class="nav_R" id="upload"><input type="file" multiple="multiple" style="display: none;"><span >UPLOAD</span><img src="./img/right.png"></div>
+				<div class="nav_R"><a href="help.html"><p >HELP</p><img src="./img/right.png"></a></div>
+				<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
+			</div>
 			<div class="show_main">
 				<from class="filefrom">
 					<div class="show_content">

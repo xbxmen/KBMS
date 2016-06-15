@@ -16,7 +16,7 @@
 			<img class="img_bg" src="./img/audio_bg.png"/>
 		</div>
 		<div class="contanier"> 
-			<div class="top">
+				<div class="top">
 					<div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
 					<div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你，Dear</p> </div>
 					<div class="change"><p>LOG OUT</p></div>
@@ -29,8 +29,6 @@
 					<div class="nav_R"><a href="help.html"><p >HELP</p><img src="./img/right.png"></a></div>
 					<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 				</div>
-				
-			
 			<div class="show_main">
 				<from class="filefrom">
 					<div class="show_content">

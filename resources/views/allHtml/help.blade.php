@@ -48,19 +48,19 @@
 		<!--<div class="bg">
 			<img class="img_bg" src="./img/show.png"/>
 		</div>-->
-		<div class="contanier"> 
+		<div class="contanier">
 			<div class="top">
-					<div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
-					<div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你，Dear</p> </div>
-				</div>
-				<div class="nav">
-					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/right.jpg"></a> </div>
-					<div class="nav_L"><p >MY WORK</p><img src="./img/right.jpg"></div>
-					<div class="nav_L"><p >HOT</p><img src="./img/right.jpg"></div>
-					<div class="nav_R" id="upload"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span>UPLOAD</span><img src="./img/left.jpg"></div>
-					<div class="nav_R"><p >HELP</p><img src="./img/left.jpg"></div>
-					<div class="nav_R"><p >ABOUT</p><img src="./img/left.jpg"></div>
-				</div>
+				<div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
+				<div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎您,{{session('username')}}</p> </div>
+				<div class="change"><p>LOG OUT</p></div>
+			</div>
+			<div class="nav">
+				<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
+				<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
+				<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
+				<div class="nav_R"><p>UPLOAD</p><img src="./img/right.png"></div>
+				<div class="nav_R"><a href="help.html"><p >HELP</p><img src="./img/right.png"></a></div>
+				<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 			</div>
 			<div class="show_main">
 				<div class="help_list">
