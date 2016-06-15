@@ -31,9 +31,10 @@
 	width: 100%;
 	display: block;
 	position: relative;
-	/*overflow-y: scroll;
-	overflow-x: hidden;*/
+	overflow-y: scroll;
+	/*overflow-x: hidden;*/
 }
+
 .show_photo{
 	height: 96%;
 }
