@@ -136,6 +136,7 @@
 			</div>
 		</div>
 		<script>
+			var checksession_url = "{{url('account/checkSession')}}";
 			var createfolder_url = "{{url('file/createfolder')}}";
 			var deletefolder_url = "{{url('file/deletefolder')}}";
 			var deletefile_url = "{{url('file/deletefile')}}";

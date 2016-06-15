@@ -118,6 +118,7 @@
 			
 		</div>
         <script>
+			var checksession_url = "{{url('account/checkSession')}}";
             var createfolder_url = "{{url('upload/createfolder')}}";
             var foldertype =  2;
 			var page = 1;

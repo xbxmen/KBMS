@@ -74,7 +74,7 @@
 										下载
 										<img src="./img/download.png">
 									</button>
-									<button class="delete"  onclick="deleteF()">
+									<button class="delete" onclick="deleteF()">
 										删除
 										<img src="./img/delete.png">
 									</button>
@@ -100,6 +100,7 @@
 		
 		</div>
 		<script>
+			var checksession_url = "{{url('account/checkSession')}}";
 			var photoShow_url = "{{url('show/PhotoArr')}}";
 			var deletefolder_url = "{{url('file/deletefolder')}}";
 			var deletefile_url = "{{url('file/deletefile')}}";

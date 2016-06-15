@@ -123,8 +123,8 @@
                     $sql01 = "SELECT * FROM files WHERE fid ".$arr." and uid=$uid";
                     $res01 =  DB::select($sql01);
                     if($res01){
-                        for( $k=0;$k<count($res01);$k++){
-                            $result  = @unlink($res01[$k]->filepath);
+                        for($k = 0;$k<count($res01);$k++){
+                            $result = @unlink($res01[$k]->filepath);
                         }
                         if(!$result){
                             $sql02 = "DELETE FROM files WHERE fid ".$arr." and uid=".$uid;

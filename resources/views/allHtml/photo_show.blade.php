@@ -55,6 +55,7 @@
 				</div>
 			</div>
 		</div>
+		<script>var checksession_url = "{{url('account/checkSession')}}";</script>
 		<script type="text/javascript" src="./allJs/base.js" ></script>
 		<script type="text/javascript" src="./allJs/myPage.js"></script>
 	</body>

@@ -8,6 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="./allCss/show.css" />
 		<link href="./allCss/common.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
+		<script>var checksession_url = "{{url('account/checkSession')}}";</script>
+		<script src="./allJs/base.js"></script>
 	</head>
 	<body>
 		<div class="bg">
@@ -22,7 +24,7 @@
 				<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
 				<div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
 				<div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-				<div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
+				<div class="nav_R"><input id="file" type="file" multiple="multiple" style="display: none;" /><span >UPLOAD</span><img src="./img/right.png"></div>
 				<div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
 				<div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 			</div>

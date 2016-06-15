@@ -30,7 +30,7 @@
 			<div class="show_main">
 				<from class="filefrom">
 					<div class="show_content">
-						<input name="filegroup" class="allcheckbox" type="checkbox"/>
+						<input name="filegroup" class="allcheckbox" type="checkbox" onclick="boxSelect(this);"/>
 						<div class="list_cols">
 							<ul class="list_head">
 								<li class="col first-col">
@@ -81,7 +81,7 @@
 								</ul>
 								<div id="new_dir_item">
 									<li class="fileshow_li">
-										<input name="file" class="checkbox"  type="checkbox"/>
+										<input  class="checkbox"  type="checkbox"/>
 										<div class="samll_folder dir_small  inline_block">	
 										</div>
 										<div class="filename inline_block">
@@ -97,7 +97,8 @@
 					</div>
 				</from>
 			</div>
-		</div>	
+		</div>
+		<script>var checksession_url = "{{url('account/checkSession')}}";</script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>
 		<script type="text/javascript" src="./allJs/mutil.js"></script>

@@ -83,7 +83,7 @@
                 <div>
                     <ul class="list">
                         <li class="fileshow_li">
-                            <input name="file" class="checkbox" type="checkbox"/>
+                            <input class="checkbox" type="checkbox"/>
                             <div class="resource dir_small inline_block">
                             </div>
                             <div class="filename inline_block">
@@ -106,6 +106,7 @@
     </div>
 
 </div>
+<script>var checksession_url = "{{url('account/checkSession')}}";</script>
 <script src="./allJs/base.js"></script>
 <script src="./allJs/main.js"></script>
 <script type="text/javascript" src="./allJs/mutil.js"></script>

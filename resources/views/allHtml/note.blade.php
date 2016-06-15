@@ -8,6 +8,8 @@
     <script language="JavaScript" type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
     <script language="JavaScript" src="js/angular.min.js"></script>
     <script language="JavaScript" src="allJs/note.js"></script>
+    <script>var checksession_url = "{{url('account/checkSession')}}";</script>
+    <script src="./allJs/base.js" language="JavaScript" type="text/javascript"></script>
     <title>my_note</title>
 </head>
 <body>

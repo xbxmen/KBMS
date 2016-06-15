@@ -8,9 +8,9 @@
     <link href="./allCss/MyNote_css.css"  rel="stylesheet" type="text/css">
     <script language="JavaScript" type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
     <script src="./allJs/mutil.js" language="JavaScript" type="text/javascript"></script>
+ {{--  <script src="./allJs/myPage.js" language="JavaScript" type="text/javascript"></script>--}}
+    <script>var checksession_url = "{{url('account/checkSession')}}";</script>
     <script src="./allJs/base.js" language="JavaScript" type="text/javascript"></script>
-    <script src="./allJs/myPage.js" language="JavaScript" type="text/javascript"></script>
-
     <title>MyNote</title>
 </head>
 <body>
@@ -153,8 +153,6 @@
         <!--<div class="gon_middle7" ></div>-->
         <!--<div class="gon_bottom7"></div>-->
     <!--</div>-->
-
-
 </div>
 <div id="uploadmain">
     <div id="body" class="light">

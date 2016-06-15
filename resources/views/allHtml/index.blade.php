@@ -11,10 +11,8 @@
     <link href="./myfocus/mf-pattern/mF_YSlider.css" rel="stylesheet" type="text/css"/>
     <script language="JavaScript" type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
     <script src="./allJs/mutil.js" type="text/javascript"></script>
-    <script src="./allJs/base.js" type="text/javascript"></script>
     <!--<script src="./allJs/myPage.js" type="text/javascript"></script>-->
     <title>INGSERVE</title>
-
     <script type="text/javascript">
         var myFocus;
         myFocus.set({
@@ -25,14 +23,22 @@
 </head>
 <body>
 <div class="top">
-    <div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
-    <div class="top2"><a href="login.html"> <p class="top2_I">LOG IN</p><p class="top2_S">REGISTER</p></a> </div>
+    <div id="lr">
+        <div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
+        <div class="top2"><a href="login.html"> <p class="top2_I">LOG IN</p><p class="top2_S">REGISTER</p></a> </div>
+    </div>
+    <div id="welcome"  style="display: none">
+        <div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
+        <div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你,{{session('username')}}</p> </div>
+    </div>
 </div>
+
+
 <div class="nav">
     <div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
     <div class="nav_L"><a href="my.html"><p >MY WORK</p><img src="./img/left.png"></a> </div>
     <div class="nav_L"><p >HOT</p><img src="./img/left.png"></div>
-    <div class="nav_R" id="upload" ><input id="file" type="file" multiple="multiple" style="display: none;"></input><span >UPLOAD</span><img src="./img/right.png"></div>
+    <div class="nav_R" id="upload" ><input id="file" type="file" multiple="multiple" style="display: none;" /><span >UPLOAD</span><img src="./img/right.png"></div>
     <div class="nav_R"><p >HELP</p><img src="./img/right.png"></div>
     <div class="nav_R"><p >ABOUT</p><img src="./img/right.png"></div>
 </div>
@@ -70,7 +76,12 @@
     </div>
     <div class="bottom_right" id="btn_se"><p >Search</p></div>
 </div>
-
-
 </body>
+<script>
+    var session = "{{session('id')}}";
+    if(session){
+        $("#welcome").show();
+        $("#lr").hide();
+    }
+</script>
 </html>
