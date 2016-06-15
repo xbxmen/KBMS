@@ -71,7 +71,7 @@ Route::get('resource.html', function () {
 */
 Route::post('account/login', 'Account\UsersController@login');
 Route::post('account/register', 'Account\UsersController@register');
-
+Route::post('account/checkSession', 'Account\UsersController@checksession');
 /*文档
  * */
 Route::post('show/files', 'File\ShowFilesController@showFiles');

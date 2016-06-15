@@ -21,6 +21,7 @@
         <div class="top2">
             <div class="M_top2_I"><img src="./img/gl7.jpg"></div>
             <p class="M_top2_S">欢迎你,{{session('username')}}</p></div>
+            <div class="change"><p>LOG OUT</p></div>
     </div>
     <div class="nav">
         <div class="nav_L"><a href="index.html"><p>HOME</p><img src="./img/left.png"></a></div>
@@ -83,7 +84,7 @@
                 <div>
                     <ul class="list">
                         <li class="fileshow_li">
-                            <input name="file" class="checkbox" type="checkbox"/>
+                            <input class="checkbox" type="checkbox"/>
                             <div class="resource dir_small inline_block">
                             </div>
                             <div class="filename inline_block">
@@ -106,6 +107,7 @@
     </div>
 
 </div>
+<script>var checksession_url = "{{url('account/checkSession')}}";</script>
 <script src="./allJs/base.js"></script>
 <script src="./allJs/main.js"></script>
 <script type="text/javascript" src="./allJs/mutil.js"></script>

@@ -7,16 +7,18 @@
     <link href="./allCss/common.css" rel="stylesheet" type="text/css">
     <link href="./allCss/MyNote_css.css"  rel="stylesheet" type="text/css">
     <script language="JavaScript" type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
+    <script src="./allJs/jquery.js" type="text/javascript"></script>
     <script src="./allJs/mutil.js" language="JavaScript" type="text/javascript"></script>
+ {{--  <script src="./allJs/myPage.js" language="JavaScript" type="text/javascript"></script>--}}
+    <script>var checksession_url = "{{url('account/checkSession')}}";</script>
     <script src="./allJs/base.js" language="JavaScript" type="text/javascript"></script>
-    <script src="./allJs/myPage.js" language="JavaScript" type="text/javascript"></script>
-
     <title>MyNote</title>
 </head>
 <body>
 <div class="top">
     <div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
     <div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你,{{session("username")}}</p> </div>
+    <div class="change"><p>LOG OUT</p></div>
 </div>
 <div class="nav">
     <div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
@@ -153,8 +155,6 @@
         <!--<div class="gon_middle7" ></div>-->
         <!--<div class="gon_bottom7"></div>-->
     <!--</div>-->
-
-
 </div>
 <div id="uploadmain">
     <div id="body" class="light">

@@ -63,7 +63,6 @@ body
     width: 25%;
     height: 100%;
     margin-left:75%;
-
 }
 .top2_I
 {
@@ -81,6 +80,25 @@ body
     border-radius: 50px;
     margin-top: 18px;
     border: 5px solid #b6b6ca;
+}
+.change
+{
+    width: 100px;
+    height: 50px;
+    border: 5px solid #b6b6ca;
+    position: absolute;
+    top: 37px;
+    left: 80%;
+    border-radius: 20px;
+    display: none;
+}
+.change p
+{
+    font-size: 20px;
+    color: #4a4a4a;
+    text-align: center;
+    line-height: 50px;
+
 }
 .M_top2_S
 {

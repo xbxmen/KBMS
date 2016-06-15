@@ -8,6 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="./allCss/show.css" />
 		<link href="./allCss/common.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="./css/font-awesome.css">
+		  <script src="./allJs/jquery.js" type="text/javascript"></script>
 		<script type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
 		
 	</head>
@@ -19,6 +20,7 @@
 			<div class="top">
 					<div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
 					<div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你,{{session('username')}}</p> </div>
+					<div class="change"><p>LOG OUT</p></div>
 			</div>
 				<div class="nav">
 					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
@@ -136,6 +138,7 @@
 			</div>
 		</div>
 		<script>
+			var checksession_url = "{{url('account/checkSession')}}";
 			var createfolder_url = "{{url('file/createfolder')}}";
 			var deletefolder_url = "{{url('file/deletefolder')}}";
 			var deletefile_url = "{{url('file/deletefile')}}";

@@ -306,3 +306,21 @@ $("#again").click(function(){
 
     });
 
+
+$ (document).ready (function ()
+{
+    $(".change").hide();
+    $(".M_top2_I img").click(function ()
+    {
+        $(".M_top2_S").css("display","none");
+  //$(".M_top2_I").removeClass();
+        $(".change").toggle();
+    });
+}).click(function(e){
+    e = e||window.event;
+    if (e.target !=$(".M_top2_I img")[0]&& e.target !=$(".change")[0]){
+        $(".change").hide();
+        $(".M_top2_S").css("display","block");
+        //$(".M_top2_I").addClass();
+    }
+});

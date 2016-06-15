@@ -59,4 +59,32 @@ class UsersController extends Controller
             }
         }
     }
+    /*
+     * 检查session
+     * */
+    public function checkSession(Request $request){
+        if(session('id')){
+            return response("1");
+        }else{
+            if(cookie('account') && cookie('password')){
+                $account = cookie('account');
+                $pass = cookie('password');
+                $sql = "SELECT * FROM users WHERE account=? and password=?";
+                $res = DB::select($sql, [$account,$pass]);
+                if($res){
+                    session(['id' => ($res[0]->uid)]);
+                    session(['username'=>$res[0]->username]);
+                    session(['icon'=>$res[0]->icon]);
+                    session(['preid'=>'-1']);
+                    session(['grade'=>'1']);
+                    return response("1")->withCookie(cookie('account',$res[0]->account,60))
+                        ->withCookie(cookie('password',$res[0]->password,60));
+                }else{
+                    return response("-1");
+                }
+            }else{
+                return response("-1");
+            }
+        }
+    }
 }

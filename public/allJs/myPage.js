@@ -344,4 +344,5 @@ $(function () {
         $(".ad").hide();
         $(".result").show();
     })
+
 })

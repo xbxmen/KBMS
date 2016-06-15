@@ -19,6 +19,7 @@
 			<div class="top">
 					<div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
 					<div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你，Dear</p> </div>
+					<div class="change"><p>LOG OUT</p></div>
 				</div>
 				<div class="nav">
 					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
@@ -33,7 +34,7 @@
 			<div class="show_main">
 				<from class="filefrom">
 					<div class="show_content">
-						<input name="filegroup" class="allcheckbox" type="checkbox"/>
+						<input name="filegroup" class="allcheckbox" type="checkbox" onclick="boxSelect(this);"/>
 						<div class="list_cols">
 							<ul class="list_head">
 								<li class="col first-col">
@@ -87,7 +88,7 @@
 							</ul>
 							<div id="new_dir_item">
 								<li class="fileshow_li">
-									<input name="file" class="checkbox"  type="checkbox"/>
+									<input class="checkbox"  type="checkbox"/>
 									<div class="samll_folder dir_small  inline_block">	
 									</div>
 									<div class="filename inline_block">
@@ -103,7 +104,10 @@
 					</div>
 				</from>
 			</div>
-		</div>	
+		</div>
+		<script>
+			var checksession_url = "{{url('account/checkSession')}}";
+		</script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/main.js"></script>
 		<script type="text/javascript" src="./allJs/mutil.js"></script>

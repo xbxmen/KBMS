@@ -46,6 +46,7 @@
 			<div class="top">
 					<div class="top1"><p class="top1_I">ING</p><p class="top1_S">Server</p></div>
 					<div class="top2"><div class="M_top2_I"><img src="./img/gl7.jpg"></div><p class="M_top2_S">欢迎你,{{session('username')}}</p> </div>
+					<div class="change"><p>LOG OUT</p></div>
 				</div>
 				<div class="nav">
 					<div class="nav_L"><a href="index.html"><p >HOME</p><img src="./img/left.png"></a> </div>
@@ -74,7 +75,7 @@
 										下载
 										<img src="./img/download.png">
 									</button>
-									<button class="delete"  onclick="deleteF()">
+									<button class="delete" onclick="deleteF()">
 										删除
 										<img src="./img/delete.png">
 									</button>
@@ -100,6 +101,7 @@
 		
 		</div>
 		<script>
+			var checksession_url = "{{url('account/checkSession')}}";
 			var photoShow_url = "{{url('show/PhotoArr')}}";
 			var deletefolder_url = "{{url('file/deletefolder')}}";
 			var deletefile_url = "{{url('file/deletefile')}}";
