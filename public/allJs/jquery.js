@@ -297,7 +297,6 @@ function openNewG(){
 $("#again").click(function(){
     openNewG();
 })
-
 //打开pdf
     $(function() {
         $(".media").click(function(){

@@ -85,5 +85,7 @@
         $("#welcome").show();
         $("#lr").hide();
     }
+
+
 </script>
 </html>
