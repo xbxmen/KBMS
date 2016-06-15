@@ -125,7 +125,8 @@
 					}else{
 						console.log(data);
 						$(".list").empty();
-							var fileli = $(updateFile(data[i]['filehead'],data[i]['filesize'] ,data[i]['updatetime'],mytype(data[i]['filetype']),data[i]['filepath'],data[i]['fid'],data[i]['filegrade']));
+						for(var i = 0; i<data.length;i++){
+							var fileli = $(updateAV(data[i]['filehead'],data[i]['filesize'] ,data[i]['updatetime'],mytype(data[i]['filetype']),data[i]['filepath'],data[i]['fid'],data[i]['filegrade']));
 							if($(".list li").first().length!=0){
 								fileli.insertBefore($(".list li").first());
 							}else{

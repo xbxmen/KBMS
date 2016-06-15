@@ -109,6 +109,7 @@
 				type: 'post',
 				dataType: 'json',
 				data:{
+					"filetype" : 5,
 					"page" : page
 				},
 				success: function(data) {//注册用户的信息返回到这里，data参数里
@@ -118,7 +119,7 @@
 						console.log(data);
 						$(".list").empty();
 						for(var i = 0;i<data.length;i++){
-							var fileli = $(updateFile(data[i]['filehead'],data[i]['filesize'] ,data[i]['updatetime'],mytype(data[i]['filetype']),data[i]['filepath'],data[i]['fid'],data[i]['filegrade']));
+							var fileli = $(updateAV(data[i]['filehead'],data[i]['filesize'] ,data[i]['updatetime'],mytype(data[i]['filetype']),data[i]['filepath'],data[i]['fid'],data[i]['filegrade']));
 							if($(".list li").first().length!=0){
 								fileli.insertBefore($(".list li").first());
 							}else{

@@ -55,6 +55,9 @@ Route::get('note.html', function () {
 Route::get('allfile.html', function () {
     return view('allHtml/allfile');
 });
+Route::get('resource.html', function () {
+    return view('allHtml/resource');
+});
 
 /*
 |--------------------------------------------------------------------------

@@ -30,8 +30,8 @@
 				<div class="media_content">
 					<h3 id="video_name">哈利波特.mp4</h3>
 					<div id="myvideo">
-						<video id="video_control" controls="controls" src="./myvideo/张杰-一念之间.mp4" width="600px" height="345px">
-						  	<source src="./myvideo/张杰-一念之间.mp4" type="video/mp4" />
+						<video id="video_control" controls="controls" src="./myvideo/张杰-一念之间.mp4" poster="./img/logo.PNG" width="600px" height="345px">
+						  	<source src="./myvideo/张杰-一念之间.mp4" id="source" type="video/mp4" />
 							Your browser does not support the audio element.
 						</video>
 					</div>
@@ -50,4 +50,17 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		var AVsrc = GetQueryString('avsrc');
+		var AVname = GetQueryString('avname');
+		$("#video_name").html(AVname);
+		$("#video_control").attr("src",AVsrc);
+		$("#source").attr("src",AVsrc);
+		function GetQueryString(name)
+		{
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r!=null)return  unescape(r[2]); return null;
+		}
+	</script>
 </html>
