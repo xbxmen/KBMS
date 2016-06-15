@@ -316,6 +316,10 @@ $ (document).ready (function ()
   //$(".M_top2_I").removeClass();
         $(".change").toggle();
     });
+
+    $(".change").click(function(){
+        alert("退出成功");
+    })
 }).click(function(e){
     e = e||window.event;
     if (e.target !=$(".M_top2_I img")[0]&& e.target !=$(".change")[0]){

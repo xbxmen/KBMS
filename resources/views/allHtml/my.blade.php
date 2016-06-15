@@ -32,7 +32,7 @@
     <div class="one">
         <a href="resource.html">
         <div class="hax_top"></div>
-        <div class="hax_middle"><i class="middle_icon icon-lightbulb"></i><p>resource</p></div>
+        <div class="hax_middle"><i class="middle_icon2 icon-lightbulb"></i><p>resource</p></div>
         <div class="hax_bottom"></div>
         </a>
     </div>
