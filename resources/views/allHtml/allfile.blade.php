@@ -9,7 +9,7 @@
 		<link href="./allCss/common.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="./css/font-awesome.css">
 		<script type="text/javascript" src="./allJs/jquery-2.1.4.js"></script>
-		<script type="text/javascript" src="./allJs/moxie.js"></script>
+		
 	</head>
 	<body>
 		<div class="bg">

@@ -74,18 +74,13 @@ function checkboxClick(obj){
 		fail_select(obj);
 	}else {
 		bselect(obj);
+		
 		if(isAllcheck(temp.getElementsByClassName("checkbox"))){//每一组是否全选情况
 			all.checked = true;
 		}
 	}
 	var isallcheck = isAllcheck($(".checkbox"));
 	var all =document.getElementById("check-all");
-	
-	if(isallcheck){
-		all.checked = true;
-	}else{
-		all.checked = false;
-	}
 }
 //是否有选中的
 function hasCheck(checkbox){

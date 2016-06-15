@@ -77,23 +77,23 @@
 						</div>
 						
 						<div>
-								<ul class="list">
-								</ul>
-								<div id="new_dir_item">
-									<li class="fileshow_li">
-										<input name="file" class="checkbox"  type="checkbox"/>
-										<div class="samll_folder dir_small  inline_block">	
-										</div>
-										<div class="filename inline_block">
-											<input type="text" id="new_dir_fname" value="新建文件夹"/>
-											
-										</div>
+							<ul class="list">
+							</ul>
+							<div id="new_dir_item">
+								<li class="fileshow_li">
+									<input name="file" class="checkbox"  type="checkbox"/>
+									<div class="samll_folder dir_small  inline_block">	
+									</div>
+									<div class="filename inline_block">
+										<input type="text" id="new_dir_fname" value="新建文件夹"/>
 										
-										<div class="filesize inline_block">-</div>
-										<div class="filedate inline_block">-</div>
-									</li>
-								</div>
+									</div>
+									
+									<div class="filesize inline_block">-</div>
+									<div class="filedate inline_block">-</div>
+								</li>
 							</div>
+						</div>
 					</div>
 				</from>
 			</div>
