@@ -149,6 +149,18 @@
     margin-left: 32px;
     margin-top: -15px;
 }
+.middle_icon2
+{
+    display: inline-block;
+    width: 40px;
+    height: 56px;
+    color: #484848;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    margin-left: 40px;
+    margin-top: -15px;
+}
 .M_icon_I
 {
     display: inline-block;

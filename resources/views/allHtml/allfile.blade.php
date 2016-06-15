@@ -109,19 +109,19 @@
 		    <div id="uploadmain">
 			    <div id="body" class="light">
 			        <div id="content" class="show">
-			            <div class="return_pre"><a href="#show_main"><i class="w_icon icon-double-angle-left"></i></a></div>
+			            <div class="return_pre"><a href="#show_main"><input type="button" class="w_icon" value="RETURN"></input></a></div>
 			            <div class="demo">
 			                <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
 			                    <div class="upload_box">
 			                        <div class="upload_main">
 			                            <div class="upload_choose">
-			                                <a href="#" class="file">选择文件<input  class="up_input" id="fileImage" type="file" size="30" name="fileselect[]" multiple /></a>
+			                                <a href="#" class="file">Select File<input  class="up_input" id="fileImage" type="file" size="30" name="fileselect[]" multiple /></a>
 
 			                            </div>
 			                            <div id="preview" class="upload_preview"></div>
 			                        </div>
 			                        <div class="upload_submit">
-			                            <input type="button" id="fileSubmit" class="upload_submit_btn" value="确认上传"></input>
+			                            <input type="button" id="fileSubmit" class="upload_submit_btn" value="UPLOAD"></input>
 			                        </div>
 			                       <!--<p id="load0">NAN%</p>-->
 			                       <div id="load0"> 
