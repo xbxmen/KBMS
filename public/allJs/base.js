@@ -144,6 +144,39 @@ function remove_current_file(current_type,currentfid){
 			filearr.remove(currentfid);
 	}
 }
+
+/*
+* 删除文件
+* */
+function deleteF() {
+	if(filearr.length > 0){
+		console.log(filearr);
+		$.ajax({
+			url: deletefile_url,
+			type: 'post',
+			data: {
+				"fileid": filearr,
+			},
+			success: function (data) {//注册用户的信息返回到这里，data参数里
+				if (data == -1) {
+					alert('登录超时!');
+				} else if (data == -2) {
+					alert("参数有错误！");
+				} else if(data == 1) {
+					alert("文件删除成功~~");
+					window.location.reload();
+					/*$(".allcheckbox").prop("checked",false);
+					$(".grid-cols").hide();
+					$(".list").empty();
+					showFolder();
+					showFiles();*/
+				}else{
+					console.log(data);
+				}
+			}
+		});
+	}
+}
 Array.prototype.indexOf = function(val) {
 	for (var i = 0; i < this.length; i++) {
 		if (this[i] == val) return i;

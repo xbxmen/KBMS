@@ -74,7 +74,7 @@
 										下载
 										<img src="./img/download.png">
 									</button>
-									<button class="delete">
+									<button class="delete"  onclick="deleteF()">
 										删除
 										<img src="./img/delete.png">
 									</button>
@@ -101,26 +101,31 @@
 		</div>
 		<script>
 			var photoShow_url = "{{url('show/PhotoArr')}}";
+			var deletefolder_url = "{{url('file/deletefolder')}}";
+			var deletefile_url = "{{url('file/deletefile')}}";
 		</script>
 		<script src="./allJs/base.js"></script>
 		<script src="./allJs/show_img.js"></script>
 		<script>
-			$.ajax({
-				url: '{{url('show/PhotoTimeArr')}}',
-				type: 'post',
-				dataType: 'json',
-				success: function(data) {//注册用户的信息返回到这里，data参数里
-					if(data == -1){
-						alert('登录超时!');
-					}else{
-						console.log(data);
-						$(".main_timeline").empty();
-						for(var i = 0; i < data.length;i++){
-							updatebyData(data[i]['ptime']);
+			function ShowPhotoTimeArr() {
+				$.ajax({
+					url: '{{url('show/PhotoTimeArr')}}',
+					type: 'post',
+					dataType: 'json',
+					success: function(data) {//注册用户的信息返回到这里，data参数里
+						if(data == -1){
+							alert('登录超时!');
+						}else{
+							console.log(data);
+							$(".main_timeline").empty();
+							for(var i = 0; i < data.length;i++){
+								updatebyData(data[i]['ptime']);
+							}
 						}
 					}
-				}
-			});
+				});
+			}
+			ShowPhotoTimeArr();
 		</script>
 	</body>
 </html>

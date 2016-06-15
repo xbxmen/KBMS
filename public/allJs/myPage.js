@@ -93,7 +93,7 @@ $(function () {
             $("#uploadmain").css("display", "none");
             $(".show_main").css("display", "block");
             $(".nav").css("display", "block");
-
+            window.location.reload();
         }
 
     });
@@ -186,6 +186,14 @@ function updateFile(fname,fsize,fdate,filetype,filesrc,fid,fgrade){//ftype是指
 	+fsize+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";
     return flist;
 }
+ function updateAV(fname,fsize,fdate,filetype,filesrc,fid,fgrade){//ftype是指是文件还是文件夹
+     var flist ="<li class='fileshow_li' onmouseover='visible(this)' onmouseout='myhidden(this)'><input name='file' class='checkbox' type='checkbox' data-type='2' onclick='boxSelect(this)'/><div class='"+filetype+" dir_small inline_block'></div>"
+         +"<div class='filename inline_block'><a href='video_show.html?avsrc="+filesrc+"&avname="+fname+"' ><p id='"+fid+"' class='file_name' data-src='"+filesrc+"' data-type='"+filetype+"' data-grade='"+fgrade+"'>"+fname+"</p></a><div class='operate inline_block '>"
+         +"<a class='share' href='#'><img src='./img/share.png'></a><a class='download'  href='#'><img src='./img/download.png'></a>"
+         +"<a class='menu'  href='#'><img src='./img/menu.png'></a></div></div><div class='filesize inline_block'>"
+         +fsize+"</div><div class='filedate inline_block'><span class='text'>"+fdate+"</span></div></li>";
+     return flist;
+ }
  /*
   *判断类别的方法
   * */
@@ -199,7 +207,7 @@ function updateFile(fname,fsize,fdate,filetype,filesrc,fid,fgrade){//ftype是指
      }else if(type == 5){
          return "video";
      }else if(type == 6){
-         return "bt";
+         return "resource";
      }
  }
 
